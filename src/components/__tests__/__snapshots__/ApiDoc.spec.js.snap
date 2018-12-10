@@ -16,15 +16,21 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
         class="text-center lead-text"
       >
         
-      Entreprise.data.gouv.fr est en phase intensive de développement.
+      Entreprise.data.gouv.fr met à votre disposition des APIs open-source gratuites
         <br />
         
-      De nombreuses APIs sont en cours d’ajout !
+      pour faciliter l'utilisation des données par les professionnels et les particuliers.
         <br />
+      </p>
+       
+      <p
+        class="text-center lead-text"
+      >
         
+      De nombreuses APIs sont en cours d’ajout.
       Vous pouvez vous inscrire à notre mailing-list pour vous tenir au courant
       des nouveautés et changements à venir.
-    
+        <br />
       </p>
        
       <form>
@@ -298,7 +304,7 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
       class="container text-center"
     >
       <h2>
-        Découvrez l’API Entreprise, toutes les informations sur les sociétés.
+        Notre autre produit : l'API Entreprise.
       </h2>
        
       <div
@@ -321,7 +327,23 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
         <br />
         
       Obtenez les Greffes, Certificats, Liasses fiscales, Attestations sociales, et bien plus encore...
-    
+        <br />
+      </p>
+       
+      <p>
+        <strong>
+          Attention :
+        </strong>
+         Ces données ne sont pas publiques et sont donc reservées
+      aux administrations ou entreprises justifiant d'une mission de service public.
+        <br />
+        
+      Pour toutes questions : 
+        <a
+          href="maito:tech@entreprise.api.gouv.fr"
+        >
+          tech@entreprise.api.gouv.fr
+        </a>
       </p>
        
       <a

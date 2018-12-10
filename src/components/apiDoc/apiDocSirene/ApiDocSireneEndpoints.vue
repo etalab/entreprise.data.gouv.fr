@@ -41,9 +41,6 @@
             Exemple, encore une fois pour Toulouse :
           </p>
           <api-doc-input :request=exempleSiren></api-doc-input>
-          <p><strong>02/06/2018 - Attention : </strong> les informations sur le siège social sont maintenant renvoyées dans un hash,
-          contre un tableau de hashes précédemment.
-          </p>
           <h3>Recherche par Numero RNA :</h3>
           <p>
             La recherche par N° RNA permet de trouver un établissement depuis son numéro RNA (si présent). L’association ne sera trouvée
@@ -110,7 +107,7 @@ h3 {
 .column__full {
   display: flex;
   flex-direction: column;
-  min-width: 100%;
+  // min-width: 95%;
   p {
     max-width: 100%;
   }

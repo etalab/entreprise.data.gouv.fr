@@ -89,12 +89,12 @@
         </thead>
         <tbody>
           <tr>
-            <td>Seulement les établissements avec la même activité principale (code NAF)</td>
+            <td>Seulement des résultats avec la même activité principale (code NAF)</td>
             <td><code>only_same_activity</code></td>
             <td>true / false (défaut: false)</td>
           </tr>
           <tr>
-            <td>Seulement les établissements avec une activité principale proche</td>
+            <td>Seulement des résultats avec une activité principale proche</td>
             <td><code>approximate_activity</code></td>
             <td>true / false (défaut: false)</td>
           </tr>
@@ -210,6 +210,9 @@ table {
     padding: none;
     @media screen and (min-width: $tablet) {
       padding: 12px 35px;
+    }
+    @media screen and (max-width: $tablet) {
+      max-width: 100px;
     }
   }
   th {

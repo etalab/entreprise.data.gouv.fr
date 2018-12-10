@@ -41,6 +41,12 @@ export default {
   }
 }
 
+h2 {
+  @media screen and (max-width: $tablet) {
+    font-size: 1.60em;
+  }
+}
+
 .column {
   display: flex;
   flex-direction: column;
@@ -50,7 +56,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   @media screen and (min-width: $tablet) {
     flex-direction: column;
     width: 20%;

@@ -48,6 +48,9 @@ const actions = {
     if (store.getters.storedSirenSiege) {
       await store.dispatch('executeSearchBySiret', { siret: store.getters.storedSirenSiege.siret, api: 'SIRENE' })
       store.dispatch('fromSireneRequestOtherAPIs', store.getters.storedSirenSiege.siret)
+    } else {
+      // Need to fill RNA error status value to respect error manaement
+      store.commit('setStatusMainAPI', { value: 404, endpoint: 'RNA' })
     }
   },
 

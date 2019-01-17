@@ -9,6 +9,7 @@ import ApiDocSirene from '@/components/apiDoc/ApiDocSirene'
 import ApiDocRNA from '@/components/apiDoc/ApiDocRNA'
 import ApiDocRNCS from '@/components/apiDoc/ApiDocRNCS'
 import CodesNAF from '@/components/apiDoc/apiDocSirene/CodesNAF'
+import EntrepriseIdentityRNCS from '@/components/etablissement/EntrepriseIdentityRNCS.vue'
 
 Vue.use(Router)
 Vue.use(Meta)
@@ -24,6 +25,11 @@ export default new Router({
       path: '/search?*',
       name: 'Search',
       component: Results
+    },
+    {
+      path: '/rncs/:searchId',
+      name: 'RNCS',
+      component: EntrepriseIdentityRNCS
     },
     {
       path: '/search',

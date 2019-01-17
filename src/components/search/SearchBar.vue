@@ -65,7 +65,8 @@ export default {
 
       // Start search except if input is empty
       if (this.isSearchNotEmpty) {
-        this.requestSearch()
+        if (this.currentPageIsRNCS) this.requestSearchRNCS()
+        else this.requestSearch()
       }
     },
     requestSearch: function () {
@@ -74,6 +75,17 @@ export default {
       if (natureSearchId) {
         this.fullText = this.removeSeparators(this.fullText)
         this.$router.push({ path: `/etablissement/${this.fullText}` })
+      } else {
+        this.requestFullTextSearch()
+      }
+      this.$store.commit('clearFullTextResults')
+    },
+    requestSearchRNCS: function () {
+      const natureSearchId = this.analyzeSearchId(this.fullText)
+
+      if (natureSearchId) {
+        this.fullText = this.removeSeparators(this.fullText)
+        this.$router.push({ path: `/rncs/${this.fullText}` })
       } else {
         this.requestFullTextSearch()
       }
@@ -89,6 +101,9 @@ export default {
       }
       this.$store.dispatch('requestSearchFullText')
       this.suggestCount = -1
+    },
+    currentPageIsRNCS: function () {
+      return this.$route.name == 'RNCS'
     }
   },
   beforeDestroy() {

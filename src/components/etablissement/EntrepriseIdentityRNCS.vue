@@ -4,7 +4,7 @@
       <not-found v-if="isNotFound" />
       <server-error v-else-if="isError" />
 
-      <etablissement-header :searchId=searchId />
+      <entreprise-identity-header :searchId=searchId />
       <blocks-skeleton v-if="RNCSLoading"/>
       <etablissement-rncs v-else-if="haveRNCSInfo"/>
       <div v-if=haveRNCSInfo class="company__extra">
@@ -25,7 +25,7 @@ import Filters from '@/components/mixins/filters'
 import Loader from '@/components/modules/Loader'
 import ServerError from '@/components/modules/ServerError'
 import NotFound from '@/components/etablissement/EtablissementNotFound'
-import EtablissementHeader from '@/components/etablissement/EtablissementHeader'
+import EntrepriseIdentityHeader from '@/components/etablissement/EntrepriseIdentityHeader'
 import EtablissementRNCS from '@/components/etablissement/EtablissementRNCS'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
@@ -40,7 +40,7 @@ export default {
     'Loader': Loader,
     'ServerError': ServerError,
     'NotFound': NotFound,
-    'EtablissementHeader': EtablissementHeader,
+    'EntrepriseIdentityHeader': EntrepriseIdentityHeader,
     'EtablissementRncs': EtablissementRNCS,
     'BlocksSkeleton': BlocksSkeleton
   },

@@ -4,7 +4,6 @@
       <header-skeleton v-if="isEtablissementLoading"></header-skeleton>
       <div class="title__block" v-else>
         <h2 v-if="haveSireneInfo">{{resultSirene.nom_raison_sociale | removeExtraChars}} <span class="company__siren">({{ resultSirene.siren }})</span></h2>
-        <h2 v-if="haveOnlyRNAInfo">{{resultRNA.titre}} <span class="association__id">({{ resultRNA.id_association }})</span></h2>
 
         <template v-if="haveSireneInfo">
           <div class="subtitle">
@@ -13,16 +12,13 @@
           </div>
           <div class="second__subtitle"> {{ resultSirene.libelle_activite_principale_entreprise }}</div>
         </template>
-        <div v-if="haveOnlyRNAInfo" class="second__subtitle"> {{ resultRNA.titre_court}}</div>
-        <div v-if=displayingOnlyRNCS class="company__buttons">
+        <div class="company__buttons">
           <a class="button" v-bind:href="dataRequestPDF" title="Télécharger les données de cette entreprise au format PDF">
             <img class="icon" src="@/assets/img/download.svg" alt="" />
             Version imprimable
           </a>
         </div>
         <etablissement-sirene-children v-if=haveSireneInfo />
-
-        <router-link :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>
       </div>
       <div v-if=isEtablissementLoading class="map__dummy panel"></div>
       <template v-else>
@@ -53,19 +49,8 @@ export default {
     resultSirene () {
       return this.$store.getters.singlePageEtablissementSirene
     },
-    resultRNA () {
-      return this.$store.getters.singlePageEtablissementRNA
-    },
-    haveOnlyRNAInfo () {
-      return (!this.haveSireneInfo && this.haveRNAInfo)
-    },
     haveSireneInfo () {
       if (this.$store.getters.sireneAvailable) {
-        return true
-      }
-    },
-    haveRNAInfo () {
-      if (this.$store.getters.RNAAvailable) {
         return true
       }
     },
@@ -76,16 +61,8 @@ export default {
       return null
     },
     dataRequestPDF () {
-      if (this.resultSirene) {
-        return `${process.env.BASE_ADDRESS_RNCS}${this.resultSirene.siren}/pdf`
-      }
-      return null
+      return `${process.env.BASE_ADDRESS_RNCS}${this.searchId}/pdf`
     },
-    // Temporary methods for displaying RNCS-only
-    displayingOnlyRNCS () {
-      if (process.env.DISPLAY_RNCS)
-        return true
-    }
   },
   mixins: [Filters]
 }

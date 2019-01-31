@@ -43,7 +43,7 @@
         </div>
       </div>
     </section>
-    <section class="section section-white">
+    <section class="section section-white" v-if=displayRNCS>
       <div class="container apis">
         <h2>L’API Registre National du Commerce et des Sociétés (RNCS)</h2>
         <div class="row">
@@ -62,7 +62,13 @@
 
 <script>
 export default {
-  name: 'ApiDocList'
+  name: 'ApiDocList',
+  computed: {
+    displayRNCS () {
+      if (process.env.DISPLAY_RNCS)
+        return true
+    }
+  }
 }
 </script>
 

@@ -119,11 +119,9 @@ export default {
   methods: {
     titleEtablissement () {
       if (this.haveSireneInfo) {
-        return `Etablissement ${
-          Filters.filters.removeExtraChars(this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale
-        )}`
+        return Filters.filters.removeExtraChars(this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale)
       } else if (this.haveRNAInfo) {
-        return `Association ${this.$store.getters.singlePageEtablissementRNA.titre}`
+        return this.$store.getters.singlePageEtablissementRNA.titre
       } else {
         return 'Etablissement'
       }

@@ -45,11 +45,7 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
        
       <etablissementsirenechildren-stub />
        
-      <router-link
-        to="[object Object]"
-      >
-         Fiche d'immatriculation au RNCS 
-      </router-link>
+      <!---->
     </div>
      
     <etablissementmap-stub

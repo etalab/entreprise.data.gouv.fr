@@ -46,7 +46,7 @@ export default {
       {
         "Numero Gestion Greffe": "numero_gestion",
         "Date de clotûre": "date_cloture",
-        "Date de clotûre exceptionnelle": "date_cloture_exeptionnelle",
+        "Date de clotûre exceptionnelle": "date_cloture_exceptionnelle",
         "Durée personne morale": "duree_pm",
         "Economie Sociale Solidaire": "economie_sociale_solidaire",
         "Activité foraine": "activite_forain",

@@ -4,29 +4,18 @@
       <not-found v-if="isNotFound" />
       <server-error v-else-if="isError" />
 
-      <!-- Temporary section here to display RNCS Only -->
-      <template v-else-if=displayingOnlyRNCS>
-        <etablissement-header :searchId=searchId />
-        <blocks-skeleton v-if="RNCSLoading"/>
-        <etablissement-rncs v-else-if="haveRNCSInfo"/>
-        <div v-if=haveRNCSInfo class="company__extra">
-          <div class="notification">
-            <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
-            <a class="button-outline secondary" target="_blank" v-bind:href="dataRequestURL" title="Accéder aux données brutes de cette entreprise">
-              <img class="icon" src="@/assets/img/json.svg" alt="" />
-              Accéder aux données JSON
-            </a>
-          </div>
+      <entreprise-identity-header :searchId=searchId />
+      <blocks-skeleton v-if="RNCSLoading"/>
+      <etablissement-rncs v-else-if="haveRNCSInfo"/>
+      <div v-if=haveRNCSInfo class="company__extra">
+        <div class="notification">
+          <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
+          <a class="button-outline secondary" target="_blank" v-bind:href="dataRequestURL" title="Accéder aux données brutes de cette entreprise">
+            <img class="icon" src="@/assets/img/json.svg" alt="" />
+            Accéder aux données JSON
+          </a>
         </div>
-      </template>
-
-      <template v-else>
-        <etablissement-header :searchId=searchId />
-        <blocks-skeleton v-if="mainAPISLoading"/>
-        <etablissement-sirene v-if=haveSireneInfo />
-        <etablissement-rna v-if=haveRNAInfo :haveComponentTop=haveSireneInfo />
-        <etablissement-rnm v-if=haveRNMInfo />
-      </template>
+      </div>
     </div>
   </section>
 </template>
@@ -36,15 +25,12 @@ import Filters from '@/components/mixins/filters'
 import Loader from '@/components/modules/Loader'
 import ServerError from '@/components/modules/ServerError'
 import NotFound from '@/components/etablissement/EtablissementNotFound'
-import EtablissementHeader from '@/components/etablissement/EtablissementHeader'
-import EtablissementSirene from '@/components/etablissement/EtablissementSirene'
-import EtablissementRNA from '@/components/etablissement/EtablissementRNA'
-import EtablissementRNM from '@/components/etablissement/EtablissementRNM'
+import EntrepriseIdentityHeader from '@/components/etablissement/EntrepriseIdentityHeader'
 import EtablissementRNCS from '@/components/etablissement/EtablissementRNCS'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
 export default {
-  name: 'Etablissement',
+  name: 'EntrepriseIdentityRNCS',
   metaInfo () {
     return {
       title: this.titleEtablissement()
@@ -54,19 +40,13 @@ export default {
     'Loader': Loader,
     'ServerError': ServerError,
     'NotFound': NotFound,
-    'EtablissementHeader': EtablissementHeader,
-    'EtablissementSirene': EtablissementSirene,
-    'EtablissementRna': EtablissementRNA,
-    'EtablissementRnm': EtablissementRNM,
+    'EntrepriseIdentityHeader': EntrepriseIdentityHeader,
     'EtablissementRncs': EtablissementRNCS,
     'BlocksSkeleton': BlocksSkeleton
   },
   computed: {
     searchId () {
       return this.$route.params.searchId
-    },
-    isEtablissementLoading () {
-      return this.$store.getters.mainAPISLoading
     },
     isNotFound () {
       return this.$store.getters.mainAPISNotFound
@@ -76,12 +56,6 @@ export default {
     },
     haveSireneInfo () {
       return this.$store.getters.sireneAvailable
-    },
-    haveRNAInfo () {
-      return this.$store.getters.RNAAvailable
-    },
-    haveRNMInfo () {
-      return this.$store.getters.RNMAvailable
     },
     haveRNCSInfo () {
       return this.$store.getters.RNCSAvailable
@@ -107,21 +81,15 @@ export default {
     RNCSLoading () {
       return this.$store.getters.additionalAPILoading('RNCS')
     },
-    mainAPISLoading () {
-      return this.$store.getters.mainAPISLoading
-    },
-    // Temporary methods for displaying RNCS-only
-    displayingOnlyRNCS () {
-      if (process.env.DISPLAY_RNCS)
-        return true
-    }
   },
   methods: {
     titleEtablissement () {
       if (this.haveSireneInfo) {
-        return Filters.filters.removeExtraChars(this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale)
+        return `Etablissement ${
+          Filters.filters.removeExtraChars(this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale
+        )}`
       } else if (this.haveRNAInfo) {
-        return this.$store.getters.singlePageEtablissementRNA.titre
+        return `Association ${this.$store.getters.singlePageEtablissementRNA.titre}`
       } else {
         return 'Etablissement'
       }
@@ -131,12 +99,12 @@ export default {
     this.$store.commit('setStoredSuggestions', '')
   },
   created () {
-    this.$store.dispatch('executeSearchEtablissement', this.$route.params.searchId)
+    this.$store.dispatch('executeSearchRNCS', this.$route.params.searchId)
   },
   mixins: [Filters],
   watch: {
     '$route' (to, from) {
-      this.$store.dispatch('executeSearchEtablissement', this.$route.params.searchId)
+      this.$store.dispatch('executeSearchRNCS', this.$route.params.searchId)
     }
   }
 }

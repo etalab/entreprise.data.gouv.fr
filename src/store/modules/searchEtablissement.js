@@ -16,6 +16,30 @@ const state = {
 }
 
 const actions = {
+  async executeSearchRNCS(dispatch, searchId) {
+    await store.dispatch('resetApplicationState')
+    const natureSearchId = regExps.methods.analyzeSearchId(searchId)
+    const api = 'RNCS'
+
+    switch (natureSearchId) {
+      case 'SIRET':
+        break
+      case 'SIREN':
+        await store.dispatch('sendAPIRequest', process.env.BASE_ADDRESS_RNCS + searchId)
+        .then(response => {
+          store.dispatch('setResponseAdditionalInfo', {response: response, api: api})
+        })
+        .catch(notFound => {
+          store.dispatch('setResponseAdditionalInfo', {response: notFound, api: api})
+        })
+        .finally(() => store.commit('setLoadingAdditionalAPI', { value: false, endpoint: api }))
+        break
+      default:
+        store.commit('setStatusMainAPI', { value: 404, endpoint: 'ALL' })
+    }
+    store.commit('setLoadingMainAPI', { value: false, endpoint: 'ALL' })
+  },
+
   async executeSearchEtablissement(dispatch, searchId) {
     await store.dispatch('resetApplicationState')
     const natureSearchId = regExps.methods.analyzeSearchId(searchId)
@@ -48,6 +72,9 @@ const actions = {
     if (store.getters.storedSirenSiege) {
       await store.dispatch('executeSearchBySiret', { siret: store.getters.storedSirenSiege.siret, api: 'SIRENE' })
       store.dispatch('fromSireneRequestOtherAPIs', store.getters.storedSirenSiege.siret)
+    } else {
+      // Need to fill RNA error status value to respect error manaement
+      store.commit('setStatusMainAPI', { value: 404, endpoint: 'RNA' })
     }
   },
 

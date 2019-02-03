@@ -22,7 +22,7 @@
         </div>
         <etablissement-sirene-children v-if=haveSireneInfo />
 
-        <router-link :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>
+        <router-link v-if=displayRNCS :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>
       </div>
       <div v-if=isEtablissementLoading class="map__dummy panel"></div>
       <template v-else>
@@ -47,6 +47,10 @@ export default {
     'HeaderSkeleton': HeaderSkeleton
   },
   computed: {
+    displayRNCS () {
+      if (process.env.DISPLAY_RNCS)
+        return true
+    },
     isEtablissementLoading () {
       return this.$store.getters.mainAPISLoading
     },

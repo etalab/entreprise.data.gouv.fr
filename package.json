@@ -11,8 +11,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build:production": "node build/build.js production",
-    "build:sandbox": "node build/build.js sandbox",
-    "build:rncs": "node build/build.js rncs"
+    "build:sandbox": "node build/build.js sandbox"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",

@@ -46,7 +46,7 @@ exports[`App.vue It match the snapshot 1`] = `
           class="search__title"
         >
           
-          Retrouvez toutes les informations concernant les entreprises et associations de France
+          Retrouvez toutes les informations publiques concernant les entreprises et associations de France
         
         </h1>
          

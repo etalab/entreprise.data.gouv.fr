@@ -65,7 +65,7 @@
             <h3>Recherche autour d’un établissement, format GeoJSON :</h3>
             <p>
               L’endpoint <code>/v1/near_etablissement_geoJSON/:SIRET</code> fonctionne exactement comme le précédent
-              mais retourne les 500 établissements les plus proches au format GeoJSON.
+              mais retourne les 100 établissements les plus proches au format GeoJSON.
               Les résultats ne sont pas paginés.
             </p>
             <api-doc-input :request=exempleGeoSpace3></api-doc-input>

@@ -41,11 +41,7 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
        
       <!---->
        
-      <!---->
-       
       <etablissementsirenechildren-stub />
-       
-      <!---->
     </div>
      
     <etablissementmap-stub

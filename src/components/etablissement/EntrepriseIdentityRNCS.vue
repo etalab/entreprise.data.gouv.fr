@@ -1,14 +1,15 @@
 <template>
   <section class="section">
     <div class="container">
-      <not-found v-if="isNotFound" />
-      <server-error v-else-if="isError" />
+      <server-error v-if="isError" />
 
+      <div class="notification error" v-if="AdditionalAPIError">Erreur du service RNCS : {{ APIError }}</div>
       <entreprise-identity-header :searchId=searchId />
+      <etablissement-header :searchId=searchId />
       <blocks-skeleton v-if="RNCSLoading"/>
       <etablissement-rncs v-else-if="haveRNCSInfo"/>
       <div v-if=haveRNCSInfo class="company__extra">
-        <div class="notification">
+        <div class="notification grey">
           <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
           <a class="button-outline secondary" target="_blank" v-bind:href="dataRequestURL" title="Accéder aux données brutes de cette entreprise">
             <img class="icon" src="@/assets/img/json.svg" alt="" />
@@ -81,15 +82,19 @@ export default {
     RNCSLoading () {
       return this.$store.getters.additionalAPILoading('RNCS')
     },
+    AdditionalAPIError () {
+      return this.$store.getters.additionalAPINotFound('RNCS')
+    },
+    APIError () {
+      return this.$store.getters.RNCSError
+    }
   },
   methods: {
     titleEtablissement () {
       if (this.haveSireneInfo) {
-        return `Etablissement ${
-          Filters.filters.removeExtraChars(this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale
-        )}`
+        return Filters.filters.removeExtraChars(this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale)
       } else if (this.haveRNAInfo) {
-        return `Association ${this.$store.getters.singlePageEtablissementRNA.titre}`
+        return this.$store.getters.singlePageEtablissementRNA.titre
       } else {
         return 'Etablissement'
       }
@@ -111,9 +116,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.grey {
+  background-color: $color-lightest-grey;
+}
 .notification {
   border-color: $color-grey;
-  background-color: $color-lightest-grey;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

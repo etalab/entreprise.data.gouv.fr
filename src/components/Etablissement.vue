@@ -9,15 +9,6 @@
         <etablissement-header :searchId=searchId />
         <blocks-skeleton v-if="RNCSLoading"/>
         <etablissement-rncs v-else-if="haveRNCSInfo"/>
-        <div v-if=haveRNCSInfo class="company__extra">
-          <div class="notification">
-            <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
-            <a class="button-outline secondary" target="_blank" v-bind:href="dataRequestURL" title="Accéder aux données brutes de cette entreprise">
-              <img class="icon" src="@/assets/img/json.svg" alt="" />
-              Accéder aux données JSON
-            </a>
-          </div>
-        </div>
       </template>
 
       <template v-else>

@@ -49,16 +49,16 @@ export default {
       return this.$route.params.searchId
     },
     isNotFound () {
-      return this.$store.getters.mainAPISNotFound
+      return this.$store.getters.mainAPISNotFound || this.$store.getters.additionalAPINotFound('RNCS')
     },
     isError () {
-      return this.$store.getters.mainAPISError
+      return this.$store.getters.mainAPISError || this.$store.getters.additionalAPIError('RNCS')
     },
     haveSireneInfo () {
       return this.$store.getters.sireneAvailable
     },
     haveRNCSInfo () {
-      return this.$store.getters.RNCSAvailable
+      return this.$store.getters.additionalAPIAvailable('RNCS')
     },
     resultSirene () {
       if (this.haveSireneInfo) {
@@ -74,7 +74,7 @@ export default {
     },
     RNCSUpdate () {
       if (this.$store.getters.RNCSData) {
-        return Filters.filters.frenchDateFormat(this.$store.getters.RNCSData.updated_at)
+        return Filters.filters.frenchDateFormat(this.$store.getters.RNCSData.db_current_date)
       }
       return null
     },

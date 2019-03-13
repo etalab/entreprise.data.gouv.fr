@@ -84,7 +84,7 @@ export default {
       return this.$store.getters.RNMAvailable
     },
     haveRNCSInfo () {
-      return this.$store.getters.RNCSAvailable
+      return this.$store.getters.additionalAPIAvailable('RNCS')
     },
     resultSirene () {
       if (this.haveSireneInfo) {
@@ -100,7 +100,7 @@ export default {
     },
     RNCSUpdate () {
       if (this.$store.getters.RNCSData) {
-        return Filters.filters.frenchDateFormat(this.$store.getters.RNCSData.updated_at)
+        return Filters.filters.frenchDateFormat(this.$store.getters.RNCSData.db_current_date)
       }
       return null
     },

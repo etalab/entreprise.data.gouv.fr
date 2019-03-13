@@ -12,7 +12,7 @@
           </div>
           <div class="second__subtitle"> {{ resultSirene.libelle_activite_principale_entreprise }}</div>
         </template>
-        <div class="company__buttons">
+        <div class="company__buttons" v-if="haveRNCSInfo">
           <a class="button" v-bind:href="dataRequestPDF" title="Télécharger les données de cette entreprise au format PDF">
             <img class="icon" src="@/assets/img/download.svg" alt="" />
             Version imprimable
@@ -48,6 +48,9 @@ export default {
     },
     resultSirene () {
       return this.$store.getters.singlePageEtablissementSirene
+    },
+    haveRNCSInfo () {
+      return this.$store.getters.additionalAPIAvailable('RNCS')
     },
     haveSireneInfo () {
       if (this.$store.getters.sireneAvailable) {

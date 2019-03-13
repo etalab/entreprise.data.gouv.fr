@@ -14,12 +14,6 @@
           <div class="second__subtitle"> {{ resultSirene.libelle_activite_principale_entreprise }}</div>
         </template>
         <div v-if="haveOnlyRNAInfo" class="second__subtitle"> {{ resultRNA.titre_court}}</div>
-        <div v-if=displayingOnlyRNCS class="company__buttons">
-          <a class="button" v-bind:href="dataRequestPDF" title="Télécharger les données de cette entreprise au format PDF">
-            <img class="icon" src="@/assets/img/download.svg" alt="" />
-            Version imprimable
-          </a>
-        </div>
         <etablissement-sirene-children v-if=haveSireneInfo />
 
         <router-link v-if=displayRNCS :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>

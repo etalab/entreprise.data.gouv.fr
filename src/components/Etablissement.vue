@@ -1,17 +1,28 @@
 <template>
   <section class="section">
     <div class="container">
-      <not-found v-if="isNotFound" />
-      <server-error v-else-if="isError" />
+      <server-error v-if="isError" />
 
       <!-- Temporary section here to display RNCS Only -->
-      <template v-else-if=displayingOnlyRNCS>
-        <etablissement-header :searchId=searchId />
+      <template v-if=displayingOnlyRNCS>
+        <div class="notification error" v-if="AdditionalAPIError">Erreur du service RNCS : {{ APIError }}</div>
+        <entreprise-identity-header :searchId=searchId />
         <blocks-skeleton v-if="RNCSLoading"/>
         <etablissement-rncs v-else-if="haveRNCSInfo"/>
+        <div v-if=haveRNCSInfo class="company__extra">
+          <div class="notification grey">
+            <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
+            <a class="button-outline secondary" target="_blank" v-bind:href="dataRequestURL" title="Accéder aux données brutes de cette entreprise">
+              <img class="icon" src="@/assets/img/json.svg" alt="" />
+              Accéder aux données JSON
+            </a>
+          </div>
+        </div>
       </template>
+      <!-- End temporary -->
 
       <template v-else>
+        <not-found v-if="isNotFound" />
         <etablissement-header :searchId=searchId />
         <blocks-skeleton v-if="mainAPISLoading"/>
         <etablissement-sirene v-if=haveSireneInfo />
@@ -32,6 +43,7 @@ import EtablissementSirene from '@/components/etablissement/EtablissementSirene'
 import EtablissementRNA from '@/components/etablissement/EtablissementRNA'
 import EtablissementRNM from '@/components/etablissement/EtablissementRNM'
 import EtablissementRNCS from '@/components/etablissement/EtablissementRNCS'
+import EntrepriseIdentityHeader from '@/components/etablissement/EntrepriseIdentityHeader'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
 export default {
@@ -50,6 +62,7 @@ export default {
     'EtablissementRna': EtablissementRNA,
     'EtablissementRnm': EtablissementRNM,
     'EtablissementRncs': EtablissementRNCS,
+    'EntrepriseIdentityHeader': EntrepriseIdentityHeader,
     'BlocksSkeleton': BlocksSkeleton
   },
   computed: {
@@ -101,11 +114,18 @@ export default {
     mainAPISLoading () {
       return this.$store.getters.mainAPISLoading
     },
-    // Temporary methods for displaying RNCS-only
+    // Begin : Temporary methods for displaying RNCS-only
     displayingOnlyRNCS () {
       if (process.env.DISPLAY_RNCS)
         return true
+    },
+    AdditionalAPIError () {
+      return this.$store.getters.additionalAPINotFound('RNCS')
+    },
+    APIError () {
+      return this.$store.getters.RNCSError
     }
+    // End
   },
   methods: {
     titleEtablissement () {
@@ -134,9 +154,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.grey {
+  background-color: $color-lightest-grey;
+}
 .notification {
   border-color: $color-grey;
-  background-color: $color-lightest-grey;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

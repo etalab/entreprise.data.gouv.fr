@@ -30,7 +30,7 @@ desc 'Deploys the current version to the server.'
 task :deploy do
   run :local do
     in_path(Dir.pwd) do
-      invoke :ensure_right_branch
+      invoke :warning_right_branch
       invoke :local_build
       invoke :deploy_website
     end
@@ -51,14 +51,16 @@ task :deploy_website do
   command "scp -r dist/* #{fetch(:user)}@#{fetch(:domain)}:#{fetch(:deploy_to)}"
 end
 
-task :ensure_right_branch do
+task :warning_right_branch do
   git_active_branch = 'git rev-parse --abbrev-ref HEAD'
+  red='\033[0;31m'
+  no_color='\033[0m'
   comment "Ensuring you're on the branch you're deploying to".yellow
   command "if (#{git_active_branch} | grep #{fetch(:branch)}) > /dev/null
     then
       echo 'You are on the right branch, continuing...'
     else
-      echo 'YOU ARE NOT ON THE RIGHT BRANCH, EXITING !'
-      exit
+      echo '#{red}You a trying to deploy #{fetch(:branch)} while on #{git_active_branch} !#{no_color}'
+      sleep 5
     fi"
 end

@@ -18,13 +18,13 @@ const notFoundCodes = [400, 404, 422]
 const state = {
   isLoading: {
     fullText: mapValues(endpoints.fullText, () => false),
-    etablissementMain:  mapValues(endpoints.etablissementMain, () => false),
-    etablissementAdditional:  mapValues(endpoints.etablissementAdditional, () => false)
+    etablissementMain: mapValues(endpoints.etablissementMain, () => false),
+    etablissementAdditional: mapValues(endpoints.etablissementAdditional, () => false)
   },
   status: {
     fullText: mapValues(endpoints.fullText, () => null),
-    etablissementMain:  mapValues(endpoints.etablissementMain, () => null),
-    etablissementAdditional:  mapValues(endpoints.etablissementAdditional, () => null)
+    etablissementMain: mapValues(endpoints.etablissementMain, () => null),
+    etablissementAdditional: mapValues(endpoints.etablissementAdditional, () => null)
   }
 }
 
@@ -72,21 +72,26 @@ const getters = {
       return state.isLoading.etablissementAdditional[api]
     }
   },
-  // additionalAPIError: (state) => {
-  //   return api => {
-  //     return includes(errorCodes, state.status.etablissementAdditional[api])
-  //   }
-  // },
+  additionalAPIAvailable: (state) => {
+    return api => {
+      return state.status.etablissementAdditional[api] == 200
+    }
+  },
+  additionalAPIError: (state) => {
+    return api => {
+      return includes(errorCodes, state.status.etablissementAdditional[api])
+    }
+  },
   // additionalAPINotWorking: (state) => {
   //   return api => {
   //     return includes(badCodes, state.status.etablissementAdditional[api])
   //   }
   // },
-  // additionalAPINotFound: (state) => {
-  //   return api => {
-  //     return includes(notFoundCodes, state.status.etablissementAdditional[api])
-  //   }
-  // },
+  additionalAPINotFound: (state) => {
+    return api => {
+      return includes(notFoundCodes, state.status.etablissementAdditional[api])
+    }
+  },
 
   isWelcomeTextVisible: () => {
     if (store.state.route.name != 'Home') {
@@ -162,8 +167,8 @@ const actions = {
 }
 
 export default {
-    state,
-    mutations,
-    actions,
-    getters
+  state,
+  mutations,
+  actions,
+  getters
 }

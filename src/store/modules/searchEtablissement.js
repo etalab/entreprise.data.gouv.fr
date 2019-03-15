@@ -25,6 +25,7 @@ const actions = {
       case 'SIRET':
         break
       case 'SIREN':
+        await store.dispatch('searchEtablissementFromSiren', searchId)
         await store.dispatch('sendAPIRequest', process.env.BASE_ADDRESS_RNCS + searchId)
         .then(response => {
           store.dispatch('setResponseAdditionalInfo', {response: response, api: api})

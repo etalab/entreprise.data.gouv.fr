@@ -167,7 +167,43 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
       </div>
     </section>
      
-    <!---->
+    <section
+      class="section section-white"
+    >
+      <div
+        class="container apis"
+      >
+        <h2>
+          L’API Registre National du Commerce et des Sociétés (RNCS)
+        </h2>
+         
+        <div
+          class="row"
+        >
+          <p
+            class="description"
+          >
+            <strong>
+              ⚠ En version alpha ⚠ 
+            </strong>
+            <br />
+            
+          Cette API contient les données IMR (Immatriculation, Modification, Radiation) du Registre National du Commerce et des Sociétés de l’INPI.
+        
+          </p>
+           
+          <div
+            class="cta"
+          >
+            <a
+              class="button"
+            >
+              Documentation API RNCS
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
    
   <section

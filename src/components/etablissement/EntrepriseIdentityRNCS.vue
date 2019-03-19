@@ -1,13 +1,13 @@
 <template>
   <section class="section">
     <div class="container">
-      <server-error v-if="isError" />
-      <not-found v-else-if="isNotFound" />
+      <server-error v-if=isError />
+      <not-found v-else-if=isNotFound />
       <div v-else>
-        <div class="notification error" v-if="isRNCSError">Erreur du service RNCS : {{ RNCSError }}</div>
+        <div class="notification error" v-if=isRNCSError>Erreur du service RNCS : {{ RNCSError }}</div>
         <entreprise-identity-header :searchId=searchId />
-        <blocks-skeleton v-if="RNCSLoading"/>
-        <etablissement-rncs v-else-if="haveRNCSInfo"/>
+        <blocks-skeleton v-if=RNCSLoading />
+        <etablissement-rncs v-else-if=haveRNCSInfo />
         <div v-if=haveRNCSInfo class="company__extra">
           <div class="notification grey">
             <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>

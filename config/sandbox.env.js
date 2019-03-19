@@ -3,9 +3,6 @@ module.exports = {
 
   ENDPOINTS: require('./endpoints.js'),
 
-  // comment out this value to test RNCS / not RNCS
-  DISPLAY_RNCS: true,
-
   // WARNING: this will make 'non IP failover website' use the 'IP failover API' !
   BASE_ADDRESS_SIRENE_FULLTEXT: '"https://sandbox.entreprise.data.gouv.fr/api/sirene/v1/full_text/"',
   BASE_ADDRESS_SIRENE_SIRET: '"https://sandbox.entreprise.data.gouv.fr/api/sirene/v1/siret/"',

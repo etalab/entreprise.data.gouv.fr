@@ -4,9 +4,6 @@ var prodEnv = require('./prod.env')
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
 
-  // comment out this value to test RNCS / not RNCS
-  DISPLAY_RNCS: true,
-
   ENDPOINTS: require('./endpoints.js'),
 
   BASE_ADDRESS_SIRENE_FULLTEXT: '"http://localhost:3000/v1/full_text/"',

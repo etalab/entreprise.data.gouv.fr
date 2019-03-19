@@ -16,31 +16,6 @@ const state = {
 }
 
 const actions = {
-  async executeSearchRNCS(dispatch, searchId) {
-    await store.dispatch('resetApplicationState')
-    const natureSearchId = regExps.methods.analyzeSearchId(searchId)
-    const api = 'RNCS'
-
-    switch (natureSearchId) {
-      case 'SIRET':
-        break
-      case 'SIREN':
-        await store.dispatch('searchEtablissementFromSiren', searchId)
-        await store.dispatch('sendAPIRequest', process.env.BASE_ADDRESS_RNCS + searchId)
-        .then(response => {
-          store.dispatch('setResponseAdditionalInfo', {response: response, api: api})
-        })
-        .catch(notFound => {
-          store.dispatch('setResponseAdditionalInfo', {response: notFound, api: api})
-        })
-        .finally(() => store.commit('setLoadingAdditionalAPI', { value: false, endpoint: api }))
-        break
-      default:
-        store.commit('setStatusMainAPI', { value: 404, endpoint: 'ALL' })
-    }
-    store.commit('setLoadingMainAPI', { value: false, endpoint: 'ALL' })
-  },
-
   async executeSearchEtablissement(dispatch, searchId) {
     await store.dispatch('resetApplicationState')
     const natureSearchId = regExps.methods.analyzeSearchId(searchId)
@@ -87,13 +62,13 @@ const actions = {
   async executeSearchBySiret(dispatch, { siret, api }) {
     store.commit('setLoadingMainAPI', { value: true, endpoint: api })
     await store.dispatch('sendAPIRequest', state.baseAdressSiret[api] + siret)
-    .then(response => {
-      store.dispatch('setResponseEtablissement', {response: response, api: api})
-    })
-    .catch(notFound => {
-      store.dispatch('setResponseEtablissement', {response: notFound, api: api})
-    })
-    .finally(() => store.commit('setLoadingMainAPI', { value: false, endpoint: api }))
+      .then(response => {
+        store.dispatch('setResponseEtablissement', {response: response, api: api})
+      })
+      .catch(notFound => {
+        store.dispatch('setResponseEtablissement', {response: notFound, api: api})
+      })
+      .finally(() => store.commit('setLoadingMainAPI', { value: false, endpoint: api }))
   },
 
   async executeSearchByIdAssociation(dispatch, { id, api }) {

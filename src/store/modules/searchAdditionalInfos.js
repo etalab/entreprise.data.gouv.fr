@@ -47,6 +47,7 @@ const actions = {
     store.dispatch('searchAdditionalInfoSirene', 'RNM')
     store.dispatch('searchAdditionalInfoSirene', 'RNCS')
   },
+
   async searchAdditionalInfoSirene(dispatch, api) {
     store.commit('setLoadingAdditionalAPI', { value: true, endpoint: api })
     const siren = store.getters.singlePageEtablissementSirene.siren

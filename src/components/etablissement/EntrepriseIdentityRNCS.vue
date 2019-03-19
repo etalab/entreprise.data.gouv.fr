@@ -2,18 +2,20 @@
   <section class="section">
     <div class="container">
       <server-error v-if="isError" />
-
-      <div class="notification error" v-if="AdditionalAPIError">Erreur du service RNCS : {{ APIError }}</div>
-      <entreprise-identity-header :searchId=searchId />
-      <blocks-skeleton v-if="RNCSLoading"/>
-      <etablissement-rncs v-else-if="haveRNCSInfo"/>
-      <div v-if=haveRNCSInfo class="company__extra">
-        <div class="notification grey">
-          <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
-          <a class="button-outline secondary" target="_blank" v-bind:href="dataRequestURL" title="Accéder aux données brutes de cette entreprise">
-            <img class="icon" src="@/assets/img/json.svg" alt="" />
-            Accéder aux données JSON
-          </a>
+      <not-found v-else-if="isNotFound" />
+      <div v-else>
+        <div class="notification error" v-if="isRNCSError">Erreur du service RNCS : {{ RNCSError }}</div>
+        <entreprise-identity-header :searchId=searchId />
+        <blocks-skeleton v-if="RNCSLoading"/>
+        <etablissement-rncs v-else-if="haveRNCSInfo"/>
+        <div v-if=haveRNCSInfo class="company__extra">
+          <div class="notification grey">
+            <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
+            <a class="button-outline secondary" target="_blank" v-bind:href="dataRequestURL" title="Accéder aux données brutes de cette entreprise">
+              <img class="icon" src="@/assets/img/json.svg" alt="" />
+              Accéder aux données JSON
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -48,8 +50,11 @@ export default {
     searchId () {
       return this.$route.params.searchId
     },
+    isNotFound () {
+      return this.$store.getters.mainAPISNotFound
+    },
     isError () {
-      return this.$store.getters.mainAPISError || this.$store.getters.additionalAPIError('RNCS')
+      return this.$store.getters.mainAPISError
     },
     haveSireneInfo () {
       return this.$store.getters.sireneAvailable
@@ -78,10 +83,10 @@ export default {
     RNCSLoading () {
       return this.$store.getters.additionalAPILoading('RNCS')
     },
-    AdditionalAPIError () {
-      return this.$store.getters.additionalAPINotFound('RNCS')
+    isRNCSError () {
+      return this.$store.getters.additionalAPINotWorking('RNCS')
     },
-    APIError () {
+    RNCSError () {
       return this.$store.getters.RNCSError
     }
   },

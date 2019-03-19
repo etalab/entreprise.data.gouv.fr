@@ -5,7 +5,6 @@
 
       <div class="notification error" v-if="AdditionalAPIError">Erreur du service RNCS : {{ APIError }}</div>
       <entreprise-identity-header :searchId=searchId />
-      <etablissement-header :searchId=searchId />
       <blocks-skeleton v-if="RNCSLoading"/>
       <etablissement-rncs v-else-if="haveRNCSInfo"/>
       <div v-if=haveRNCSInfo class="company__extra">
@@ -48,9 +47,6 @@ export default {
   computed: {
     searchId () {
       return this.$route.params.searchId
-    },
-    isNotFound () {
-      return this.$store.getters.mainAPISNotFound || this.$store.getters.additionalAPINotFound('RNCS')
     },
     isError () {
       return this.$store.getters.mainAPISError || this.$store.getters.additionalAPIError('RNCS')

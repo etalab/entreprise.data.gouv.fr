@@ -49,9 +49,6 @@ export default {
     searchId () {
       return this.$route.params.searchId
     },
-    isEtablissementLoading () {
-      return this.$store.getters.mainAPISLoading
-    },
     isNotFound () {
       return this.$store.getters.mainAPISNotFound
     },
@@ -66,30 +63,6 @@ export default {
     },
     haveRNMInfo () {
       return this.$store.getters.RNMAvailable
-    },
-    haveRNCSInfo () {
-      return this.$store.getters.additionalAPIAvailable('RNCS')
-    },
-    resultSirene () {
-      if (this.haveSireneInfo) {
-        return this.$store.getters.singlePageEtablissementSirene
-      }
-      return null
-    },
-    dataRequestURL () {
-      if (this.resultSirene) {
-        return `${process.env.BASE_ADDRESS_RNCS}${this.resultSirene.siren}`
-      }
-      return null
-    },
-    RNCSUpdate () {
-      if (this.$store.getters.RNCSData) {
-        return Filters.filters.frenchDateFormat(this.$store.getters.RNCSData.db_current_date)
-      }
-      return null
-    },
-    RNCSLoading () {
-      return this.$store.getters.additionalAPILoading('RNCS')
     },
     mainAPISLoading () {
       return this.$store.getters.mainAPISLoading

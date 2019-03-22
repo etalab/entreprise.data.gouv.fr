@@ -15,6 +15,8 @@
         </template>
         <div v-if="haveOnlyRNAInfo" class="second__subtitle"> {{ resultRNA.titre_court}}</div>
         <etablissement-sirene-children v-if=haveSireneInfo />
+
+        <router-link :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>
       </div>
       <div v-if=isEtablissementLoading class="map__dummy panel"></div>
       <template v-else>

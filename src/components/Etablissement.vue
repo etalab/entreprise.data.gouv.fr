@@ -24,7 +24,6 @@ import EtablissementHeader from '@/components/etablissement/EtablissementHeader'
 import EtablissementSirene from '@/components/etablissement/EtablissementSirene'
 import EtablissementRNA from '@/components/etablissement/EtablissementRNA'
 import EtablissementRNM from '@/components/etablissement/EtablissementRNM'
-import EntrepriseIdentityHeader from '@/components/etablissement/EntrepriseIdentityHeader'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
 export default {
@@ -42,7 +41,6 @@ export default {
     'EtablissementSirene': EtablissementSirene,
     'EtablissementRna': EtablissementRNA,
     'EtablissementRnm': EtablissementRNM,
-    'EntrepriseIdentityHeader': EntrepriseIdentityHeader,
     'BlocksSkeleton': BlocksSkeleton
   },
   computed: {

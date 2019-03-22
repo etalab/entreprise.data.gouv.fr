@@ -2,9 +2,17 @@
   <section class="section">
     <div class="container">
       <div class="notification error" v-if=isRNCSError>Erreur du service RNCS : {{ RNCSError }}</div>
-      <entreprise-identity-header :searchId=searchId />
       <blocks-skeleton v-if=RNCSLoading />
-      <etablissement-rncs v-else-if=haveRNCSInfo />
+      <div v-else-if=haveRNCSInfo>
+        <div class="company__buttons">
+          <a class="button" v-bind:href="dataRequestPDF" title="Télécharger les données de cette entreprise au format PDF">
+            <img class="icon" src="@/assets/img/download.svg" alt="" />
+            Version imprimable
+          </a>
+        </div>
+
+        <etablissement-rncs />
+      </div>
       <div v-if=haveRNCSInfo class="company__extra">
         <div class="notification grey">
           <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
@@ -23,7 +31,6 @@ import Filters from '@/components/mixins/filters'
 import Loader from '@/components/modules/Loader'
 import ServerError from '@/components/modules/ServerError'
 import NotFound from '@/components/etablissement/EtablissementNotFound'
-import EntrepriseIdentityHeader from '@/components/etablissement/EntrepriseIdentityHeader'
 import EtablissementRNCS from '@/components/etablissement/EtablissementRNCS'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
@@ -33,7 +40,6 @@ export default {
     'Loader': Loader,
     'ServerError': ServerError,
     'NotFound': NotFound,
-    'EntrepriseIdentityHeader': EntrepriseIdentityHeader,
     'EtablissementRncs': EtablissementRNCS,
     'BlocksSkeleton': BlocksSkeleton
   },

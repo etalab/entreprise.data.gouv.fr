@@ -33,7 +33,9 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
         <br />
       </p>
        
-      <form>
+      <form
+        class="text-center"
+      >
         <h4>
           Inscription Mailing-List
         </h4>

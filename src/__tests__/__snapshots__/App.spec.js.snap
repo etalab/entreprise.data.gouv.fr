@@ -163,6 +163,32 @@ exports[`App.vue It match the snapshot 1`] = `
         </a>
       </div>
     </section>
+     
+    <form
+      class="text-center"
+    >
+      <h4>
+        Inscription Mailing-List
+      </h4>
+       
+      <p>
+        
+    Vos données sont traitées par Mailjet.
+        <br />
+         Vos informations ne seront jamais utilisées à des fins commerciales.
+  
+      </p>
+       
+      <iframe
+        frameborder="0"
+        height="95"
+        marginheight="0"
+        marginwidth="0"
+        scrolling="no"
+        src="https://app.mailjet.com/widget/iframe/zR1/ack"
+        width="340"
+      />
+    </form>
   </div>
    
   <router-view-stub />

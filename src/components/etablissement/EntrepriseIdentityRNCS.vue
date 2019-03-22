@@ -70,12 +70,12 @@ export default {
     this.$store.commit('setStoredSuggestions', '')
   },
   created () {
-    this.$store.dispatch('executeSearchEtablissement', this.$route.params.searchId)
+    this.$store.dispatch('executeSearchRNCS', this.$route.params.searchId)
   },
   mixins: [Filters],
   watch: {
     '$route' (to, from) {
-      this.$store.dispatch('executeSearchEtablissement', this.$route.params.searchId)
+      this.$store.dispatch('executeSearchRNCS', this.$route.params.searchId)
     }
   }
 }

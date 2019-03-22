@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form class="text-center">
     <h4>Inscription Mailing-List</h4>
     <p>
       Vos données sont traitées par Mailjet.<br/> Vos informations ne seront jamais utilisées à des fins commerciales.

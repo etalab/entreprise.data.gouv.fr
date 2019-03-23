@@ -54,8 +54,9 @@ const mutations = {
 
 const actions = {
   async setResponseAdditionalInfo(dispatch, { response, api }) {
-    store.commit('setStatusAdditionalAPI', { value: response.status, endpoint: 'RNCS' })
     store.commit('setAdditionalInfos', { results: response.body, api: api })
+    store.commit('setStatusAdditionalAPI', { value: response.status, endpoint: api })
+
     // TEMPORARY HACK : RNM is returning 200 even in case of empty JSON.
     // This will change soon but in the meantime we have manage this.
     if (api == 'RNM' && response.body.ID == null) {

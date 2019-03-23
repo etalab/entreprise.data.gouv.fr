@@ -1,12 +1,18 @@
 <template>
   <section class="section">
     <div class="container">
-      <server-error v-if="isError" />
+      <div class="notification error" v-if=isRNCSError>Erreur du service RNCS : {{ RNCSError }}</div>
+      <blocks-skeleton v-if=RNCSLoading />
+      <div v-else-if=haveRNCSInfo>
+        <div class="company__buttons">
+          <a class="button" v-bind:href="dataRequestPDF" title="Télécharger les données de cette entreprise au format PDF">
+            <img class="icon" src="@/assets/img/download.svg" alt="" />
+            Version imprimable
+          </a>
+        </div>
 
-      <div class="notification error" v-if="AdditionalAPIError">Erreur du service RNCS : {{ APIError }}</div>
-      <entreprise-identity-header :searchId=searchId />
-      <blocks-skeleton v-if="RNCSLoading"/>
-      <etablissement-rncs v-else-if="haveRNCSInfo"/>
+        <etablissement-rncs />
+      </div>
       <div v-if=haveRNCSInfo class="company__extra">
         <div class="notification grey">
           <div>Ces informations sont issues du RNCS mis à jour le {{ RNCSUpdate }}.</div>
@@ -25,22 +31,15 @@ import Filters from '@/components/mixins/filters'
 import Loader from '@/components/modules/Loader'
 import ServerError from '@/components/modules/ServerError'
 import NotFound from '@/components/etablissement/EtablissementNotFound'
-import EntrepriseIdentityHeader from '@/components/etablissement/EntrepriseIdentityHeader'
 import EtablissementRNCS from '@/components/etablissement/EtablissementRNCS'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
 export default {
   name: 'EntrepriseIdentityRNCS',
-  metaInfo () {
-    return {
-      title: this.titleEtablissement()
-    }
-  },
   components: {
     'Loader': Loader,
     'ServerError': ServerError,
     'NotFound': NotFound,
-    'EntrepriseIdentityHeader': EntrepriseIdentityHeader,
     'EtablissementRncs': EtablissementRNCS,
     'BlocksSkeleton': BlocksSkeleton
   },
@@ -48,29 +47,17 @@ export default {
     searchId () {
       return this.$route.params.searchId
     },
-    isError () {
-      return this.$store.getters.mainAPISError || this.$store.getters.additionalAPIError('RNCS')
-    },
-    haveSireneInfo () {
-      return this.$store.getters.sireneAvailable
-    },
     haveRNCSInfo () {
       return this.$store.getters.additionalAPIAvailable('RNCS')
     },
-    resultSirene () {
-      if (this.haveSireneInfo) {
-        return this.$store.getters.singlePageEtablissementSirene
-      }
-      return null
-    },
     dataRequestURL () {
-      if (this.resultSirene) {
-        return `${process.env.BASE_ADDRESS_RNCS}${this.resultSirene.siren}`
+      if (this.haveRNCSInfo) {
+        return `${process.env.BASE_ADDRESS_RNCS}${this.$store.getters.RNCSData.siren}`
       }
       return null
     },
     RNCSUpdate () {
-      if (this.$store.getters.RNCSData) {
+      if (this.haveRNCSInfo) {
         return Filters.filters.frenchDateFormat(this.$store.getters.RNCSData.db_current_date)
       }
       return null
@@ -78,22 +65,11 @@ export default {
     RNCSLoading () {
       return this.$store.getters.additionalAPILoading('RNCS')
     },
-    AdditionalAPIError () {
-      return this.$store.getters.additionalAPINotFound('RNCS')
+    isRNCSError () {
+      return this.$store.getters.additionalAPINotWorking('RNCS')
     },
-    APIError () {
+    RNCSError () {
       return this.$store.getters.RNCSError
-    }
-  },
-  methods: {
-    titleEtablissement () {
-      if (this.haveSireneInfo) {
-        return Filters.filters.removeExtraChars(this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale)
-      } else if (this.haveRNAInfo) {
-        return this.$store.getters.singlePageEtablissementRNA.titre
-      } else {
-        return 'Etablissement'
-      }
     }
   },
   beforeCreate () {

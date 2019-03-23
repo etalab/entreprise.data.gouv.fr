@@ -6,14 +6,13 @@ import mapValues from 'lodash/mapValues'
 import values from 'lodash/values'
 import includes from 'lodash/includes'
 import every from 'lodash/every'
-// import flatten from 'lodash/flatten'
 
 // Deep-cloning endpoints from config
 const endpoints = cloneDeep(process.env.ENDPOINTS)
 
 const errorCodes = [500, 0]
 const notFoundCodes = [400, 404, 422]
-// const badCodes = flatten(errorCodes, notFoundCodes)
+const badCodes = errorCodes.concat(notFoundCodes)
 
 const state = {
   isLoading: {
@@ -82,11 +81,11 @@ const getters = {
       return includes(errorCodes, state.status.etablissementAdditional[api])
     }
   },
-  // additionalAPINotWorking: (state) => {
-  //   return api => {
-  //     return includes(badCodes, state.status.etablissementAdditional[api])
-  //   }
-  // },
+  additionalAPINotWorking: (state) => {
+    return api => {
+      return includes(badCodes, state.status.etablissementAdditional[api])
+    }
+  },
   additionalAPINotFound: (state) => {
     return api => {
       return includes(notFoundCodes, state.status.etablissementAdditional[api])

@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
+import { createLocalVue, shallowMount, RouterLinkStub } from '@vue/test-utils'
 import { __createMocks as createStoreMocks } from '@/store/index.js'
 import Vuex from 'vuex'
 import EtablissementHeader from '@/components/etablissement/EtablissementHeader.vue'
@@ -16,7 +16,10 @@ describe('EtablissementHeader.vue Snapshot testing', () => {
 
   const wrapperEH = shallowMount(EtablissementHeader, {
     localVue,
-    store: storeMocks.store
+    store: storeMocks.store,
+    stubs: {
+      RouterLink: RouterLinkStub
+    }
   })
 
   test('It match the snapshot', () => {

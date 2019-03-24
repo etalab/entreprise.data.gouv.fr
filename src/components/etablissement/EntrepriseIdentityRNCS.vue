@@ -56,6 +56,9 @@ export default {
       }
       return null
     },
+    dataRequestPDF () {
+      return `${process.env.BASE_ADDRESS_RNCS}${this.searchId}/pdf`
+    },
     RNCSUpdate () {
       if (this.haveRNCSInfo) {
         return Filters.filters.frenchDateFormat(this.$store.getters.RNCSData.db_current_date)

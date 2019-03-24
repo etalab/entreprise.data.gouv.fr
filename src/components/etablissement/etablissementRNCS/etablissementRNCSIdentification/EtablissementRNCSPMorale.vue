@@ -1,6 +1,6 @@
 <template>
   <div v-if="RNCSLegal">
-    <h4>Identification de la personne morale</h4>
+    <h4>Identification de la Personne Morale</h4>
     <panel-info class="company__item" :parent=RNCSLegal :elements=this.elementsToDisplay1 />
      <div class="company__item">
       <div class="company__item-key">Informations capital</div>

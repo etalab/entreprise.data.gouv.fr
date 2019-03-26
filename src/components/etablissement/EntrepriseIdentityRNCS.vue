@@ -28,6 +28,7 @@
 
 <script>
 import Filters from '@/components/mixins/filters'
+import Formating from '@/components/mixins/formating'
 import Loader from '@/components/modules/Loader'
 import ServerError from '@/components/modules/ServerError'
 import NotFound from '@/components/etablissement/EtablissementNotFound'
@@ -36,6 +37,11 @@ import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
 export default {
   name: 'EntrepriseIdentityRNCS',
+  metaInfo () {
+    return {
+      title: this.titleEtablissement()
+    }
+  },
   components: {
     'Loader': Loader,
     'ServerError': ServerError,
@@ -75,13 +81,32 @@ export default {
       return this.$store.getters.RNCSError
     }
   },
+  methods: {
+    titleEtablissement () {
+      if (this.haveRNCSInfo) {
+        return Filters.filters.removeExtraChars(this.titleEtablissementRNCS())
+      } else {
+        return 'Etablissement'
+      }
+    },
+    titleEtablissementRNCS () {
+      if (this.$store.getters.RNCSData.personne_morale) {
+        return this.$store.getters.RNCSData.personne_morale.denomination
+      } else {
+        return Formating.methods.concatNames(
+          this.$store.getters.RNCSData.personne_physique.prenoms,
+          this.$store.getters.RNCSData.personne_physique.nom_patronyme
+        )
+      }
+    }
+  },
   beforeCreate () {
     this.$store.commit('setStoredSuggestions', '')
   },
   created () {
     this.$store.dispatch('executeSearchRNCS', this.$route.params.searchId)
   },
-  mixins: [Filters],
+  mixins: [Filters, Formating],
   watch: {
     '$route' (to, from) {
       this.$store.dispatch('executeSearchRNCS', this.$route.params.searchId)

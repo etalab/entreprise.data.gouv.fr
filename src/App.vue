@@ -1,9 +1,6 @@
 <template>
   <div id="app">
     <navbar></navbar>
-    <div class="notification full-width">
-      Ce site est un travail en cours, actuellement en beta. Vous pouvez le consulter librement.
-    </div>
     <search></search>
     <!-- TODO: put home in router-view (maybe?) -->
     <home v-if="showWelcomeText"></home>

@@ -16,6 +16,6 @@ module.exports = merge(prodEnv, {
   BASE_ADDRESS_RNA_SIRET: '"http://localhost:3001/v1/siret/"',
   BASE_ADDRESS_RNA_ID_ASSOCIATION: '"http://localhost:3001/v1/id/"',
 
-  BASE_ADDRESS_RNCS: '"http://localhost:3002/infos_identite_entreprise/"',
+  BASE_ADDRESS_RNCS: '"http://localhost:3002/v1/fiches_identite/"',
   BASE_ADDRESS_RNM: '"https://api-rnm.artisanat.fr/api/entreprise/"'
 })

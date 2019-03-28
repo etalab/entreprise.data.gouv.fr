@@ -1,7 +1,10 @@
 <template>
   <section class="section">
     <div class="container">
-      <div class="notification error" v-if=isRNCSError>Erreur du service RNCS : {{ RNCSError }}</div>
+      <template v-if=isRNCSError>
+        <div class="notification error">Erreur du service RNCS : {{ RNCSError }}</div>
+        <etablissement-rncs-404 />
+      </template>
       <blocks-skeleton v-if=RNCSLoading />
       <div v-else-if=haveRNCSInfo>
         <div class="company__buttons">
@@ -33,6 +36,7 @@ import Loader from '@/components/modules/Loader'
 import ServerError from '@/components/modules/ServerError'
 import NotFound from '@/components/etablissement/EtablissementNotFound'
 import EtablissementRNCS from '@/components/etablissement/EtablissementRNCS'
+import EtablissementRNCS404 from '@/components/etablissement/EtablissementRNCS/EtablissementRNCS404'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
 export default {
@@ -47,6 +51,7 @@ export default {
     'ServerError': ServerError,
     'NotFound': NotFound,
     'EtablissementRncs': EtablissementRNCS,
+    'etablissement-rncs-404': EtablissementRNCS404,
     'BlocksSkeleton': BlocksSkeleton
   },
   computed: {

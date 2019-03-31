@@ -4,13 +4,6 @@
       <server-error v-if="serverError"></server-error>
       <results-skeleton v-else-if=resultsAreLoading />
 
-      <!-- Temporary section here for RNCS-only -->
-      <template v-else-if=displayingOnlyRNCS>
-        <div v-if="sireneError"><p>SIRENE: Notre serveur connait des difficultés. Veuillez essayer plus tard.</p></div>
-        <results-sirene v-else />
-        <results-paginate-module v-if="sireneNumberPages" :totalPages=sireneNumberPages></results-paginate-module>
-      </template>
-
       <template v-else>
         <div v-if="sireneError"><p>SIRENE: Notre serveur connait des difficultés. Veuillez essayer plus tard.</p></div>
         <results-sirene v-else />
@@ -61,14 +54,6 @@ export default {
     },
     biggerNumberPages () {
       return Math.max(this.$store.getters.totalPageNumberSirene, this.$store.getters.totalPageNumberRNA)
-    },
-    // Temporary methods for RNCS-Only
-    sireneNumberPages () {
-      return this.$store.getters.totalPageNumberSirene
-    },
-    displayingOnlyRNCS () {
-      if (process.env.DISPLAY_RNCS)
-        return true
     }
   },
   methods: {

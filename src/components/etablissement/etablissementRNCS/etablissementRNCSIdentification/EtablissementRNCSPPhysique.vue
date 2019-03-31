@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     collabName (person) {
-      return concatNames(person.conjoint_collab_prenoms, person.conjoint_collab_nom_patronyme)
+      return Formating.methods.concatNames(person.conjoint_collab_prenoms, person.conjoint_collab_nom_patronyme)
     }
   },
   mixins: [Filters, Formating, RNCSFormating]

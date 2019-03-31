@@ -10,12 +10,6 @@ const state = {
 }
 
 const getters = {
-  RNCSAvailable: state => {
-    if (state.additionalResults['RNCS']) {
-      return true
-    }
-    return false
-  },
   RNMAvailable: state => {
     if (state.additionalResults['RNM']) {
       return true
@@ -27,6 +21,11 @@ const getters = {
       return state.additionalResults['RNCS'].dossier_entreprise_greffe_principal
     }
     return false
+  },
+  RNCSError: state => {
+    if (state.additionalResults['RNCS']) {
+      return state.additionalResults['RNCS'].error
+    }
   },
   RNMData: state => {
     if (state.additionalResults['RNM']) {
@@ -55,17 +54,14 @@ const mutations = {
 
 const actions = {
   async setResponseAdditionalInfo(dispatch, { response, api }) {
-    store.commit('setStatusAdditionalAPI', {value: response.status, endpoint: 'RNCS'})
-    if (response.status == 200) {
-      store.commit('setAdditionalInfos', { results: response.body, api: api })
-      // TEMPORARY HACK : RNM is returning 200 even in case of empty JSON.
-      // This will change soon but in the meantime we have manage this.
-      if (api == 'RNM' && response.body.ID == null) {
-        store.commit('clearAdditionalInfos', 'RNM')
-      }
-      // End of temporary hack
-    } else {
-      store.commit('clearAdditionalInfos', api)
+    store.commit('setAdditionalInfos', { results: response.body, api: api })
+    store.commit('setStatusAdditionalAPI', { value: response.status, endpoint: api })
+
+    // TEMPORARY HACK : RNM is returning 200 even in case of empty JSON.
+    // This will change soon but in the meantime we have manage this.
+    if (api == 'RNM' && response.body.ID == null) {
+      store.commit('setStatusAdditionalAPI', { value: 404, endpoint: 'RNM' })
+      store.commit('setAdditionalInfos', { results: null, api: 'RNM'})
     }
   }
 }

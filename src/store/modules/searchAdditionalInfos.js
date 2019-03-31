@@ -26,13 +26,29 @@ const getters = {
 }
 
 const actions = {
+  async executeSearchRNCS(dispatch, siren) {
+    const api = 'RNCS'
+    store.commit('setLoadingAdditionalAPI', { value: true, endpoint: api })
+
+    await store.dispatch('sendAPIRequest', state.baseAdressAdditionalInfo[api] + siren)
+    .then(response => {
+      store.dispatch('setResponseAdditionalInfo', {response: response, api: api})
+    })
+    .catch(notFound => {
+      store.dispatch('setResponseAdditionalInfo', {response: notFound, api: api})
+    })
+    .finally(() => store.commit('setLoadingAdditionalAPI', { value: false, endpoint: api }))
+  },
+
   // When we have an RNA ID, check if there is a Siret. If yes, look up Sirene. If no, look up the ID in Sirene.
-  fromRNARequestOtherAPIs(dispatch, id) {
+  async fromRNARequestOtherAPIs(dispatch, id) {
     if (store.getters.siretFromRNA) {
-      store.dispatch('executeSearchBySiret', { siret: store.getters.siretFromRNA, api: 'SIRENE' })
+      await store.dispatch('executeSearchBySiret', { siret: store.getters.siretFromRNA, api: 'SIRENE' })
     } else {
-      store.dispatch('executeSearchByIdAssociation', { id: id, api: 'SIRENE' })
+      await store.dispatch('executeSearchByIdAssociation', { id: id, api: 'SIRENE' })
     }
+
+    store.dispatch('searchAdditionalInfoSirene', 'RNCS')
   },
   // When we have Siret, check if there is an RNA ID. If yes, look up RNA. If no, look up Siret in RNA.
   // Also get additional RNCS and RNM Info if from SIRENE
@@ -43,8 +59,8 @@ const actions = {
       await store.dispatch('executeSearchBySiret', { siret: siret, api: 'RNA' })
     }
     store.dispatch('searchAdditionalInfoSirene', 'RNM')
-    store.dispatch('searchAdditionalInfoSirene', 'RNCS')
   },
+
   async searchAdditionalInfoSirene(dispatch, api) {
     store.commit('setLoadingAdditionalAPI', { value: true, endpoint: api })
     const siren = store.getters.singlePageEtablissementSirene.siren

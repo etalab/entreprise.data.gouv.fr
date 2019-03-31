@@ -16,7 +16,7 @@ exports[`Search.vue snapshot It match the snapshot when there arent results 1`] 
         class="search__title"
       >
         
-          Retrouvez toutes les informations concernant les entreprises et associations de France
+          Retrouvez toutes les informations publiques concernant les entreprises et associations de France
         
       </h1>
        

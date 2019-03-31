@@ -11,6 +11,8 @@ Le site entreprise.data.gouv.fr a pour vocation de mettre à disposition des cit
 
 ## Exécution en local
 
+Entreprise.data.gouv.fr est développé avec Node `lts`.
+
 ``` bash
 # Installation
 npm install

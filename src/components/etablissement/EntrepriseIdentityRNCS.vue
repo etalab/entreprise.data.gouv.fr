@@ -36,7 +36,7 @@ import Loader from '@/components/modules/Loader'
 import ServerError from '@/components/modules/ServerError'
 import NotFound from '@/components/etablissement/EtablissementNotFound'
 import EtablissementRNCS from '@/components/etablissement/EtablissementRNCS'
-import EtablissementRNCS404 from '@/components/etablissement/EtablissementRNCS/EtablissementRNCS404'
+import EtablissementRNCS404 from '@/components/etablissement/etablissementRNCS/EtablissementRNCS404'
 import BlocksSkeleton from '@/components/etablissement/skeletons/BlocksSkeleton'
 
 export default {

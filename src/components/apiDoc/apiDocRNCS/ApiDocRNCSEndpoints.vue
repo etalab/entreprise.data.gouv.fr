@@ -28,9 +28,9 @@ export default {
   props: ['baseAdress'],
   data () {
     return {
-      exempleRNCS1: `${this.baseAdress}/v1/fiches_identite/`,
-      exempleRNCS2: `${this.baseAdress}/v1/fiches_identite/808332670`,
-      exempleRNCSPDF: `${this.baseAdress}/v1/fiches_identite/808332670/pdf`
+      exempleRNCS1: `${this.baseAdress}v1/fiches_identite/`,
+      exempleRNCS2: `${this.baseAdress}v1/fiches_identite/808332670`,
+      exempleRNCSPDF: `${this.baseAdress}v1/fiches_identite/808332670/pdf`
     }
   }
 }

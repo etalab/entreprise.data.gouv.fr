@@ -60,6 +60,32 @@ export default {
         return new Intl.DateTimeFormat('en-GB').format(new Date(input))
       }
       return input
+    },
+    prettySiren: function(string) {
+      // 111222333 => 111 222 333.
+      return string.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
+    },
+    prettySiret: function(string) {
+      // 11122233344444 => 111 222 333 444 44 => 111 222 333 44444.
+      return string.replace(/(\d{3})/g, '$1 ').replace(/(\s)(?=(\d{2})$)/g, '')
+    },
+    prettyTvaNumber: function(string) {
+      return string.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
+    },
+    prettySirenHtml: function(string) {
+      // &#8239 is the NO-BREAK SPACE
+      return string.replace(/(\d)(?=(\d{3})+$)/g, '$1&#8239;')
+    },
+    prettySiretHtml: function(string) {
+      // &#8239 is the NO-BREAK SPACE
+      return string.replace(/(\d{3})/g, '$1&#8239;').trim().replace(/(&#8239;)(?=(\d{2})$)/g, '')
+    },
+    prettySirenIfSiren: function(string) {
+      if (!isNaN(string)) {
+        return string.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
+      } else {
+        return string
+      }
     }
   },
   methods: {

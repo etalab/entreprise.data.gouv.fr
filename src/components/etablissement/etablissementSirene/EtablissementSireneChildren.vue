@@ -3,7 +3,7 @@
     <p v-if="isSiegeSocial" class="company__item">Cet établissement est le siège social.</p>
     <p v-else class="company__item">Le siège social de cet établissement est :
       <router-link class="company__item-link" :to="{ name: 'Etablissement', params: {searchId: resultSiegeSocial.siret}}">
-        {{ resultSiegeSocial.nom_raison_sociale | removeExtraChars }} ({{ resultSiegeSocial.siret }})
+        {{ resultSiegeSocial.nom_raison_sociale | removeExtraChars }} (<span :inner-html.prop="resultSiegeSocial.siret | prettySiretHtml" />)
       </router-link>
     </p>
     <div v-if="haveChildrenEtablissements" class="company__item">
@@ -18,7 +18,7 @@
       <ul class="company__children">
         <li class="company__item-link" v-for="siret in resultOtherSirens" :key="siret">
           <router-link :to="{ name: 'Etablissement', params: {searchId: siret}}">
-            {{ siret }}
+            {{ siret | prettySiret }}
           </router-link>
         </li>
       </ul>

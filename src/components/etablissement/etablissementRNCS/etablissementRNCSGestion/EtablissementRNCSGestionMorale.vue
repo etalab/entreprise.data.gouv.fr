@@ -5,7 +5,7 @@
     <div v-if="manager.siren_pm" class="company__item-inline">
       <div class="company__item-key">SIREN</div>
       <div class="company__item-value">
-        <router-link :to="{ name: 'Etablissement', params: {searchId: manager.siren_pm}}"> {{ manager.siren_pm }}</router-link>
+        <router-link :to="{ name: 'Etablissement', params: {searchId: manager.siren_pm}}"> {{ manager.siren_pm | prettySiren }}</router-link>
       </div>
     </div>
     <div class="company__item-inline">

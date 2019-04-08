@@ -62,21 +62,36 @@ export default {
       return input
     },
     prettySiren: function(string) {
+      if (!string) {
+        return null
+      }
       // 111222333 => 111 222 333.
       return string.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
     },
     prettySiret: function(string) {
+      if (!string) {
+        return null
+      }
       // 11122233344444 => 111 222 333 444 44 => 111 222 333 44444.
       return string.replace(/(\d{3})/g, '$1 ').replace(/(\s)(?=(\d{2})$)/g, '')
     },
     prettyTvaNumber: function(string) {
+      if (!string) {
+        return null
+      }
       return string.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
     },
     prettySirenHtml: function(string) {
+      if (!string) {
+        return null
+      }
       // &#8239 is the NO-BREAK SPACE
       return string.replace(/(\d)(?=(\d{3})+$)/g, '$1&#8239;')
     },
     prettySiretHtml: function(string) {
+      if (!string) {
+        return null
+      }
       // &#8239 is the NO-BREAK SPACE
       return string.replace(/(\d{3})/g, '$1&#8239;').trim().replace(/(&#8239;)(?=(\d{2})$)/g, '')
     },

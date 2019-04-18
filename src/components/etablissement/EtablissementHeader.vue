@@ -3,7 +3,9 @@
     <div class="company__main">
       <header-skeleton v-if="isEtablissementLoading"></header-skeleton>
       <div class="title__block" v-else>
-        <h2 v-if="haveSireneInfo">{{resultSirene.nom_raison_sociale | removeExtraChars}} <span class="company__siren">({{ resultSirene.siren }})</span></h2>
+        <h2 v-if="haveSireneInfo">{{resultSirene.nom_raison_sociale | removeExtraChars}}
+          <span class="company__siren">(<span :inner-html.prop="resultSirene.siren | prettySirenHtml"/>)</span>
+        </h2>
         <h2 v-if="haveOnlyRNAInfo">{{resultRNA.titre}} <span class="association__id">({{ resultRNA.id_association }})</span></h2>
 
         <template v-if="haveSireneInfo">

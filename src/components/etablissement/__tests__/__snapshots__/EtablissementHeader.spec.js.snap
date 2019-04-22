@@ -10,7 +10,7 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
     <div
       class="title__block"
     >
-      <h2>
+      <h1>
         
         
         <span
@@ -20,7 +20,7 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
           <span />
           )
         </span>
-      </h2>
+      </h1>
        
       <!---->
        

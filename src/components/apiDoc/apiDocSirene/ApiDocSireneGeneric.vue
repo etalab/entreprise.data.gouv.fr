@@ -6,7 +6,7 @@
           <img src="@/assets/img/icons/computer-user.svg" alt="">
         </div>
         <div class="column__right">
-          <h2>Maitrisez l’API Sirene.</h2>
+          <h2>Maîtrisez l’API Sirene</h2>
           <h3>Comment interroger l’API ?</h3>
           <p>
             Vous devez faire pour cela une requête GET. L’adresse de l'API est : <a href="https://entreprise.data.gouv.fr/api/sirene/v1/">https://entreprise.data.gouv.fr/api/sirene/v1/</a><br>

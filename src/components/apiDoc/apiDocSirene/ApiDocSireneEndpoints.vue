@@ -11,7 +11,7 @@
           </p>
           <p>Essayez avec n’importe quel siret :</p>
           <api-doc-input :request=exempleSiret1></api-doc-input>
-          <h2>Cinq moyens d’interroger l’API.</h2>
+          <h2>Cinq moyens d’interroger l’API</h2>
           <h3>Recherche Texte :</h3>
           <p>
             La recherche texte permet de trouver un établissement depuis son nom (raison sociale ou nom commercial), son adresse,

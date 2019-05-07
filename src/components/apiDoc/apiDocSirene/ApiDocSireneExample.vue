@@ -3,14 +3,14 @@
     <div class="container">
       <div class="row">
         <div class="column">
-          <h2>Un cas d’utilisation avancée.</h2>
+          <h2>Un cas d’utilisation avancée</h2>
           <p>
             J’ouvre un commerce (Boulangerie) dans la région de Toulon. Je souhaite vérifier où sont situés les autres commerces.<br>
             Je constitue ma requête de la manière suivante :
           </p>
           <ul class="spaced-list">
             <li>
-              L’adresse de base pour la recherche Texte :<br>
+              L’adresse de base pour la recherche texte :<br>
               <a href="https://entreprise.data.gouv.fr/api/sirene/v1/full_text">https://entreprise.data.gouv.fr/api/sirene/v1/full_text</a>
             </li>
             <li>Je ne me soucie pas du nom, donc je met un astérisque :<br>

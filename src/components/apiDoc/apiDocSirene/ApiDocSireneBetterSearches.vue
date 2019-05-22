@@ -2,10 +2,10 @@
   <section class="section section-grey">
     <div class="container">
       <div class="column__right">
-        <h2>Des recherches textes plus puissantes.</h2>
+        <h2>Des recherches textes plus puissantes</h2>
         <p>
           De nombreuses options sont exploitables pour trouver exactement ce dont vous avez besoin.<br>
-          Vous pouvez vous réferer au tableau suivant :
+          Vous pouvez vous référer au tableau suivant :
         </p>
         <table>
           <thead>

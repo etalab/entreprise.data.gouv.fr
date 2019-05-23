@@ -7,8 +7,11 @@ module.exports = {
       .setValue('input[name=search]', 'coca-cola')
       .click('button[class=overlay-button]')
 
+    // Url etablissement list is correct
+    browser.assert.urlEquals('https://entreprise.data.gouv.fr/search?fullText=coca-cola&page=1')
     // Some results are present
     browser.expect.element('.container > div:first-child > ul > li:first-child > .panel').to.be.visible
+    // First result should be main corporation
     browser.expect.element('.container > div:first-child > ul > li:first-child > .panel > h4').text.to.contain('Coca-cola financial corporation')
     // Five results are present for Sirene
     browser.expect.element('.container > div:first-child > ul > li:nth-child(5)').to.be.present
@@ -16,6 +19,11 @@ module.exports = {
 
   'Click on etablissement goes to etablissement card': function (browser) {
     browser
-    .end()
+      .click('.container > div:first-child > ul > li:first-child > .panel')
+      .waitForElementVisible('body')
+
+    // Url page etablissement is right
+    browser.assert.urlEquals('https://entreprise.data.gouv.fr/etablissement/48746376200020')
+    browser.end()
   }
 }

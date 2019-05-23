@@ -1,14 +1,14 @@
 module.exports = {
   'Display list of etablissements': function (browser) {
     browser
-      .url('https://entreprise.data.gouv.fr/')
+      .url(browser.launch_url)
       // .url(process.env.BASE_ADDRESS_SIRENE_FULLTEXT)
       .waitForElementVisible('body')
       .setValue('input[name=search]', 'coca-cola')
       .click('button[class=overlay-button]')
 
     // Url etablissement list is correct
-    browser.assert.urlEquals('https://entreprise.data.gouv.fr/search?fullText=coca-cola&page=1')
+    browser.assert.urlEquals(browser.launch_url + 'search?fullText=coca-cola&page=1')
     // Some results are present
     browser.expect.element('.container > div:first-child > ul > li:first-child > .panel').to.be.visible
     // First result should be main corporation
@@ -23,7 +23,7 @@ module.exports = {
       .waitForElementVisible('body')
 
     // Url page etablissement is right
-    browser.assert.urlEquals('https://entreprise.data.gouv.fr/etablissement/48746376200020')
+    browser.assert.urlEquals(browser.launch_url + 'etablissement/48746376200020')
     browser.end()
   }
 }

@@ -2,8 +2,8 @@
   <div class="company">
     <div class="company__main">
       <header-skeleton v-if="isEtablissementLoading"></header-skeleton>
-      <div class="title__block" v-else>
-        <h1 v-if="haveSireneInfo">{{resultSirene.nom_raison_sociale | removeExtraChars}}
+      <div v-else class="title__block">
+        <h2 v-if="haveSireneInfo">{{resultSirene.nom_raison_sociale | removeExtraChars}}
           <span class="company__siren">(<span :inner-html.prop="resultSirene.siren | prettySirenHtml"/>)</span>
         </h1>
         <h1 v-if="haveOnlyRNAInfo">{{resultRNA.titre}} <span class="association__id">({{ resultRNA.id_association }})</span></h1>
@@ -18,7 +18,7 @@
         <div v-if="haveOnlyRNAInfo" class="second__subtitle"> {{ resultRNA.titre_court}}</div>
         <etablissement-sirene-children v-if=haveSireneInfo />
 
-        <router-link :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>
+        <router-link v-if="haveSireneInfo" :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>
       </div>
       <div v-if=isEtablissementLoading class="map__dummy panel"></div>
       <template v-else>

@@ -61,11 +61,11 @@ const actions = {
     store.dispatch('searchAdditionalInfoSirene', 'RNM')
   },
 
-  async searchAdditionalInfoSirene(dispatch, api) {
+  searchAdditionalInfoSirene(dispatch, api) {
     store.commit('setLoadingAdditionalAPI', { value: true, endpoint: api })
     const siren = store.getters.singlePageEtablissementSirene.siren
 
-    await store.dispatch('sendAPIRequest', state.baseAdressAdditionalInfo[api] + siren)
+    store.dispatch('sendAPIRequest', state.baseAdressAdditionalInfo[api] + siren)
     .then(response => {
       store.dispatch('setResponseAdditionalInfo', {response: response, api: api})
     })

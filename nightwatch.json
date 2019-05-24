@@ -1,5 +1,4 @@
 {
-  "test_workers": true,
   "src_folders": [
     "test/e2e/input"
   ],
@@ -11,6 +10,7 @@
   },
   "test_settings": {
     "default": {
+      "test_workers": true,
       "launch_url": "http://localhost:8080/",
       "detailed_output": false,
       "desiredCapabilities": {
@@ -21,6 +21,10 @@
       "launch_url": "https://entreprise.data.gouv.fr/"
     },
     "sandbox": {
+      "launch_url": "https://sandbox.entreprise.data.gouv.fr/"
+    },
+    "travis": {
+      "test_workers": false,
       "launch_url": "https://sandbox.entreprise.data.gouv.fr/"
     }
   }

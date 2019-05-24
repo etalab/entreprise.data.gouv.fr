@@ -1,14 +1,30 @@
 language: node_js
 node_js:
 - lts/*
+dist: xenial
+services:
+  # GUI for Nightwatch
+  - xvfb
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 env:
   matrix:
     secure: f5HAn3Y/IZ2jz2CLWTgiyBAh77+fwUQX5UWlEUrNygaTixdcvUqV5HQK+6bj/YVkbQbuyMJ2+6fy6m6ST9y8ayBlx5WKyoTtoylTYAvNXOhw87MOatWGjTX923Z/VgrkRmy2vDAyYe41WphwhzXkKo+YLmXNJSjTEx6dihpxZzdQQ787LyMSit3dCVCekN2ED22My9WlQfKpEmrNN4QCvk+o05po/KJVghvHA9yo1BqvS9K/gLcnRlvIBD+BUoBf9ZemtPF0WD3DF+OVjd5Jtgd4FyFKpqFSF0Ac4u97rGq0KhCOTZcYhTBKW5d33Px7Je14L2AdR227kPkk9ZowVq5aRkllAh20aypv0RpBWROtj5qySB/LEVzYaGxSUX+O6YK3d33ZWgPrUSrTxR6y6gSsCvwfdX8nyuw6TijVq1Bn3toT5CkLl/vq8FdVN3+1ZDfP7OHpYfNayxdLvlOiUvyeS40DDUBKlypfAkMW6AzKEZq5jTexX7yQIGEt0zazLesL0J0yACzl8rVGGp7sMUAJZnn8jxAF2bvdgIb048DZ/Cvxcg+ULK3kB205MGlRFFvREQo6Tar3m8ArHW6THqnJYvGVHNHfH8sdEFk2CYXiDUndbPNENnIgLgU+/DhQFxz6ou0G3/zm4pjVn1YObN7m5owBlAL+qMTWRJCNM5s=
-# CodeCoverage report
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.
 before_script:
+# CodeCoverage report
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - ./cc-test-reporter before-build
+# Testing nightwatch (with GUI) against sandbox API + unit tests
+script: (xvfb-run -e /dev/stdout --server-args="-screen 0 1024x768x24" -a nightwatch --env travis) && npm run unit
 after_script:
+# CodeCoverage report
 - ./cc-test-reporter format-coverage test/unit/coverage/lcov.info --input-type lcov
 - ./cc-test-reporter upload-coverage

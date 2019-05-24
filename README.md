@@ -52,9 +52,13 @@ npm run unit -- -u
 nightwatch
 
 # Tests end2end environnement de production
+nightwatch --env sandbox
+
+# Tests end2end environnement de production
 nightwatch --env production
 ```
-Attention, les tests end2end avec nightwatch peuvent être capricieux, par exemple selon la taille de la fenêtre disponible pour le navigateur de test (plus grand == mieux)
+Attention, les tests end2end avec nightwatch peuvent être capricieux, par exemple selon la taille de la fenêtre disponible pour le navigateur de test.
+Les tests d'une branche (develop/dev) peuvent ne pas fonctionner sur une autre (master/production).
 
 Ces tests étant end2end, vous avez besoin des applications backend fonctionnelles sur localhost si vous désirez tester en développement.
 

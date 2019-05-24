@@ -33,5 +33,6 @@ module.exports = {
     browser.assert.containsText(panelCategorySirene + ':first-of-type > .company__item:nth-of-type(2) > .company__item-value', '96 BOULEVARD BESSIERES')
     // RNA number info in 2th RNA panel
     browser.assert.containsText(panelCategoryRNA + ':nth-of-type(2) > .company__info-list > .company__item:first-of-type > .company__item-value', 'W751218379')
+    browser.end()
   }
 }

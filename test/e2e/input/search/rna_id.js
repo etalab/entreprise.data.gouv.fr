@@ -10,5 +10,6 @@ module.exports = {
 
     // We land on right page
     browser.assert.urlEquals(browser.launch_url + 'etablissement/W9C1000188')
+    browser.end()
   }
 }

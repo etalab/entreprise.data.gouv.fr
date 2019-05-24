@@ -10,16 +10,16 @@ module.exports = {
     // Url etablissement list is correct
     browser.assert.urlEquals(browser.launch_url + 'search?fullText=coca-cola&page=1')
     // Some results are present
-    browser.expect.element('.container > div:first-child > ul > li:first-child > .panel').to.be.visible
+    browser.expect.element('.container > div:first-of-type > ul > li:first-of-type > .panel').to.be.visible
     // First result should be main corporation
-    browser.expect.element('.container > div:first-child > ul > li:first-child > .panel > h4').text.to.contain('Coca-cola financial corporation')
+    browser.expect.element('.container > div:first-of-type > ul > li:first-of-type > .panel > h4').text.to.contain('Coca-cola financial corporation')
     // Five results are present for Sirene
-    browser.expect.element('.container > div:first-child > ul > li:nth-child(5)').to.be.present
+    browser.expect.element('.container > div:first-of-type > ul > li:nth-of-type(5)').to.be.present
   },
 
   'Click on etablissement goes to etablissement card': function (browser) {
     browser
-      .click('.container > div:first-child > ul > li:first-child > .panel')
+      .click('.container > div:first-of-type > ul > li:first-of-type > .panel')
       .waitForElementVisible('body')
 
     // Url page etablissement is right

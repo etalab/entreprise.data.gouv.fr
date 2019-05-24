@@ -11,8 +11,8 @@ module.exports = {
   },
 
   'Pagination work': function (browser) {
-    const lastButton = '.pagination > .pagesButtons:nth-last-child(2) > a'
-    const firstButton = '.pagination > .pagesButtons:nth-child(2) > a'
+    const lastButton = '.pagination > .pagesButtons:nth-last-of-type(2) > a'
+    const firstButton = '.pagination > .pagesButtons:nth-of-type(2) > a'
 
     // Go to pagination, click on last page
     browser
@@ -21,14 +21,13 @@ module.exports = {
     browser
       .waitForElementVisible(lastButton)
       .moveToElement(lastButton, 0, 0)
-    browser
-      .waitForElementVisible(lastButton)
       .getText(lastButton, function (number) {
       // Url is correct
         browser.assert.urlEquals(`${browser.launch_url}search?fullText=coca-cola&page=${number.value}`)
-      // Pagination is consistent : check first and last number
-      browser.expect.element(firstButton).text.to.contain('1')
-      browser.expect.element(lastButton).text.to.contain(number.value)
-    })
+        // Pagination is consistent : check first and last number
+        browser.assert.containsText(firstButton, '1')
+        browser.assert.containsText(lastButton, number.value)
+      })
+    browser.end()
   }
 }

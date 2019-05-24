@@ -9,5 +9,6 @@ module.exports = {
     browser.expect.element('.title__block').to.be.present
     // We have title
     browser.assert.containsText('.title__block > h2', "BOUYGUES")
+    browser.end()
   }
 }

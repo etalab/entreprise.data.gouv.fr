@@ -12,6 +12,6 @@ module.exports = {
     // Address info in first panel
     browser.assert.containsText(companyPanel + ':first-of-type > .company__item:nth-of-type(2) > .company__item-value', '32 AV HOCHE')
     // Siren info in second panel
-    browser.assert.containsText(companyPanel + ':nth-of-type(2) > .company__item:nth-of-type(2) > .company__item-value', '572015246')
+    browser.assert.containsText(companyPanel + ':nth-of-type(2) > .company__item:nth-of-type(2) > .company__item-value', '572 015 246')
   }
 }

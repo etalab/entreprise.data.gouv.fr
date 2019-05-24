@@ -18,7 +18,8 @@ module.exports = {
       .waitForElementVisible(secondChild)
       .getText(secondChildLink, function (siret) {
         browser.click(secondChildLink)
-        browser.assert.urlEquals(`${browser.launch_url}etablissement/${siret.value}`)
+        const siretNoSpaces = siret.value.replace(/\s/g, "")
+        browser.assert.urlEquals(`${browser.launch_url}etablissement/${siretNoSpaces}`)
       })
   }
 }

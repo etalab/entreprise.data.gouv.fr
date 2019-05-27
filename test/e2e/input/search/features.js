@@ -2,11 +2,10 @@ module.exports = {
   'Press enter launch search': function (browser) {
     browser
       .url(browser.launch_url)
-      // .url(process.env.BASE_ADDRESS_SIRENE_FULLTEXT)
       .waitForElementVisible('body')
       .setValue('input[name=search]', 'coca-cola')
       .keys(browser.Keys.ENTER)
-      // We land on etablissement list
+
       .assert.urlEquals(browser.launch_url + 'search?fullText=coca-cola&page=1')
   },
 
@@ -22,7 +21,6 @@ module.exports = {
       .waitForElementVisible(lastButton)
       .moveToElement(lastButton, 0, 0)
       .getText(lastButton, function (number) {
-      // Url is correct
         browser.assert.urlEquals(`${browser.launch_url}search?fullText=coca-cola&page=${number.value}`)
         // Pagination is consistent : check first and last number
         browser.assert.containsText(firstButton, '1')

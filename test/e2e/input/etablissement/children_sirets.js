@@ -2,11 +2,12 @@ const elementList = 'ul.company__children'
 const secondElement = elementList + ' > .company__item-link:nth-of-type(2)'
 const secondElementLink = secondElement + ' > a'
 
+import { bouygues } from '../fixtures'
+
 module.exports = {
   'Etablissement Page (company) displays Children Etablissements': function (browser) {
     browser
-      // Going to bouygues page
-      .url(browser.launch_url + 'etablissement/57201524600216')
+      .url(browser.launch_url + 'etablissement/' + bouygues.siret)
       .waitForElementVisible('body')
 
     browser.expect.element(elementList).to.be.present
@@ -17,7 +18,9 @@ module.exports = {
     browser
       .waitForElementVisible(secondElement)
       .getText(secondElementLink, function (siret) {
+
         browser.click(secondElementLink)
+
         const siretNoSpaces = siret.value.replace(/\s/g, "")
         browser.assert.urlEquals(`${browser.launch_url}etablissement/${siretNoSpaces}`)
       })

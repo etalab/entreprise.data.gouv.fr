@@ -54,10 +54,10 @@ npm run unit -- -u
 # Tests end2end environnement dev
 nightwatch
 
-# Tests end2end environnement de production
+# Tests end2end environnement sandbox
 nightwatch --env sandbox
 
-# Tests end2end environnement de production
+# Tests end2end environnement production
 nightwatch --env production
 ```
 Attention, les tests end2end avec nightwatch peuvent être capricieux, par exemple selon la taille de la fenêtre disponible pour le navigateur de test.

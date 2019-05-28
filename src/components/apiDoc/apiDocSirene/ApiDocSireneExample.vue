@@ -5,46 +5,67 @@
         <div class="column">
           <h2>Un cas d’utilisation avancée</h2>
           <p>
-            J’ouvre un commerce (Boulangerie) dans la région de Toulon. Je souhaite vérifier où sont situés les autres commerces.<br>
+            J’ouvre un commerce (Boulangerie) dans la région de Toulon. Je
+            souhaite vérifier où sont situés les autres commerces.<br />
             Je constitue ma requête de la manière suivante :
           </p>
           <ul class="spaced-list">
             <li>
-              L’adresse de base pour la recherche texte :<br>
-              <a href="https://entreprise.data.gouv.fr/api/sirene/v1/full_text">https://entreprise.data.gouv.fr/api/sirene/v1/full_text</a>
+              L’adresse de base pour la recherche texte :<br />
+              <a href="https://entreprise.data.gouv.fr/api/sirene/v1/full_text"
+                >https://entreprise.data.gouv.fr/api/sirene/v1/full_text</a
+              >
             </li>
-            <li>Je ne me soucie pas du nom, donc je met un astérisque :<br>
-            <a href="https://entreprise.data.gouv.fr/api/sirene/v1/full_text/*">https://entreprise.data.gouv.fr/api/sirene/v1/full_text/*</a><br>
+            <li>
+              Je ne me soucie pas du nom, donc je met un astérisque :<br />
+              <a
+                href="https://entreprise.data.gouv.fr/api/sirene/v1/full_text/*"
+                >https://entreprise.data.gouv.fr/api/sirene/v1/full_text/*</a
+              ><br />
               Ma requête me renvoie pour le moment tous les établissements.
             </li>
             <li>
               <p>
-                Je rajoute un <strong>?</strong> pour passer aux paramètres, puis les paramètres <code>activité_principale</code> et <code>code_postal</code>, séparés par un <strong>&</strong>.
+                Je rajoute un <strong>?</strong> pour passer aux paramètres,
+                puis les paramètres <code>activité_principale</code> et
+                <code>code_postal</code>, séparés par un <strong>&</strong>.
               </p>
               <p>
-                Je renseigne le code activité (code NAF) pour les boulangeries.<br>
-                Je peux trouver cette information <router-link :to="{ name: 'CodesNAF'}">sur cette page</router-link>.<br>
-                L’INSEE propose également un <a href="https://www.insee.fr/fr/information/2406147">moteur de recherche</a> avec des informations supplémentaires.<br><br>
+                Je renseigne le code activité (code NAF) pour les
+                boulangeries.<br />
+                Je peux trouver cette information
+                <router-link :to="{ name: 'CodesNAF' }"
+                  >sur cette page</router-link
+                >.<br />
+                L’INSEE propose également un
+                <a href="https://www.insee.fr/fr/information/2406147"
+                  >moteur de recherche</a
+                >
+                avec des informations supplémentaires.<br /><br />
               </p>
               <p>
-                Le code pour les boulangeries est le 1071C, et le code postal de Toulon est le 83000. Ma requête sera donc :
+                Le code pour les boulangeries est le 1071C, et le code postal de
+                Toulon est le 83000. Ma requête sera donc :
               </p>
-              <api-doc-input :request=exempleBoulangerie1></api-doc-input>
+              <api-doc-input :request="exempleBoulangerie1"></api-doc-input>
               <p>
-                Comme on peut le voir, il y a environ 60 établissements de boulangerie à Toulon.
+                Comme on peut le voir, il y a environ 60 établissements de
+                boulangerie à Toulon.
               </p>
             </li>
             <li>
               <p>
-                Comme précisé plus haut, les résultats sont paginés. Je récupère par défaut les 10 premiers, mais je peux changer cela avec les paramètres
-                <code>page</code> et <code>per_page</code> :<br>
+                Comme précisé plus haut, les résultats sont paginés. Je récupère
+                par défaut les 10 premiers, mais je peux changer cela avec les
+                paramètres
+                <code>page</code> et <code>per_page</code> :<br />
               </p>
-              <api-doc-input :request=exempleBoulangerie2></api-doc-input>
+              <api-doc-input :request="exempleBoulangerie2"></api-doc-input>
             </li>
           </ul>
         </div>
         <div class="column__icon">
-          <img src="@/assets/img/icons/croissant.svg" alt="">
+          <img src="@/assets/img/icons/croissant.svg" alt="" />
         </div>
       </div>
     </div>
@@ -52,25 +73,28 @@
 </template>
 
 <script>
-import ApiDocInput from '@/components/apiDoc/ApiDocInput'
+import ApiDocInput from "@/components/apiDoc/ApiDocInput";
 
 export default {
-  name: 'ApiDocSireneExample',
+  name: "ApiDocSireneExample",
   components: {
-    'ApiDocInput': ApiDocInput
+    ApiDocInput: ApiDocInput
   },
-  props: ['baseAdress'],
-  data () {
+  props: ["baseAdress"],
+  data() {
     return {
-      exempleBoulangerie1: this.baseAdress + "full_text/*?activite_principale=1071C&code_postal=83000",
-      exempleBoulangerie2: this.baseAdress + "full_text/*?activite_principale=1071C&code_postal=83000&per_page=70"
-    }
+      exempleBoulangerie1:
+        this.baseAdress +
+        "full_text/*?activite_principale=1071C&code_postal=83000",
+      exempleBoulangerie2:
+        this.baseAdress +
+        "full_text/*?activite_principale=1071C&code_postal=83000&per_page=70"
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 a {
   overflow-wrap: break-word;
 }
@@ -110,5 +134,4 @@ a {
     padding-left: 1px;
   }
 }
-
 </style>

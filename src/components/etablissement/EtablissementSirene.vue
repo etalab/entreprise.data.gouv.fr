@@ -8,31 +8,31 @@
 </template>
 
 <script>
-import Filters from '@/components/mixins/filters.js'
-import EtablissementSireneContact from '@/components/etablissement/etablissementSirene/EtablissementSireneContact'
-import EtablissementSireneInfo from '@/components/etablissement/etablissementSirene/EtablissementSireneInfo'
+import Filters from "@/components/mixins/filters.js";
+import EtablissementSireneContact from "@/components/etablissement/etablissementSirene/EtablissementSireneContact";
+import EtablissementSireneInfo from "@/components/etablissement/etablissementSirene/EtablissementSireneInfo";
 
 export default {
-  name: 'EtablissementSirene',
+  name: "EtablissementSirene",
   components: {
-    'EtablissementSireneContact': EtablissementSireneContact,
-    'EtablissementSireneInfo': EtablissementSireneInfo
+    EtablissementSireneContact: EtablissementSireneContact,
+    EtablissementSireneInfo: EtablissementSireneInfo
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  .company {
-    margin-top: 2em;
-  }
+.company {
+  margin-top: 2em;
+}
 
+.panel + .panel {
+  margin-left: 2em;
+}
+
+@media (max-width: $tablet) {
   .panel + .panel {
-    margin-left: 2em;
+    margin-left: 0;
   }
-
-  @media (max-width: $tablet) {
-    .panel + .panel {
-      margin-left: 0;
-    }
-  }
+}
 </style>

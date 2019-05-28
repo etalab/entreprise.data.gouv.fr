@@ -17,8 +17,8 @@
 
 <script>
 export default {
-  name: 'headerSkeleton'
-}
+  name: "headerSkeleton"
+};
 </script>
 
 <style lang="scss" scoped>

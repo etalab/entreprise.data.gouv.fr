@@ -4,40 +4,46 @@
       <div class="column__full">
         <h2>Recherches sur l'API</h2>
         <p>
-          La recherche se fait par numéro SIREN.<br/>
-          L'endpoint à requêter est: <a class="dont-break-out" v-bind:href=exempleRNCS1>{{ this.exempleRNCS1 }}</a>:SIREN<br/>
+          La recherche se fait par numéro SIREN.<br />
+          L'endpoint à requêter est:
+          <a class="dont-break-out" v-bind:href="exempleRNCS1">{{
+            this.exempleRNCS1
+          }}</a
+          >:SIREN<br />
           Exemple pour la SNCF :
         </p>
-        <api-doc-input :request=exempleRNCS2></api-doc-input>
+        <api-doc-input :request="exempleRNCS2"></api-doc-input>
         <h3>Télécharger un document d'immatriculation</h3>
-        <p>Les informations peuvent être requêtées en document prêt à l'emploi. Un fichier PDF sera automatiquement téléchargé.</p>
-        <api-doc-input :request=exempleRNCSPDF></api-doc-input>
+        <p>
+          Les informations peuvent être requêtées en document prêt à l'emploi.
+          Un fichier PDF sera automatiquement téléchargé.
+        </p>
+        <api-doc-input :request="exempleRNCSPDF"></api-doc-input>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import ApiDocInput from '@/components/apiDoc/ApiDocInput'
+import ApiDocInput from "@/components/apiDoc/ApiDocInput";
 
 export default {
-  name: 'ApiDocRNCSEndpoints',
+  name: "ApiDocRNCSEndpoints",
   components: {
-    'ApiDocInput': ApiDocInput
+    ApiDocInput: ApiDocInput
   },
-  props: ['baseAdress'],
-  data () {
+  props: ["baseAdress"],
+  data() {
     return {
       exempleRNCS1: `${this.baseAdress}v1/fiches_identite/`,
       exempleRNCS2: `${this.baseAdress}v1/fiches_identite/808332670`,
       exempleRNCSPDF: `${this.baseAdress}v1/fiches_identite/808332670/pdf`
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 .container {
   display: flex;
   flex-direction: row;
@@ -72,5 +78,4 @@ h3 {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-
 </style>

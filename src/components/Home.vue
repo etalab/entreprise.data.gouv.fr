@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import HomeAPIs from '@/components/home/HomeAPIs'
-import HomePublicAdministration from '@/components/home/HomePublicAdministration'
-import ApiDocMail from '@/components/apiDoc/ApiDocMail'
+import HomeAPIs from "@/components/home/HomeAPIs";
+import HomePublicAdministration from "@/components/home/HomePublicAdministration";
+import ApiDocMail from "@/components/apiDoc/ApiDocMail";
 
 export default {
-  name: 'Home',
+  name: "Home",
   metaInfo: {
-    title: 'Accueil'
+    title: "Accueil"
   },
   components: {
-    'HomeApis': HomeAPIs,
-    'HomePublicAdministration': HomePublicAdministration,
-    'ApiDocMail': ApiDocMail
+    HomeApis: HomeAPIs,
+    HomePublicAdministration: HomePublicAdministration,
+    ApiDocMail: ApiDocMail
   }
-}
+};
 </script>

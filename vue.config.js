@@ -1,11 +1,12 @@
-const webpack = require('webpack')
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
+  runtimeCompiler: true,
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
-        sourceEndpoints: path.resolve(path.join(__dirname, 'config/endpoints'))
+        sourceEndpoints: path.resolve(path.join(__dirname, "config/endpoints"))
       })
     ]
   },
@@ -15,8 +16,8 @@ module.exports = {
       sass: {
         // @/ is an alias to src/
         // so this assumes you have a file named `src/variables.scss`
-        data: `@import "~@/style/app.scss";`
+        data: `@import "@/style/app.scss";`
       }
     }
   }
-}
+};

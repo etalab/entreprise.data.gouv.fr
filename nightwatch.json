@@ -1,0 +1,31 @@
+{
+  "src_folders": [
+    "test/e2e/input"
+  ],
+  "output_folder": "test/e2e/output",
+  "webdriver": {
+    "start_process": true,
+    "server_path": "node_modules/.bin/chromedriver",
+    "port": 9515
+  },
+  "test_settings": {
+    "default": {
+      "test_workers": true,
+      "launch_url": "http://localhost:8080/",
+      "detailed_output": false,
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    },
+    "production": {
+      "launch_url": "https://entreprise.data.gouv.fr/"
+    },
+    "sandbox": {
+      "launch_url": "https://sandbox.entreprise.data.gouv.fr/"
+    },
+    "travis": {
+      "test_workers": false,
+      "launch_url": "https://sandbox.entreprise.data.gouv.fr/"
+    }
+  }
+}

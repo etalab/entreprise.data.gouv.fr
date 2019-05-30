@@ -47,6 +47,11 @@
               <td><code>is_entrepreneur_individuel</code></td>
               <td>`yes` pour Oui, `no` pour Non</td>
             </tr>
+            <tr>
+              <td>Tranche Salariés</td>
+              <td><code>tranche_effectif_salarie_entreprise</code></td>
+              <td>le code INSEE pour cette tranche d'effectif salarié</td>
+            </tr>
           </tbody>
         </table>
         <p>

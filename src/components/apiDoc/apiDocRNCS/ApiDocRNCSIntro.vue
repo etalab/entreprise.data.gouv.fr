@@ -13,8 +13,7 @@
           <h2>Qu’est-ce que le RNCS ?</h2>
           <p>
             Le RNCS est le
-            <strong>Répertoire National du Commerce et des Sociétés</strong>. Le
-            RNCS est le Répertoire National du Commerce et des Sociétés. Il
+            <strong>Répertoire National du Commerce et des Sociétés</strong>. Il
             s'agit de l'ensemble des informations sur les sociétés françaises
             immatriculées, dans tous les registres locaux des greffes des
             tribunaux à compétence commerciale, et centralisées à l'INPI.

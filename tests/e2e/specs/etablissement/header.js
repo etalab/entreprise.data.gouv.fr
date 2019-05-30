@@ -1,5 +1,7 @@
 import { bouygues } from "../fixtures";
 
+const titleNotSkeleton = ".title__block > h2:not(.loading)";
+
 module.exports = {
   "Etablissement Page (company) got correct header": function(browser) {
     browser
@@ -7,8 +9,9 @@ module.exports = {
       .waitForElementVisible("body");
 
     // We have correct infos
-    browser.expect.element(".title__block").to.be.present;
-    browser.assert.containsText(".title__block > h2", bouygues.title);
+    browser.waitForElementVisible(titleNotSkeleton);
+    browser.expect.element(titleNotSkeleton).to.be.present;
+    browser.assert.containsText(titleNotSkeleton, bouygues.title);
     browser.end();
   }
 };

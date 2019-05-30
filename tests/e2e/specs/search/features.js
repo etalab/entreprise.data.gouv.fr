@@ -9,6 +9,7 @@ module.exports = {
       .assert.urlEquals(
         browser.launch_url + "search?fullText=coca-cola&page=1"
       );
+    browser.end();
   },
 
   "Pagination work": function(browser) {
@@ -16,7 +17,10 @@ module.exports = {
     const firstButton = ".pagination > .pagesButtons:nth-of-type(2) > a";
 
     // Go to pagination, click on last page
-    browser.waitForElementVisible(lastButton).click(lastButton);
+    browser
+      .url(browser.launch_url + "search?fullText=coca-cola&page=1")
+      .waitForElementVisible(lastButton)
+      .click(lastButton);
     browser
       .waitForElementVisible(lastButton)
       .moveToElement(lastButton, 0, 0)

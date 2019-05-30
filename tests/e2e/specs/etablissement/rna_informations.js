@@ -4,7 +4,7 @@ module.exports = {
   "Etablissement Page (RNA) displays correct info": function(browser) {
     browser
       .url(browser.launch_url + "etablissement/" + croixRouge.rnaId)
-      .waitForElementVisible("body");
+      .waitForElementVisible(cssHelpers.secondCompanyPanel);
 
     // we have two panels
     browser.expect.element(cssHelpers.secondCompanyPanel).to.be.present;
@@ -22,7 +22,7 @@ module.exports = {
   "Etablissement Page (RNA + SIRENE) displays correct info": function(browser) {
     browser
       .url(browser.launch_url + "etablissement/" + school42.rnaId)
-      .waitForElementVisible("body");
+      .waitForElementVisible(cssHelpers.secondPanelCategorySirene);
 
     // we have 2 categories, each with 2 panels
     browser.expect.element(cssHelpers.secondPanelCategorySirene).to.be.present;

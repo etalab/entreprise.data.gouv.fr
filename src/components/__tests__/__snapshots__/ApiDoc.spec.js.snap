@@ -16,10 +16,12 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
         class="text-center lead-text"
       >
         
-      Entreprise.data.gouv.fr met à votre disposition des APIs open-source gratuites
+      Entreprise.data.gouv.fr met à votre disposition des APIs open-source
+      gratuites
         <br />
         
-      pour faciliter l'utilisation des données par les professionnels et les particuliers.
+      pour faciliter l'utilisation des données par les professionnels et les
+      particuliers.
         <br />
       </p>
        
@@ -27,9 +29,9 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
         class="text-center lead-text"
       >
         
-      De nombreuses APIs sont en cours d’ajout.
-      Vous pouvez vous inscrire à notre mailing-list pour vous tenir au courant
-      des nouveautés et changements à venir.
+      De nombreuses APIs sont en cours d’ajout. Vous pouvez vous inscrire à
+      notre mailing-list pour vous tenir au courant des nouveautés et
+      changements à venir.
         <br />
       </p>
        
@@ -44,7 +46,8 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
           
     Vos données sont traitées par Mailjet.
           <br />
-           Vos informations ne seront jamais utilisées à des fins commerciales.
+          
+    Vos informations ne seront jamais utilisées à des fins commerciales.
   
         </p>
          
@@ -79,9 +82,9 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
             class="description"
           >
             
-          L’API Sirene contient tous les établissements des entreprises françaises,
-          ainsi que toutes les associations disposant d’un code SIRET.
-          Les données de l’API Sirene sont délivrées par l’INSEE.
+          L’API Sirene contient tous les établissements des entreprises
+          françaises, ainsi que toutes les associations disposant d’un code
+          SIRET. Les données de l’API Sirene sont délivrées par l’INSEE.
         
           </p>
            
@@ -115,8 +118,8 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
             class="description"
           >
             
-          Cette API contient toutes les associations françaises.
-          Les données proviennent du Ministère de l’Intérieur.
+          Cette API contient toutes les associations françaises. Les données
+          proviennent du Ministère de l’Intérieur.
         
           </p>
            
@@ -150,8 +153,8 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
             class="description"
           >
             
-          L’API RNM vous est gracieusement ouverte par les Chambres et Métiers de l’Artisanat.
-          Les données sont mises à jour toutes les nuits.
+          L’API RNM vous est gracieusement ouverte par les Chambres et Métiers
+          de l’Artisanat. Les données sont mises à jour toutes les nuits.
         
           </p>
            
@@ -190,7 +193,9 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
             </strong>
             <br />
             
-          Cette API contient les données IMR (Immatriculation, Modification, Radiation) du Registre National du Commerce et des Sociétés de l’INPI.
+          Cette API contient les données IMR (Immatriculation, Modification,
+          Radiation) du Registre National du Commerce et des Sociétés de
+          l’INPI.
         
           </p>
            
@@ -230,7 +235,8 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
             >
               Data.gouv.fr
             </a>
-             met a votre disposition de nombreux jeux de données "Open Data".
+             met a votre
+          disposition de nombreux jeux de données "Open Data".
             <br />
             
           Quelques exemples :
@@ -265,7 +271,8 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
            
           <p>
             
-          Vous pouvez également consulter des réutilisations utiles de ces jeux de données.
+          Vous pouvez également consulter des réutilisations utiles de ces
+          jeux de données.
         
           </p>
            
@@ -275,7 +282,8 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
            
           <p>
             
-          Etalab coordonne la politique d’ouverture et de partage des données publiques (“open data”). 
+          Etalab coordonne la politique d’ouverture et de partage des données
+          publiques (“open data”).
           
             <br />
              
@@ -319,16 +327,21 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
       </div>
        
       <h3>
-        Vous justifiez d’une mission de service public ? L’API Entreprise est pour vous.
+        
+      Vous justifiez d’une mission de service public ? L’API Entreprise est
+      pour vous.
+    
       </h3>
        
       <p>
         
-      Dans le respect du principe "Dites le nous une seule fois", la DINSIC a mis en place l’API Entreprise,
-      l’API qui aggrège les informations sur les entreprises.
+      Dans le respect du principe "Dites le nous une seule fois", la DINSIC a
+      mis en place l’API Entreprise, l’API qui aggrège les informations sur
+      les entreprises.
         <br />
         
-      Obtenez les Greffes, Certificats, Liasses fiscales, Attestations sociales, et bien plus encore...
+      Obtenez les Greffes, Certificats, Liasses fiscales, Attestations
+      sociales, et bien plus encore...
         <br />
       </p>
        
@@ -336,11 +349,13 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
         <strong>
           Attention :
         </strong>
-         Ces données ne sont pas publiques et sont donc reservées
-      aux administrations ou entreprises justifiant d'une mission de service public.
+         Ces données ne sont pas publiques et sont
+      donc reservées aux administrations ou entreprises justifiant d'une
+      mission de service public.
         <br />
         
-      Pour toutes questions : 
+      Pour toutes questions :
+      
         <a
           href="maito:tech@entreprise.api.gouv.fr"
         >

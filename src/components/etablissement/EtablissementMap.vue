@@ -19,7 +19,6 @@ import Vue from "vue";
 import mapboxgl from "mapbox-gl";
 import mapOtherMarkers from "@/components/mixins/mapOtherMarkers";
 import colors from "@/components/mixins/colors";
-import "mapbox-gl/dist/mapbox-gl.css";
 
 export default {
   name: "EtablisssementSireneMap",

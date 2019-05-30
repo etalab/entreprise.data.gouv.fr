@@ -20,10 +20,13 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       SIRET
     </label>
+     
     <div
       class="company__item-value"
     >
-       
+      
+      
+    
     </div>
   </div>
    
@@ -35,10 +38,13 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       SIREN
     </label>
+     
     <div
       class="company__item-value"
     >
-       
+      
+      
+    
     </div>
   </div>
    
@@ -50,10 +56,11 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       Clef NIC
     </label>
+     
     <div
       class="company__item-value"
     >
-       
+      
     </div>
   </div>
    
@@ -65,10 +72,14 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       Activité principale Etablissement
     </label>
+     
     <div
       class="company__item-value"
     >
-        - 
+      
+       -
+      
+    
     </div>
   </div>
    
@@ -80,10 +91,14 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       Activité principale Entreprise
     </label>
+     
     <div
       class="company__item-value"
     >
-        - 
+      
+       -
+      
+    
     </div>
   </div>
    
@@ -95,10 +110,13 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       Nature juridique
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      
+      Non renseigné
+    
     </div>
   </div>
    
@@ -110,10 +128,13 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       Numéro RNA
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      
+      Non renseigné
+    
     </div>
   </div>
    
@@ -125,10 +146,13 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
     >
       N° TVA Intracommunautaire
     </label>
+     
     <div
       class="company__item-value"
     >
-       FRNaNundefined
+      
+      FRNaNundefined
+    
     </div>
   </div>
 </div>

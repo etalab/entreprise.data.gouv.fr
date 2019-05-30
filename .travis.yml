@@ -4,25 +4,17 @@ node_js:
 dist: xenial
 services:
 - xvfb
-addons:
-  apt:
-    sources:
-    - google-chrome
-    packages:
-    - google-chrome-stable
 env:
   matrix:
     secure: OGizPWgyQOA5FsTSe9uY6dH75arRLFDyPbRirVN2t+X76JM1by6dm+fQXX83fL6Oj7GiHyaOnjIxFodSg/EHbhuJBhWt7snHklw4kRB0es5HI5EZBAXPb+xlja6yCG6Wd/B+1UVQ03boMC7Jmiy/N2rZeCZBU9e+T3Uviv14P+4Rw+BJJo945oWhcRUyCM79hya/I6s2Tk121q4jgcxgKaledYecIqVx2hYyc2NtLDX+8OaL11fggTdv63xWh0rYR+fR1fZ5xv20jBFy9PArkNOmnOpquVtt4d/xuPaekP+hefdxjr8mVGoCm/swb1RDVYaCXE4B992JzEKQR5JodSyTL6n8ROiEvKUTJShYubxrMkCfyh/eb00ExgjJc0pT5oWVWnSKBrEZ+dcolNzGEC+/75ogMHiCy/Ix838XlZaLIR89GA+Xq83ugKnKnnZ3VFVWLkxq+vJ5tZvkjF7j92369VV/dV5IMMKc9Juh4/tTOtp1hiUAx2Du6RC/P593jQR3vjnn3aRVzsAXx/gpFLUr+kLF1dXjoHK37/qUG+dTEExCG8H+Jks/wtM3TAgpMKoak2MpvZPXBP/NCRFCQBDMDMHaMLhveSz0cTQlEecm0SAdy+UvURGdJfBgCYq0HqENWHYRhUQ9nCrqvxuNnM73KJiUnBAYXhnS+B4FmYg=
 before_install:
-- export CHROME_BIN=chromium-browser
 - export DISPLAY=:99.
 before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
   > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
-script: (xvfb-run -e /dev/stdout --server-args="-screen 0 1024x768x24" -a nightwatch
-  --env travis) && npm run unit
+script: (xvfb-run -e /dev/stdout --server-args="-screen 0 1024x768x24" -a npm run test:e2e:travis) && npm run test:unit
 after_script:
 - "./cc-test-reporter format-coverage test/unit/coverage/lcov.info --input-type lcov"
 - "./cc-test-reporter upload-coverage"

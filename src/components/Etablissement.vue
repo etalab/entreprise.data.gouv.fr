@@ -20,7 +20,6 @@
 
 <script>
 import Filters from "@/components/mixins/filters";
-import Loader from "@/components/modules/Loader";
 import ServerError from "@/components/modules/ServerError";
 import NotFound from "@/components/etablissement/EtablissementNotFound";
 import EtablissementHeader from "@/components/etablissement/EtablissementHeader";
@@ -37,7 +36,6 @@ export default {
     };
   },
   components: {
-    Loader: Loader,
     ServerError: ServerError,
     NotFound: NotFound,
     EtablissementHeader: EtablissementHeader,
@@ -93,7 +91,7 @@ export default {
   },
   mixins: [Filters],
   watch: {
-    $route(to, from) {
+    $route() {
       this.$store.dispatch(
         "executeSearchEtablissement",
         this.$route.params.searchId

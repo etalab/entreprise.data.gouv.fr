@@ -7,7 +7,7 @@
           <p>
             <a href="https://data.gouv.fr">Data.gouv.fr</a> met a votre
             disposition de nombreux jeux de données "Open Data".<br />
-            Quelques exemples :
+            Quelques exemples&nbsp;:
           </p>
           <ul>
             <li>

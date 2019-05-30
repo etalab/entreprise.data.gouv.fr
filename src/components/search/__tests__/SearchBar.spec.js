@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount, mount } from "@vue/test-utils";
+import { createLocalVue, mount } from "@vue/test-utils";
 import Vuex from "vuex";
 import SearchBar from "@/components/search/SearchBar";
 import { __createMocks as createStoreMocks } from "@/store/index.js";

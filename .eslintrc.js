@@ -1,7 +1,9 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    es6: true,
+    jest: true
   },
   extends: ["plugin:vue/essential", "@vue/prettier"],
   rules: {

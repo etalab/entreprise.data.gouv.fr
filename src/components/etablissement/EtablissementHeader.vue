@@ -80,11 +80,13 @@ export default {
       if (this.$store.getters.sireneAvailable) {
         return true;
       }
+      return false;
     },
     haveRNAInfo() {
       if (this.$store.getters.RNAAvailable) {
         return true;
       }
+      return false;
     },
     coordinates() {
       if (

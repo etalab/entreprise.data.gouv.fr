@@ -21,7 +21,7 @@ const actions = {
       response => {
         store.dispatch("filterAndStoreSuggestions", response.body);
       },
-      response => {
+      () => {
         store.commit("setStoredSuggestions", "");
       }
     );

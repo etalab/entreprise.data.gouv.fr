@@ -78,6 +78,7 @@ export default {
           this.resultRNA.adresse_libelle_voie
         }`;
       }
+      return null;
     },
     l2_adress() {
       if (
@@ -88,6 +89,7 @@ export default {
           this.resultRNA.adresse_libelle_commune
         }`;
       }
+      return null;
     }
   },
   mixins: [Filters]

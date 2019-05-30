@@ -4,7 +4,7 @@
       Cet établissement est le siège social.
     </p>
     <p v-else class="company__item">
-      Le siège social de cet établissement est :
+      Le siège social de cet établissement est&nbsp;:
       <router-link
         class="company__item-link"
         :to="{
@@ -83,7 +83,6 @@ export default {
       return this.$store.getters.storedSirenSiege || { siret: 0 };
     },
     resultOtherSirens() {
-      const maxResults = this.maxChildrenEtablissementsToShow;
       return this.$store.getters.storedSirenChildren.slice(
         0,
         this.maxChildrenEtablissementsToShow

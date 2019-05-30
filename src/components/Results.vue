@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import Loader from "@/components/modules/Loader";
 import ServerError from "@/components/modules/ServerError";
 import ResultsSirene from "@/components/results/ResultsSirene";
 import ResultsRNA from "@/components/results/ResultsRNA";
@@ -45,7 +44,6 @@ export default {
     };
   },
   components: {
-    Loader: Loader,
     ServerError: ServerError,
     ResultsSirene: ResultsSirene,
     ResultsRna: ResultsRNA,

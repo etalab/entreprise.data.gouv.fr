@@ -47,5 +47,6 @@
     "sass-loader": "^7.1.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "eslintIgnore": ["/tests/unit/coverage/"]
 }

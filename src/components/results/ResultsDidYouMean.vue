@@ -25,6 +25,7 @@ export default {
       } else if (this.apiToCall == "RNA") {
         return this.$store.getters.storedSpellcheckRNA;
       }
+      return null;
     }
   },
   methods: {

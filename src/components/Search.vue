@@ -31,13 +31,11 @@
 
 <script>
 import SearchBar from "@/components/search/SearchBar";
-import Results from "@/components/Results.vue";
 
 export default {
   name: "Search",
   components: {
-    SearchBar: SearchBar,
-    Results: Results
+    SearchBar: SearchBar
   },
   created: function() {
     if (this.$route.query.page) {
@@ -77,7 +75,7 @@ export default {
     }
   },
   watch: {
-    $route(to, from) {
+    $route() {
       if (this.$route.query.fullText) {
         this.$store.dispatch("requestSearchFullText");
       }

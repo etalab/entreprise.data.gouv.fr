@@ -45,9 +45,6 @@
 <script>
 import Filters from "@/components/mixins/filters";
 import Formating from "@/components/mixins/formating";
-import Loader from "@/components/modules/Loader";
-import ServerError from "@/components/modules/ServerError";
-import NotFound from "@/components/etablissement/EtablissementNotFound";
 import EtablissementRNCS from "@/components/etablissement/EtablissementRNCS";
 import EtablissementRNCS404 from "@/components/etablissement/etablissementRNCS/EtablissementRNCS404";
 import BlocksSkeleton from "@/components/etablissement/skeletons/BlocksSkeleton";
@@ -60,9 +57,6 @@ export default {
     };
   },
   components: {
-    Loader: Loader,
-    ServerError: ServerError,
-    NotFound: NotFound,
     EtablissementRncs: EtablissementRNCS,
     "etablissement-rncs-404": EtablissementRNCS404,
     BlocksSkeleton: BlocksSkeleton
@@ -130,7 +124,7 @@ export default {
   },
   mixins: [Filters, Formating],
   watch: {
-    $route(to, from) {
+    $route() {
       this.$store.dispatch("executeSearchRNCS", this.$route.params.searchId);
     }
   }

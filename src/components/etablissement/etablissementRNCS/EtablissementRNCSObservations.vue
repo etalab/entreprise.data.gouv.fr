@@ -11,9 +11,8 @@
     </div>
     <div
       class="comment"
-      v-for="observation in RNCSObservationsOrdered"
+      v-for="observation in RNCSObservationsWithTextOrdered"
       :key="observation.id"
-      v-if="observation.texte"
     >
       <div class="company__item company__comment-date">
         <div class="company__item-value">
@@ -43,9 +42,16 @@ export default {
     RNCSObservations() {
       return this.$store.getters.RNCSData.observations;
     },
-    RNCSObservationsOrdered() {
-      return orderBy(this.RNCSObservations, "date_ajout", "desc");
+    // Returning observations that have text, ordered.
+    RNCSObservationsWithTextOrdered() {
+      const RNCSObservationsWithText = this.RNCSObservations.filter(
+        observation => {
+          return observation.texte !== null;
+        }
+      );
+      return orderBy(RNCSObservationsWithText, "date_ajout", "desc");
     }
+    // observation.texte
   },
   mixins: [Filters]
 };

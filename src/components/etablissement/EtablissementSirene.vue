@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import Filters from "@/components/mixins/filters.js";
 import EtablissementSireneContact from "@/components/etablissement/etablissementSirene/EtablissementSireneContact";
 import EtablissementSireneInfo from "@/components/etablissement/etablissementSirene/EtablissementSireneInfo";
 

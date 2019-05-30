@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="search.siret"
+    errors="0" failures="0" hostname="" id="" package="search" skipped="0"
+    tests="1" time="2.501" timestamp="Thu, 30 May 2019 12:22:18 GMT">
+  
+    <testcase name="Search SIRET goes to Etablissement page" classname="search.siret" time="2.501" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

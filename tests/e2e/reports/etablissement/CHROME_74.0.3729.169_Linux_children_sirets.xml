@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="2">
+
+  <testsuite name="etablissement.children_sirets"
+    errors="0" failures="0" hostname="" id="" package="etablissement" skipped="0"
+    tests="2" time="6.582" timestamp="Thu, 30 May 2019 12:22:03 GMT">
+  
+    <testcase name="Etablissement Page (company) displays Children Etablissements" classname="etablissement.children_sirets" time="5.425" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Clicking on children etablissement goes to etablissement page" classname="etablissement.children_sirets" time="1.157" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

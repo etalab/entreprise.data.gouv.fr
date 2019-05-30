@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="etablissement.sirene_informations"
+    errors="0" failures="0" hostname="" id="" package="etablissement" skipped="0"
+    tests="1" time="5.159" timestamp="Thu, 30 May 2019 12:22:03 GMT">
+  
+    <testcase name="Etablissement Page (SIRENE) displays correct info" classname="etablissement.sirene_informations" time="5.159" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

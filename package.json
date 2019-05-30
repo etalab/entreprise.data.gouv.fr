@@ -9,7 +9,10 @@
     "build:production": "vue-cli-service build",
     "build:sandbox": "vue-cli-service build --mode sandbox",
     "lint": "vue-cli-service lint",
-    "test:e2e": "vue-cli-service test:e2e",
+    "test:e2e": "vue-cli-service test:e2e --config nightwatch.conf.js --env default",
+    "test:e2e:sandbox": "vue-cli-service test:e2e --config nightwatch.conf.js --env sandbox",
+    "test:e2e:production": "vue-cli-service test:e2e --config nightwatch.conf.js --env production",
+    "test:e2e:travis": "vue-cli-service test:e2e --config nightwatch.conf.js --env travis",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
@@ -25,6 +28,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/register": "^7.4.4",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-e2e-nightwatch": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",

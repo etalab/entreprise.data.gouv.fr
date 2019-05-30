@@ -42,23 +42,20 @@ npm run build:production
 ## Tests
 
 ``` bash
-# Tous les tests
-npm run test
-
 # Tests unitaires
-npm run unit
+npm run test:unit
 
 # Mise à jour des snapshots
-npm run unit -- -u
+npm run test:unit -- -u
 
 # Tests end2end environnement dev
-nightwatch
+npm run test:e2e
 
 # Tests end2end environnement sandbox
-nightwatch --env sandbox
+npm run test:e2e:sandbox
 
 # Tests end2end environnement production
-nightwatch --env production
+npm run test:e2e:production
 ```
 Attention, les tests end2end avec nightwatch peuvent être capricieux, par exemple selon la taille de la fenêtre disponible pour le navigateur de test.
 Les tests d'une branche (develop/dev) peuvent ne pas fonctionner sur une autre (master/production).

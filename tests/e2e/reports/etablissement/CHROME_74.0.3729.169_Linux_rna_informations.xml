@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="2">
+
+  <testsuite name="etablissement.rna_informations"
+    errors="0" failures="0" hostname="" id="" package="etablissement" skipped="0"
+    tests="2" time="6.371" timestamp="Thu, 30 May 2019 12:22:03 GMT">
+  
+    <testcase name="Etablissement Page (RNA) displays correct info" classname="etablissement.rna_informations" time="4.904" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Etablissement Page (RNA + SIRENE) displays correct info" classname="etablissement.rna_informations" time="1.467" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

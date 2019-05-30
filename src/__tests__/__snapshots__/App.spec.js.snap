@@ -27,7 +27,8 @@ exports[`App.vue It match the snapshot 1`] = `
     class="notification full-width"
   >
     
-    Ce site est un travail en cours, actuellement en beta. Vous pouvez le consulter librement.
+    Ce site est un travail en cours, actuellement en beta. Vous pouvez le
+    consulter librement.
   
   </div>
    
@@ -46,14 +47,19 @@ exports[`App.vue It match the snapshot 1`] = `
           class="search__title"
         >
           
-          Retrouvez toutes les informations publiques concernant les entreprises et associations de France
+          Retrouvez toutes les informations publiques concernant les
+          entreprises et associations de France
         
         </h1>
          
         <p
           class="search__subtitle"
         >
-          Les bases de données sur l’état civil des entreprises et associations françaises sont maintenant accessibles à tous, sans frais.
+          
+          Les bases de données sur l’état civil des entreprises et
+          associations françaises sont maintenant accessibles à tous, sans
+          frais.
+        
         </p>
       </div>
        
@@ -102,7 +108,9 @@ exports[`App.vue It match the snapshot 1`] = `
             class="column"
           >
             <p>
-              Vous pouvez, si vous le souhaitez, interroger directement les APIs
+              
+          Vous pouvez, si vous le souhaitez, interroger directement les APIs
+        
             </p>
              
             <a
@@ -148,11 +156,12 @@ exports[`App.vue It match the snapshot 1`] = `
       >
         <p>
           
-        Vous êtes une administration ?
+      Vous êtes une administration ?
           <br />
           
-        Demandez un accès spécial à l'API Entreprise et obtenez des informations supplémentaires sur les sociétés
-      
+      Demandez un accès spécial à l'API Entreprise et obtenez des informations
+      supplémentaires sur les sociétés
+    
         </p>
          
         <a
@@ -175,7 +184,8 @@ exports[`App.vue It match the snapshot 1`] = `
         
     Vos données sont traitées par Mailjet.
         <br />
-         Vos informations ne seront jamais utilisées à des fins commerciales.
+        
+    Vos informations ne seront jamais utilisées à des fins commerciales.
   
       </p>
        

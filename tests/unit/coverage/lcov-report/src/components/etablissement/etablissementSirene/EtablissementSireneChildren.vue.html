@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/etablissement/etablissementSirene/EtablissementSireneChildren.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/etablissement/etablissementSirene</a> EtablissementSireneChildren.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/20</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;div class="company__panel"&gt;
+    &lt;p v-if="isSiegeSocial" class="company__item"&gt;Cet établissement est le siège social.&lt;/p&gt;
+    &lt;p v-else class="company__item"&gt;Le siège social de cet établissement est :
+      &lt;router-link class="company__item-link" :to="{ name: 'Etablissement', params: {searchId: resultSiegeSocial.siret}}"&gt;
+        {{ resultSiegeSocial.nom_raison_sociale | removeExtraChars }} (&lt;span :inner-html.prop="resultSiegeSocial.siret | prettySiretHtml" /&gt;)
+      &lt;/router-link&gt;
+    &lt;/p&gt;
+    &lt;div v-if="haveChildrenEtablissements" class="company__item"&gt;
+      &lt;div class="company__children-summary"&gt;
+        Cette entreprise possède {{ totalResultsOtherSirens }} {{ `établissement` | pluralizeDependingOn(this.totalResultsOtherSirens) }}&lt;template v-if="thereAreMoreThanMaxChildren"&gt;
+        ({{ maxChildrenEtablissements }} {{ `affiché` | pluralizeDependingOn(this.maxChildrenEtablissements) }})&lt;/template&gt; :
+        &lt;template v-if="thereAreMoreThanMaxChildren"&gt;
+          &lt;div class="company__item-link" v-show="!visibleChildren" @click="showAllChildren"&gt;Afficher la totalité&lt;/div&gt;
+          &lt;div class="company__item-link" v-show="visibleChildren" @click="hideAllChildren"&gt;Réduire&lt;/div&gt;
+        &lt;/template&gt;
+      &lt;/div&gt;
+      &lt;ul class="company__children"&gt;
+        &lt;li class="company__item-link" v-for="siret in resultOtherSirens" :key="siret"&gt;
+          &lt;router-link :to="{ name: 'Etablissement', params: {searchId: siret}}"&gt;
+            {{ siret | prettySiret }}
+          &lt;/router-link&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+import Constants from '@/constants.js'
+import Filters from '@/components/mixins/filters'
+&nbsp;
+export default {
+  name: 'EtablissementSireneChildren',
+<span class="fstat-no" title="function not covered" >  data () {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      maxChildrenEtablissementsToShow: Constants.ETABLISSEMENT_SHOW_MAX_CHILDREN_SIRETS,
+      visibleChildren: false
+    }
+  },
+  computed: {
+<span class="fstat-no" title="function not covered" >    resultSirene () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.$store.getters.singlePageEtablissementSirene</span>
+    },
+<span class="fstat-no" title="function not covered" >    resultSiegeSocial () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.$store.getters.storedSirenSiege || { siret: 0 }</span>
+    },
+<span class="fstat-no" title="function not covered" >    resultOtherSirens () {</span>
+<span class="cstat-no" title="statement not covered" >      const maxResults = this.maxChildrenEtablissementsToShow</span>
+<span class="cstat-no" title="statement not covered" >      return this.$store.getters.storedSirenChildren.slice(0, this.maxChildrenEtablissementsToShow)</span>
+    },
+<span class="fstat-no" title="function not covered" >    haveChildrenEtablissements () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.totalResultsOtherSirens &gt;= 1</span>
+    },
+<span class="fstat-no" title="function not covered" >    totalResultsOtherSirens () {</span>
+      // Total result minus Siege Social
+<span class="cstat-no" title="statement not covered" >      return this.$store.getters.storedSirenTotalResults - 1</span>
+    },
+<span class="fstat-no" title="function not covered" >    maxChildrenEtablissements () {</span>
+<span class="cstat-no" title="statement not covered" >      return Math.min(this.totalResultsOtherSirens, this.maxChildrenEtablissementsToShow)</span>
+    },
+<span class="fstat-no" title="function not covered" >    isSiegeSocial () {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.resultSirene) {</span>
+<span class="cstat-no" title="statement not covered" >        return</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.resultSirene.is_siege == '1') {</span>
+<span class="cstat-no" title="statement not covered" >        return true</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return false</span>
+    },
+<span class="fstat-no" title="function not covered" >    thereAreMoreThanMaxChildren () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.totalResultsOtherSirens &gt;= this.maxChildrenEtablissementsToShow</span>
+    }
+  },
+  methods: {
+<span class="fstat-no" title="function not covered" >    showAllChildren () {</span>
+<span class="cstat-no" title="statement not covered" >      this.maxChildrenEtablissementsToShow = this.totalResultsOtherSirens</span>
+<span class="cstat-no" title="statement not covered" >      this.visibleChildren = true</span>
+    },
+<span class="fstat-no" title="function not covered" >    hideAllChildren () {</span>
+<span class="cstat-no" title="statement not covered" >      this.maxChildrenEtablissementsToShow = Constants.ETABLISSEMENT_SHOW_MAX_CHILDREN_SIRETS</span>
+<span class="cstat-no" title="statement not covered" >      this.visibleChildren = false</span>
+    }
+  },
+  mixins: [Filters]
+}
+&lt;/script&gt;
+&nbsp;
+&lt;style lang="scss" scoped&gt;
+  .company__panel {
+    margin-top: 1.5em;
+  }
+&nbsp;
+  .company__item {
+    margin-bottom: 1em;
+  }
+&nbsp;
+  .company__children-summary {
+    margin-bottom: 0.5em;
+  }
+&nbsp;
+  .company__children {
+    margin: 0;
+    padding: 0;
+  }
+&nbsp;
+  .company__children li {
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+&lt;/style&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 27 2019 12:15:00 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

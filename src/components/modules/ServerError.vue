@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'ServerError'
-}
+  name: "ServerError"
+};
 </script>
 
 <style lang="scss" scoped>

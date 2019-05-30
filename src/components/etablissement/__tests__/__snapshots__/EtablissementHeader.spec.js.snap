@@ -13,6 +13,7 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
       <h2>
         
         
+        
         <span
           class="company__siren"
         >
@@ -39,19 +40,23 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
       <div
         class="second__subtitle"
       >
-         
+        
+          
+        
       </div>
        
       <!---->
        
-      <etablissementsirenechildren-stub />
+      <etablissement-sirene-children-stub />
        
       <a>
-         Fiche d'immatriculation au RNCS 
+        
+        Fiche d'immatriculation au RNCS
+      
       </a>
     </div>
      
-    <etablissementmap-stub
+    <etablissement-map-stub
       etablissement="[object Object]"
     />
   </div>

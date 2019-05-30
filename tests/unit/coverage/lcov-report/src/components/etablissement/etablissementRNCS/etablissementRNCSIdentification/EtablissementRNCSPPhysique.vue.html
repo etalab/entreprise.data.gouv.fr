@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/etablissement/etablissementRNCS/etablissementRNCSIdentification/EtablissementRNCSPPhysique.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/components/etablissement/etablissementRNCS/etablissementRNCSIdentification</a> EtablissementRNCSPPhysique.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/8</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;div v-if="RNCSPhysical"&gt;
+    &lt;h4&gt;Identification de la Personne Physique&lt;/h4&gt;
+    &lt;div class="company__item"&gt;
+      &lt;div class="company__item-key"&gt;Nom&lt;/div&gt;
+      &lt;div class="company__item-value"&gt;{{ concatNames(RNCSPhysical.prenoms, RNCSPhysical.nom_patronyme) }}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div v-if="RNCSPhysical.nom_usage" class="company__item"&gt;
+      &lt;div class="company__item-key"&gt;Nom d’usage&lt;/div&gt;
+      &lt;div class="company__item-value"&gt;{{ RNCSPhysical.nom_usage | upperCase }}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;panel-info :parent="RNCSPhysical" :elements="elementsToDisplay1" /&gt;
+    &lt;div class="company__item"&gt;
+      &lt;div class="company__item-key"&gt;Adresse :&lt;/div&gt;
+      &lt;div class="company__item-value"&gt;
+        &lt;div v-if="RNCSPhysical.adresse_ligne_1"&gt;{{ RNCSPhysical.adresse_ligne_1 | ifExist }}&lt;/div&gt;
+        &lt;div v-if="RNCSPhysical.adresse_ligne_2"&gt;{{ RNCSPhysical.adresse_ligne_2 }}&lt;/div&gt;
+        &lt;div v-if="RNCSPhysical.adresse_ligne_3"&gt;{{ RNCSPhysical.adresse_ligne_3 }}&lt;/div&gt;
+        &lt;div&gt; {{ RNCSConcatAddress(RNCSPhysical) }}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div v-if="collabName(RNCSPhysical)" class="company__item"&gt;
+      &lt;div class="company__item-key"&gt;Nom du conjoint collaborateur&lt;/div&gt;
+      &lt;div class="company__item-value"&gt;{{ collabName(RNCSPhysical) }}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;panel-info-inline :parent="RNCSPhysical" :elements="elementsToDisplay2" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+<span class="cstat-no" title="statement not covered" >import PanelInfo from '@/components/etablissement/etablissementRNCS/templates/PanelInfo'</span>
+<span class="cstat-no" title="statement not covered" >import PanelInfoInline from '@/components/etablissement/etablissementRNCS/templates/PanelInfoInline'</span>
+<span class="cstat-no" title="statement not covered" >import Filters from '@/components/mixins/filters'</span>
+<span class="cstat-no" title="statement not covered" >import Formating from '@/components/mixins/formating'</span>
+<span class="cstat-no" title="statement not covered" >import RNCSFormating from '@/components/etablissement/etablissementRNCS/mixins/RNCSformating'</span>
+&nbsp;
+export default {
+  name: 'EtablissementRNCSPPhysique',
+  components: {
+    'PanelInfo': PanelInfo,
+    'PanelInfoInline': PanelInfoInline
+  },
+<span class="fstat-no" title="function not covered" >  data () {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      elementsToDisplay1:
+      {
+        "Pseudonyme": "pseudonyme",
+        "Date de naissance": "date_naissance",
+        "Ville de naissance": "ville_naissance",
+        "Pays de naissance": "pays_naissance",
+        "Nationalité": "nationalite"
+      },
+      elementsToDisplay2:
+      {
+        "Conjoint collaborateur, Nom d’usage": "conjoint_collab_nom_usage",
+        "Conjoint collaborateur, date de fin": "conjoint_collab_date_fin",
+        "Conjoint collaborateur, Pseudonyme": "conjoint_collab_pseudonyme"
+      }
+    }
+  },
+  computed: {
+<span class="fstat-no" title="function not covered" >    RNCSPhysical () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.$store.getters.RNCSData.personne_physique</span>
+    }
+  },
+  methods: {
+<span class="fstat-no" title="function not covered" >    collabName (person) {</span>
+<span class="cstat-no" title="statement not covered" >      return Formating.methods.concatNames(person.conjoint_collab_prenoms, person.conjoint_collab_nom_patronyme)</span>
+    }
+  },
+  mixins: [Filters, Formating, RNCSFormating]
+}
+&lt;/script&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 27 2019 12:15:00 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

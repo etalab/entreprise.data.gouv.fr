@@ -16,10 +16,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Gérant
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      
+      Non renseigné
+    
     </div>
   </div>
    
@@ -31,10 +34,11 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Adresse
     </label>
+     
     <div
       class="company__item-value"
     >
-        
+      
     </div>
   </div>
    
@@ -46,10 +50,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Ville
     </label>
+     
     <div
       class="company__item-value"
     >
-        
+      
+       
+    
     </div>
   </div>
    
@@ -61,10 +68,11 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Cedex
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      Non renseigné
     </div>
   </div>
    
@@ -76,10 +84,11 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Date de création
     </label>
+     
     <div
       class="company__item-value"
     >
-       
+      
     </div>
   </div>
    
@@ -91,10 +100,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Téléphone
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      
+      Non renseigné
+    
     </div>
   </div>
    
@@ -106,10 +118,11 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Email
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      Non renseigné
     </div>
   </div>
    
@@ -121,10 +134,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Tranche d’effectif salariés
     </label>
+     
     <div
       class="company__item-value"
     >
-       
+      
+      
+    
     </div>
   </div>
 </div>

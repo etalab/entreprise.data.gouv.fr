@@ -39,6 +39,29 @@ npm run build:production
 
 ```
 
+## Tests
+
+``` bash
+# Tests unitaires
+npm run test:unit
+
+# Mise à jour des snapshots
+npm run test:unit -- -u
+
+# Tests end2end environnement dev
+npm run test:e2e
+
+# Tests end2end environnement sandbox
+npm run test:e2e:sandbox
+
+# Tests end2end environnement production
+npm run test:e2e:production
+```
+Attention, les tests end2end avec nightwatch peuvent être capricieux, par exemple selon la taille de la fenêtre disponible pour le navigateur de test.
+Les tests d'une branche (develop/dev) peuvent ne pas fonctionner sur une autre (master/production).
+
+Ces tests étant end2end, vous avez besoin des applications backend ET frontend fonctionnelles sur localhost si vous désirez tester en développement.
+
 ## Déploiement
 
 Un script Mina (et un Rakefile) est disponible pour déployer automatiquement sur l'infra entreprise.data.gouv.fr :

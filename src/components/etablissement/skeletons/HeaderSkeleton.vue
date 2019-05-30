@@ -13,49 +13,48 @@
 </template>
 
 <script>
-
 export default {
-  name: 'headerSkeleton'
-}
+  name: "headerSkeleton"
+};
 </script>
 
 <style lang="scss" scoped>
-  .company__buttons {
-    margin-top: 1.5em;
+.company__buttons {
+  margin-top: 1.5em;
 
-    .button {
-      padding: 0.5em 1em 0.6em;
-      vertical-align: middle;
-      margin-left: 0;
-    }
+  .button {
+    padding: 0.5em 1em 0.6em;
+    vertical-align: middle;
+    margin-left: 0;
   }
+}
 
-  h2.loading {
-    width: 400px;
-    margin-bottom: 0.5em;
-  }
+h2.loading {
+  width: 400px;
+  margin-bottom: 0.5em;
+}
 
-  .subtitle.loading {
-    margin-top: 0.3em;
-    width: 150px;
-  }
+.subtitle.loading {
+  margin-top: 0.3em;
+  width: 150px;
+}
 
-  .second__subtitle.loading {
-    margin-top: 1em;
-    width: 300px;
-  }
+.second__subtitle.loading {
+  margin-top: 1em;
+  width: 300px;
+}
 
-  .text__medium.loading {
-    margin-top: 0.3em;
-    width: 300px;
-  }
+.text__medium.loading {
+  margin-top: 0.3em;
+  width: 300px;
+}
 
-  .text__long.loading {
-    margin-top: 1.6em;
-    width: 150px;
-  }
+.text__long.loading {
+  margin-top: 1.6em;
+  width: 150px;
+}
 
-  .company__panel {
-    margin-top: 1.7em;
-  }
+.company__panel {
+  margin-top: 1.7em;
+}
 </style>

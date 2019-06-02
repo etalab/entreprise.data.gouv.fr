@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "intl": "^1.2.5",
     "mapbox-gl": "^1.0.0",
     "template.data.gouv.fr": "^1.2.1",
     "vue": "^2.6.10",
@@ -48,5 +49,7 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10"
   },
-  "eslintIgnore": ["/tests/unit/coverage/"]
+  "eslintIgnore": [
+    "/tests/unit/coverage/"
+  ]
 }

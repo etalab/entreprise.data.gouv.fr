@@ -36,6 +36,10 @@
         >
           Fiche d'immatriculation au RNCS
         </router-link>
+        <etablissement-header-timestamp
+          :resultSirene="resultSirene"
+          :resultRNA="resultRNA"
+        />
       </div>
       <div v-if="isEtablissementLoading" class="map__dummy panel"></div>
       <template v-else>
@@ -54,11 +58,13 @@ import Filters from "@/components/mixins/filters.js";
 import EtablissementSireneChildren from "@/components/etablissement/etablissementSirene/EtablissementSireneChildren";
 import EtablissementMap from "@/components/etablissement/EtablissementMap";
 import HeaderSkeleton from "@/components/etablissement/skeletons/HeaderSkeleton";
+import EtablissementHeaderTimestamp from "@/components/etablissement/etablissementHeader/EtablissementHeaderTimestamp";
 
 export default {
   name: "EtablissementHeader",
   props: ["searchId"],
   components: {
+    EtablissementHeaderTimestamp: EtablissementHeaderTimestamp,
     EtablissementSireneChildren: EtablissementSireneChildren,
     EtablissementMap: EtablissementMap,
     HeaderSkeleton: HeaderSkeleton

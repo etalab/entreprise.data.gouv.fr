@@ -8,12 +8,6 @@ localVue.use(Vuex);
 jest.mock("@/store/index.js");
 jest.mock("@/components/results/ResultsDidYouMean.vue");
 
-describe("ResultsDidYouMean.vue", () => {
-  test("Clicking on DidYouMean launch didYouMeanSearch", () => {
-    // Todo
-  });
-});
-
 describe("ResultsDidYouMean.vue Snapshot test", () => {
   const storeMocks = createStoreMocks();
 

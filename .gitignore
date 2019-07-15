@@ -7,4 +7,5 @@ yarn-error.log*
 test/unit/coverage
 chromedriver.log
 selenium-debug.log
+selenium-server.log
 tests/e2e/reports/

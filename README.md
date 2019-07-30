@@ -35,6 +35,12 @@ npm run test
 # Construire pour la production
 npm run build:production
 
+# Linter
+npm run lint
+
+# Linter avec fix auto
+npm run lint-fix
+
 ```
 
 ## Tests

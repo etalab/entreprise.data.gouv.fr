@@ -1,3 +1,5 @@
+import Intl from "intl";
+
 export default {
   filters: {
     capitalize: function(string) {

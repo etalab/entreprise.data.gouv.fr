@@ -7,24 +7,6 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 jest.mock("@/store/index.js");
 
-describe("EtablissementSireneInfo.vue", () => {
-  // let storeMocks
-  // let wrapperEPI
-  // let etablissementPanelInfo
-  // beforeEach(() => {
-  //   storeMocks = createStoreMocks()
-  //   wrapperEPI = shallowMount(EtablissementSireneInfo, {
-  //     localVue,
-  //     store: storeMocks.store
-  //   })
-  //   etablissementPanelInfo = wrapperEPI.vm
-  // })
-  // TODO
-  // test('tvaIntracommunautaire) is correctly computed', () => {
-  //   expect(etablissementPanelInfo.tvaIntracommunautaire).toBe('FR80833057201')
-  // })
-});
-
 describe("EtablissementSireneInfo.vue snapshot", () => {
   const localVue = createLocalVue();
   const storeMocks = createStoreMocks();

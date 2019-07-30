@@ -54,6 +54,11 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
         Fiche d'immatriculation au RNCS
       
       </a>
+       
+      <etablissement-header-timestamp-stub
+        resultrna="[object Object]"
+        resultsirene="[object Object]"
+      />
     </div>
      
     <etablissement-map-stub

@@ -37,16 +37,16 @@
           Fiche d'immatriculation au RNCS
         </router-link>
         <etablissement-header-timestamp
-          :resultSirene="resultSirene"
-          :resultRNA="resultRNA"
+          :result-sirene="resultSirene"
+          :result-r-n-a="resultRNA"
         />
       </div>
       <div v-if="isEtablissementLoading" class="map__dummy panel"></div>
       <template v-else>
         <etablissement-map
           v-if="haveSireneInfo"
-          :positionEtablissement="coordinates"
-          :etablissement="this.resultSirene"
+          :position-etablissement="coordinates"
+          :etablissement="resultSirene"
         />
       </template>
     </div>
@@ -62,13 +62,14 @@ import EtablissementHeaderTimestamp from "@/components/etablissement/etablisseme
 
 export default {
   name: "EtablissementHeader",
-  props: ["searchId"],
   components: {
     EtablissementHeaderTimestamp: EtablissementHeaderTimestamp,
     EtablissementSireneChildren: EtablissementSireneChildren,
     EtablissementMap: EtablissementMap,
     HeaderSkeleton: HeaderSkeleton
   },
+  mixins: [Filters],
+  props: { searchId: { type: String, default: "" } },
   computed: {
     isEtablissementLoading() {
       return this.$store.getters.mainAPISLoading;
@@ -104,8 +105,7 @@ export default {
       }
       return null;
     }
-  },
-  mixins: [Filters]
+  }
 };
 </script>
 

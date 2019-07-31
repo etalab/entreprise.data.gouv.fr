@@ -83,7 +83,7 @@ export default {
   components: {
     ApiDocInput: ApiDocInput
   },
-  props: ["baseAdress"],
+  props: { baseAdress: { type: String, default: "" } },
   data() {
     return {
       exempleSiret1: this.baseAdress + "siret/<VOTRE_SIRET>",

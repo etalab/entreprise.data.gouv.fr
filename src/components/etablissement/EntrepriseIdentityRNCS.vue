@@ -12,7 +12,7 @@
         <div class="company__buttons">
           <a
             class="button"
-            v-bind:href="dataRequestPDF"
+            :href="dataRequestPDF"
             title="Télécharger les données de cette entreprise au format PDF"
           >
             <img class="icon" src="@/assets/img/download.svg" alt="" />
@@ -30,7 +30,7 @@
           <a
             class="button-outline secondary"
             target="_blank"
-            v-bind:href="dataRequestURL"
+            :href="dataRequestURL"
             title="Accéder aux données brutes de cette entreprise"
           >
             <img class="icon" src="@/assets/img/json.svg" alt="" />
@@ -61,6 +61,7 @@ export default {
     "etablissement-rncs-404": EtablissementRNCS404,
     BlocksSkeleton: BlocksSkeleton
   },
+  mixins: [Filters, Formating],
   computed: {
     searchId() {
       return this.$route.params.searchId;
@@ -70,9 +71,7 @@ export default {
     },
     dataRequestURL() {
       if (this.haveRNCSInfo) {
-        return `${process.env.VUE_APP_BASE_ADDRESS_RNCS}${
-          this.$store.getters.RNCSData.siren
-        }`;
+        return `${process.env.VUE_APP_BASE_ADDRESS_RNCS}${this.$store.getters.RNCSData.siren}`;
       }
       return null;
     },
@@ -97,6 +96,17 @@ export default {
       return this.$store.getters.RNCSError;
     }
   },
+  watch: {
+    $route() {
+      this.$store.dispatch("executeSearchRNCS", this.$route.params.searchId);
+    }
+  },
+  beforeCreate() {
+    this.$store.commit("setStoredSuggestions", "");
+  },
+  created() {
+    this.$store.dispatch("executeSearchRNCS", this.$route.params.searchId);
+  },
   methods: {
     titleEtablissement() {
       if (this.haveRNCSInfo) {
@@ -114,18 +124,6 @@ export default {
           this.$store.getters.RNCSData.personne_physique.nom_patronyme
         );
       }
-    }
-  },
-  beforeCreate() {
-    this.$store.commit("setStoredSuggestions", "");
-  },
-  created() {
-    this.$store.dispatch("executeSearchRNCS", this.$route.params.searchId);
-  },
-  mixins: [Filters, Formating],
-  watch: {
-    $route() {
-      this.$store.dispatch("executeSearchRNCS", this.$route.params.searchId);
     }
   }
 };

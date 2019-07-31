@@ -50,6 +50,7 @@ export default {
     PanelInfo: PanelInfo,
     PanelInfoInline: PanelInfoInline
   },
+  mixins: [Filters, Formating, RNCSFormating],
   data() {
     return {
       elementsToDisplay1: {
@@ -78,7 +79,6 @@ export default {
         person.conjoint_collab_nom_patronyme
       );
     }
-  },
-  mixins: [Filters, Formating, RNCSFormating]
+  }
 };
 </script>

@@ -50,6 +50,7 @@ import Formating from "@/components/mixins/formating";
 
 export default {
   name: "EtablissementSireneContact",
+  mixins: [Filters, Formating],
   computed: {
     resultSirene() {
       return this.$store.getters.singlePageEtablissementSirene;
@@ -76,7 +77,6 @@ export default {
       const day = this.resultSirene.date_creation.substring(6, 8);
       return `${day}/${month}/${year}`;
     }
-  },
-  mixins: [Filters, Formating]
+  }
 };
 </script>

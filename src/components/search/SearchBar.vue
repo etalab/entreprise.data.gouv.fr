@@ -1,10 +1,10 @@
 <template>
   <div class="form__group">
     <input
+      v-model="fullText"
       type="text"
       name="search"
       placeholder="Nom, SIREN, SIRET, adresse..."
-      v-model="fullText"
       @keydown="allowSuggestions"
       @keydown.down="suggestDown"
       @keydown.up.prevent="suggestUp"
@@ -16,15 +16,12 @@
       <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
     </button>
 
-    <ul
-      v-show="suggestions.length && this.suggestionsAllowed"
-      class="suggestions"
-    >
+    <ul v-show="suggestions.length && suggestionsAllowed" class="suggestions">
       <li
-        class="suggestion__box"
         v-for="(suggestion, index) in suggestions"
         :key="index"
-        v-bind:class="{ active: suggestActive(index) }"
+        class="suggestion__box"
+        :class="{ active: suggestActive(index) }"
         @mousedown="suggestSelectAndEnter(index)"
       >
         <span>{{ suggestion | capitalize | removeExtraChars }}</span>
@@ -40,7 +37,7 @@ import RegExps from "@/components/mixins/regExps.js";
 
 export default {
   name: "SearchBar",
-  props: ["searchName"],
+  mixins: [Filters, SuggestionsHelpers, RegExps],
   computed: {
     fullText: {
       get: function() {
@@ -60,6 +57,9 @@ export default {
     isSearchNotEmpty() {
       return this.$store.state.searchFullText.storedFullText !== "";
     }
+  },
+  beforeDestroy() {
+    this.suggestReset();
   },
   methods: {
     prepareThenSearch: async function() {
@@ -100,11 +100,7 @@ export default {
       this.$store.dispatch("requestSearchFullText");
       this.suggestCount = -1;
     }
-  },
-  beforeDestroy() {
-    this.suggestReset();
-  },
-  mixins: [Filters, SuggestionsHelpers, RegExps]
+  }
 };
 </script>
 

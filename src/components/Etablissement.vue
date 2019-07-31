@@ -5,12 +5,12 @@
 
       <template>
         <not-found v-if="isNotFound" />
-        <etablissement-header :searchId="searchId" />
+        <etablissement-header :search-id="searchId" />
         <blocks-skeleton v-if="mainAPISLoading" />
         <etablissement-sirene v-if="haveSireneInfo" />
         <etablissement-rna
           v-if="haveRNAInfo"
-          :haveComponentTop="haveSireneInfo"
+          :have-component-top="haveSireneInfo"
         />
         <etablissement-rnm v-if="haveRNMInfo" />
       </template>
@@ -44,6 +44,7 @@ export default {
     EtablissementRnm: EtablissementRNM,
     BlocksSkeleton: BlocksSkeleton
   },
+  mixins: [Filters],
   computed: {
     searchId() {
       return this.$route.params.searchId;
@@ -67,17 +68,12 @@ export default {
       return this.$store.getters.mainAPISLoading;
     }
   },
-  methods: {
-    titleEtablissement() {
-      if (this.haveSireneInfo) {
-        return Filters.filters.removeExtraChars(
-          this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale
-        );
-      } else if (this.haveRNAInfo) {
-        return this.$store.getters.singlePageEtablissementRNA.titre;
-      } else {
-        return "Etablissement";
-      }
+  watch: {
+    $route() {
+      this.$store.dispatch(
+        "executeSearchEtablissement",
+        this.$route.params.searchId
+      );
     }
   },
   beforeCreate() {
@@ -89,13 +85,17 @@ export default {
       this.$route.params.searchId
     );
   },
-  mixins: [Filters],
-  watch: {
-    $route() {
-      this.$store.dispatch(
-        "executeSearchEtablissement",
-        this.$route.params.searchId
-      );
+  methods: {
+    titleEtablissement() {
+      if (this.haveSireneInfo) {
+        return Filters.filters.removeExtraChars(
+          this.$store.getters.singlePageEtablissementSirene.nom_raison_sociale
+        );
+      } else if (this.haveRNAInfo) {
+        return this.$store.getters.singlePageEtablissementRNA.titre;
+      } else {
+        return "Etablissement";
+      }
     }
   }
 };

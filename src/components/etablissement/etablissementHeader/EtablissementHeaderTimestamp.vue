@@ -15,8 +15,21 @@ import Filters from "@/components/mixins/filters";
 
 export default {
   name: "EtablissementHeaderTimestamp",
-  props: ["resultSirene", "resultRNA"],
-  mixins: [Filters]
+  mixins: [Filters],
+  props: {
+    resultSirene: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
+    resultRNA: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  }
 };
 </script>
 

@@ -6,9 +6,7 @@
         <p>
           La recherche se fait par numéro SIREN.<br />
           L'endpoint à requêter est:
-          <a class="dont-break-out" v-bind:href="exempleRNCS1">{{
-            this.exempleRNCS1
-          }}</a
+          <a class="dont-break-out" :href="exempleRNCS1"> {{ exempleRNCS1 }} </a
           >:SIREN<br />
           Exemple pour la SNCF :
         </p>
@@ -32,7 +30,7 @@ export default {
   components: {
     ApiDocInput: ApiDocInput
   },
-  props: ["baseAdress"],
+  props: { baseAdress: { type: String, default: "" } },
   data() {
     return {
       exempleRNCS1: `${this.baseAdress}v1/fiches_identite/`,

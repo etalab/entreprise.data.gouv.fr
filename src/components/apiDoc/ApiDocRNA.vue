@@ -2,7 +2,7 @@
   <div>
     <api-doc-rna-intro />
     <api-doc-rna-generic />
-    <api-doc-rna-endpoints :baseAdress="baseAdress" />
+    <api-doc-rna-endpoints :base-adress="baseAdress" />
     <api-doc-rna-coming-soon />
   </div>
 </template>

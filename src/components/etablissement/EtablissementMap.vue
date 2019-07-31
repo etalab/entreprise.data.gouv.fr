@@ -1,12 +1,12 @@
 <template>
-  <div v-if="haveNoMapInfo" class="panel contains-message" id="map">
+  <div v-if="haveNoMapInfo" id="map" class="panel contains-message">
     <p class="panel__message">
       Les données de géolocalisation ne sont pas disponibles pour cet
       établissement.
     </p>
   </div>
-  <div v-else-if="mapboxglSupported" class="panel" id="map" ref="map"></div>
-  <div v-else class="panel contains-message" id="map">
+  <div v-else-if="mapboxglSupported" id="map" ref="map" class="panel"></div>
+  <div v-else id="map" class="panel contains-message">
     <p class="panel__message">
       Votre navigateur ne supporte pas WebGL et ne peut pas afficher la carte de
       l’établissement.
@@ -22,7 +22,22 @@ import colors from "@/components/mixins/colors";
 
 export default {
   name: "EtablisssementSireneMap",
-  props: ["positionEtablissement", "etablissement"],
+  mixins: [mapOtherMarkers],
+  // props: ["positionEtablissement", "etablissement"],
+  props: {
+    etablissement: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
+    coordinates: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
   data() {
     return {
       mapboxglSupported: mapboxgl.supported(),
@@ -41,17 +56,17 @@ export default {
       })
     };
   },
-  mounted() {
-    Vue.http.get(this.mapTilesEtalab).then(json => {
-      this.initMap(json);
-    });
-  },
   computed: {
     haveNoMapInfo() {
       if (this.etablissement && this.etablissement.geo_score == "0")
         return true;
       return false;
     }
+  },
+  mounted() {
+    Vue.http.get(this.mapTilesEtalab).then(json => {
+      this.initMap(json);
+    });
   },
   methods: {
     initMap: function(json) {
@@ -74,8 +89,7 @@ export default {
         .setPopup(this.etablissementPopup)
         .addTo(map);
     }
-  },
-  mixins: [mapOtherMarkers]
+  }
 };
 </script>
 

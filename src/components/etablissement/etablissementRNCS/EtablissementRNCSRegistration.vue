@@ -5,22 +5,22 @@
       <div class="company__item">
         <div class="company__item-key">Type d’inscription</div>
         <div class="company__item-value">
-          {{ PrincipaleOrSecondaire(this.RNCSData.type_inscription) }}
+          {{ PrincipaleOrSecondaire(RNCSData.type_inscription) }}
         </div>
       </div>
       <div class="company__item-key">Greffe</div>
       <div class="company__item-value">
-        {{ RNCSConcatGreffe(this.RNCSData) }}
+        {{ RNCSConcatGreffe(RNCSData) }}
       </div>
     </div>
-    <panel-info :parent="RNCSData" :elements="this.elementsToDisplay1" />
-    <div class="company__item" v-if="haveRNCSPhysicalDAP">
+    <panel-info :parent="RNCSData" :elements="elementsToDisplay1" />
+    <div v-if="haveRNCSPhysicalDAP" class="company__item">
       <div class="company__item-key">
         Déclaration d’attribution de Patrimoine :
       </div>
       <div class="company__item-value">{{ RNCSPhysical.dap }}</div>
     </div>
-    <div class="company__item" v-if="RNCSPhysicalDAPIsPositive">
+    <div v-if="RNCSPhysicalDAPIsPositive" class="company__item">
       <div class="company__item-key">
         Déclaration d’attribution de Patrimoine, Adresse :
       </div>
@@ -42,7 +42,7 @@
       <panel-info-inline
         class="company__item"
         :parent="RNCSPhysical"
-        :elements="this.elementsToDisplay3"
+        :elements="elementsToDisplay3"
       />
     </div>
   </div>
@@ -60,6 +60,7 @@ export default {
     PanelInfo: PanelInfo,
     PanelInfoInline: PanelInfoInline
   },
+  mixins: [Filters, RNCSFormating],
   data() {
     return {
       elementsToDisplay1: {
@@ -103,7 +104,6 @@ export default {
       }
       return false;
     }
-  },
-  mixins: [Filters, RNCSFormating]
+  }
 };
 </script>

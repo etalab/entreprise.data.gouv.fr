@@ -22,7 +22,7 @@
         <!-- paginate module on RNA and Sirene, so we use the bigger values -->
         <results-paginate-module
           v-if="biggerNumberPages"
-          :totalPages="biggerNumberPages"
+          :total-pages="biggerNumberPages"
         ></results-paginate-module>
       </template>
     </div>

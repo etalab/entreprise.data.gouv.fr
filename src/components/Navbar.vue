@@ -1,7 +1,7 @@
 <template>
   <header class="navbar" role="navigation">
     <div class="navbar__container">
-      <a v-on:click="clearHomepage" class="navbar__home">
+      <a class="navbar__home" @click="clearHomepage">
         <img
           class="navbar__logo"
           src="../assets/img/entreprise.svg"

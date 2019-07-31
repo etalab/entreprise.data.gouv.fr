@@ -4,12 +4,12 @@
     <panel-info
       class="company__item"
       :parent="RNCSLegal"
-      :elements="this.elementsToDisplay1"
+      :elements="elementsToDisplay1"
     />
     <div class="company__item">
       <div class="company__item-key">Informations capital</div>
       <div class="company__item-value">
-        {{ RNCSDeviseSentence(this.RNCSLegal) }}
+        {{ RNCSDeviseSentence(RNCSLegal) }}
       </div>
     </div>
   </div>
@@ -23,6 +23,7 @@ import RNCSFormating from "@/components/etablissement/etablissementRNCS/mixins/R
 export default {
   name: "EtablissementRNCSPMorale",
   components: { PanelInfo: PanelInfo },
+  mixins: [Filters, RNCSFormating],
   data() {
     return {
       elementsToDisplay1: {
@@ -39,7 +40,6 @@ export default {
     RNCSLegal() {
       return this.$store.getters.RNCSData.personne_morale;
     }
-  },
-  mixins: [Filters, RNCSFormating]
+  }
 };
 </script>

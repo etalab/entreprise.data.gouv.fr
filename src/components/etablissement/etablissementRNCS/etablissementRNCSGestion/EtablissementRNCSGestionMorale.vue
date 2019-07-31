@@ -4,7 +4,7 @@
     <panel-info
       :parent="manager"
       :elements="elementsToDisplayLegal"
-      :inlineLabels="true"
+      :inline-labels="true"
     />
     <div v-if="manager.siren_pm" class="company__item-inline">
       <div class="company__item-key">SIREN</div>
@@ -41,7 +41,15 @@ import RNCSFormating from "@/components/etablissement/etablissementRNCS/mixins/R
 export default {
   name: "EtablissementRNCSGestionMorale",
   components: { PanelInfo: PanelInfo },
-  props: ["manager"],
+  mixins: [Filters, RNCSFormating],
+  props: {
+    manager: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
   data() {
     return {
       elementsToDisplayLegal: {
@@ -57,7 +65,6 @@ export default {
         Nationalité: "representant_permanent_nationalite"
       }
     };
-  },
-  mixins: [Filters, RNCSFormating]
+  }
 };
 </script>

@@ -2,10 +2,10 @@
   <div>
     <api-doc-sirene-intro />
     <api-doc-sirene-generic />
-    <api-doc-sirene-endpoints :baseAdress="baseAdress" />
+    <api-doc-sirene-endpoints :base-adress="baseAdress" />
     <api-doc-sirene-better-searches />
-    <api-doc-sirene-geospace :baseAdress="baseAdress" />
-    <api-doc-sirene-example :baseAdress="baseAdress" />
+    <api-doc-sirene-geospace :base-adress="baseAdress" />
+    <api-doc-sirene-example :base-adress="baseAdress" />
   </div>
 </template>
 

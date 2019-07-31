@@ -1,8 +1,9 @@
 <template>
   <div class="timestamps">
     <p v-if="resultSirene">
-      <!-- eslint-disable-next-line prettier/prettier -->
-      Dernière mise à jour SIRENE : {{ resultSirene.updated_at | frenchDateFormat }}
+      Dernière mise à jour SIRENE :&nbsp;{{
+        resultSirene.updated_at | frenchDateFormat
+      }}
     </p>
     <p v-if="resultRNA">
       Dernière mise à jour RNA : {{ resultRNA.updated_at | frenchDateFormat }}
@@ -18,15 +19,15 @@ export default {
   mixins: [Filters],
   props: {
     resultSirene: {
-      type: Object,
+      type: Array,
       default() {
-        return {};
+        return [];
       }
     },
     resultRNA: {
-      type: Object,
+      type: Array,
       default() {
-        return {};
+        return [];
       }
     }
   }

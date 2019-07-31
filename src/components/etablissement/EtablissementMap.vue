@@ -23,12 +23,11 @@ import colors from "@/components/mixins/colors";
 export default {
   name: "EtablisssementSireneMap",
   mixins: [mapOtherMarkers],
-  // props: ["positionEtablissement", "etablissement"],
   props: {
     etablissement: {
-      type: Object,
+      type: Array,
       default() {
-        return {};
+        return [];
       }
     },
     coordinates: {

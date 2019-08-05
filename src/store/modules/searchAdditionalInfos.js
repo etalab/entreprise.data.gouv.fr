@@ -12,15 +12,16 @@ const state = {
 
 const getters = {
   idAssociationFromSirene: () => {
-    if (store.state.results.singlePageResult["SIRENE"]) {
-      return store.state.results.singlePageResult["SIRENE"].etablissement
-        .numero_rna;
+    if (store.state.resultsEtablissement.singlePageResult["SIRENE"]) {
+      return store.state.resultsEtablissement.singlePageResult["SIRENE"]
+        .etablissement.numero_rna;
     }
     return null;
   },
   siretFromRNA: () => {
-    if (store.state.results.singlePageResult["RNA"]) {
-      return store.state.results.singlePageResult["RNA"].association.siret;
+    if (store.state.resultsEtablissement.singlePageResult["RNA"]) {
+      return store.state.resultsEtablissement.singlePageResult["RNA"]
+        .association.siret;
     }
     return null;
   }

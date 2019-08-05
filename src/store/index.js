@@ -2,8 +2,8 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VueResource from "vue-resource";
 import application from "./modules/application";
-import results from "./modules/results";
-import resultsSiren from "./modules/resultsSiren";
+import resultsFullText from "./modules/resultsFullText";
+import resultsEtablissement from "./modules/resultsEtablissement";
 import resultsAdditionalInfos from "./modules/resultsAdditionalInfos.js";
 import searchFullText from "./modules/searchFullText";
 import searchEtablissement from "./modules/searchEtablissement";
@@ -16,8 +16,8 @@ Vue.use(VueResource);
 export default new Vuex.Store({
   modules: {
     application,
-    results,
-    resultsSiren,
+    resultsFullText,
+    resultsEtablissement,
     resultsAdditionalInfos,
     searchFullText,
     searchEtablissement,

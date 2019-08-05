@@ -7,15 +7,27 @@ const state = {
 };
 
 const getters = {
+  singlePageEtablissementSirene: () => {
+    if (state.resultsFullText.singlePageResult["SIRENE"]) {
+      return state.resultsFullText.ult["SIRENE"].etablissement;
+    }
+    return null;
+  },
+  singlePageEtablissementRNA: () => {
+    if (state.resultsFullText.ult["RNA"]) {
+      return state.resultsFullText.ult["RNA"].association;
+    }
+    return null;
+  },
   storedSirenSiege: state => {
     if (state.sirenResults) {
-      return state.sirenResults.sirene.data.siege_social;
+      return state.sirenResults.sirene.siege;
     }
     return null;
   },
   storedSirenTotalResults: state => {
     if (state.sirenResults) {
-      return state.sirenResults.sirene.data.total_results;
+      return state.sirenResults.sirene.etablissements.length();
     }
     return null;
   },

@@ -1,5 +1,4 @@
-// This module contains code relative to Results registration
-// All SIRENE and RNA Endpoints except SIREN
+// This module contains code relative to FullText results
 import store from "@/store/index.js";
 
 const state = {
@@ -47,18 +46,6 @@ const getters = {
   fullTextResultsRNA: state => {
     if (state.fullTextResults["RNA"]) {
       return state.fullTextResults["RNA"].association;
-    }
-    return null;
-  },
-  singlePageEtablissementSirene: () => {
-    if (store.state.results.singlePageResult["SIRENE"]) {
-      return store.state.results.singlePageResult["SIRENE"].etablissement;
-    }
-    return null;
-  },
-  singlePageEtablissementRNA: () => {
-    if (store.state.results.singlePageResult["RNA"]) {
-      return store.state.results.singlePageResult["RNA"].association;
     }
     return null;
   },

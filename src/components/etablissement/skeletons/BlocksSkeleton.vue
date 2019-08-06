@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "headerSkeleton"
+  name: "HeaderSkeleton"
 };
 </script>
 

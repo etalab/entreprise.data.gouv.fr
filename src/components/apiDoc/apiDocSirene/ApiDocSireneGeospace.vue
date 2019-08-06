@@ -138,7 +138,7 @@ export default {
   components: {
     ApiDocInput: ApiDocInput
   },
-  props: ["baseAdress"],
+  props: { baseAdress: { type: String, default: "" } },
   data() {
     return {
       exempleGeoSpace1: this.baseAdress + "near_point/?lat=43.6&long=3.884865",

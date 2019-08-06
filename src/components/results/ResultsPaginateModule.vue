@@ -22,7 +22,7 @@ Vue.component("paginate", Paginate);
 
 export default {
   name: "Results",
-  props: ["totalPages"],
+  props: { totalPages: { type: String, default: "0" } },
   data: function() {
     return {
       initialPage: parseInt(this.$store.state.route.query.page, 10) - 1

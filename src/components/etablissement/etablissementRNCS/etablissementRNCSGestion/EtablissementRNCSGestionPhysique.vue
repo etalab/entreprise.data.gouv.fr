@@ -14,7 +14,7 @@
     <panel-info
       :parent="manager"
       :elements="elementsToDisplayPhysical1"
-      :inlineLabels="true"
+      :inline-labels="true"
     />
     <div class="company__item-inline">
       <div class="company__item-key">Adresse</div>
@@ -28,7 +28,7 @@
     <panel-info
       :parent="manager"
       :elements="elementsToDisplayPhysical2"
-      :inlineLabels="true"
+      :inline-labels="true"
     />
     <div v-if="collabName(manager)" class="company__item-inline">
       <div class="company__item-key">Nom du conjoint collaborateur</div>
@@ -46,7 +46,15 @@ import RNCSFormating from "@/components/etablissement/etablissementRNCS/mixins/R
 export default {
   name: "EtablissementRNCSGestionPhysique",
   components: { PanelInfo: PanelInfo },
-  props: ["manager"],
+  mixins: [Filters, Formating, RNCSFormating],
+  props: {
+    manager: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
   data() {
     return {
       elementsToDisplayPhysical1: {
@@ -64,7 +72,6 @@ export default {
         "Conjoint collaborateur, Prénoms": "conjoint_collab_prénoms"
       }
     };
-  },
-  mixins: [Filters, Formating, RNCSFormating]
+  }
 };
 </script>

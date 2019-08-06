@@ -10,9 +10,9 @@
       </div>
     </div>
     <div
-      class="comment"
       v-for="observation in RNCSObservationsWithTextOrdered"
       :key="observation.id"
+      class="comment"
     >
       <div class="company__item company__comment-date">
         <div class="company__item-value">
@@ -23,7 +23,7 @@
         <div class="company__item-value">{{ observation.texte }}</div>
       </div>
     </div>
-    <panel-no-results :ifNotPresent="RNCSObservations" />
+    <panel-no-results :if-not-present="RNCSObservations" />
   </div>
 </template>
 
@@ -35,6 +35,7 @@ import orderBy from "lodash/orderBy";
 export default {
   name: "EtablissementRNCSObservations",
   components: { PanelNoResults: PanelNoResults },
+  mixins: [Filters],
   computed: {
     RNCSData() {
       return this.$store.getters.RNCSData;
@@ -52,8 +53,7 @@ export default {
       return orderBy(RNCSObservationsWithText, "date_ajout", "desc");
     }
     // observation.texte
-  },
-  mixins: [Filters]
+  }
 };
 </script>
 

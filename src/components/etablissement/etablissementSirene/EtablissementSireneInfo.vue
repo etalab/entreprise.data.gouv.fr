@@ -59,6 +59,7 @@ import Filters from "@/components/mixins/filters";
 
 export default {
   name: "EtablissementSireneInfo",
+  mixins: [Filters],
   computed: {
     resultSirene() {
       return this.$store.getters.singlePageEtablissementSirene;
@@ -68,7 +69,6 @@ export default {
       const tvaNumber = `${tvaKey}${this.resultSirene.siren}`;
       return `FR${tvaNumber}`;
     }
-  },
-  mixins: [Filters]
+  }
 };
 </script>

@@ -12,7 +12,7 @@
 <script>
 export default {
   name: "ResultsDidYoumean",
-  props: ["api"],
+  props: { api: { type: String, default: "" } },
   data() {
     return {
       apiToCall: this.api

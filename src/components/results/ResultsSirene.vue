@@ -31,14 +31,15 @@ import ResultsSkeleton from "@/components/results/ResultsSkeleton";
 
 export default {
   name: "ResultsSirene",
+  components: {
+    DidYouMean: DidYouMean,
+    ResultsSkeleton: ResultsSkeleton
+  },
+  mixins: [Filters],
   data() {
     return {
       api: "SIRENE"
     };
-  },
-  components: {
-    DidYouMean: DidYouMean,
-    ResultsSkeleton: ResultsSkeleton
   },
   computed: {
     resultsAreLoading() {
@@ -58,9 +59,7 @@ export default {
         return "";
       }
       const resultText = this.numberResults > 1 ? "résultats" : "résultat";
-      return `${this.numberResults} ${resultText} pour "${
-        this.$store.state.searchFullText.storedLastFullText
-      }" dans la base SIRENE des entreprises`;
+      return `${this.numberResults} ${resultText} pour "${this.$store.state.searchFullText.storedLastFullText}" dans la base SIRENE des entreprises`;
     },
     noResults() {
       if (
@@ -71,8 +70,7 @@ export default {
       }
       return true;
     }
-  },
-  mixins: [Filters]
+  }
 };
 </script>
 

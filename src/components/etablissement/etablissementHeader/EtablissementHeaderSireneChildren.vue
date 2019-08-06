@@ -3,6 +3,12 @@
     <p v-if="isSiegeSocial" class="company__item">
       Cet établissement est le siège social.
     </p>
+    <p v-if="isOpen" class="is_open">
+      Cet établissement est actuellement en activité.
+    </p>
+    <p v-if="isClosed" class="is_closed">
+      Cet établissement a fermé ses portes.
+    </p>
     <p v-else class="company__item">
       Le siège social de cet établissement est&nbsp;:
       <router-link
@@ -12,21 +18,21 @@
           params: { searchId: resultSiegeSocial.siret }
         }"
       >
-        {{ resultSiegeSocial.nom_raison_sociale | removeExtraChars }} (<span
-          :inner-html.prop="resultSiegeSocial.siret | prettySiretHtml"
-        />)
+        {{ resultSirene.unite_legale.denomination | removeExtraChars }}
+        <span :inner-html.prop="resultSiegeSocial.siret | prettySiretHtml" />
       </router-link>
     </p>
     <div v-if="haveChildrenEtablissements" class="company__item">
       <div class="company__children-summary">
         Cette entreprise possède {{ totalResultsOtherSirens }}
-        {{ `établissement` | pluralizeDependingOn(totalResultsOtherSirens)
-        }}<template v-if="thereAreMoreThanMaxChildren">
+        {{ `établissement` | pluralizeDependingOn(totalResultsOtherSirens) }}
+        ({{ `ouvert` | pluralizeDependingOn(totalResultsOtherSirens) }} ou
+        {{ `fermé` | pluralizeDependingOn(totalResultsOtherSirens) }})
+
+        <template v-if="thereAreMoreThanMaxChildren">
           ({{ maxChildrenEtablissements }}
-          {{
-            `affiché` | pluralizeDependingOn(maxChildrenEtablissements)
-          }})</template
-        >
+          {{ `affiché` | pluralizeDependingOn(maxChildrenEtablissements) }})
+        </template>
         :
         <template v-if="thereAreMoreThanMaxChildren">
           <div
@@ -67,7 +73,7 @@ import Constants from "@/constants.js";
 import Filters from "@/components/mixins/filters";
 
 export default {
-  name: "EtablissementSireneChildren",
+  name: "EtablissementHeaderSireneChildren",
   mixins: [Filters],
   data() {
     return {
@@ -94,7 +100,7 @@ export default {
     },
     totalResultsOtherSirens() {
       // Total result minus Siege Social
-      return this.$store.getters.storedSirenTotalResults - 1;
+      return this.$store.getters.storedSirenTotalResults;
     },
     maxChildrenEtablissements() {
       return Math.min(
@@ -106,7 +112,7 @@ export default {
       if (!this.resultSirene) {
         return;
       }
-      if (this.resultSirene.is_siege == "1") {
+      if (this.resultSirene.etablissement_siege == "true") {
         return true;
       }
       return false;
@@ -115,6 +121,18 @@ export default {
       return (
         this.totalResultsOtherSirens >= this.maxChildrenEtablissementsToShow
       );
+    },
+    isOpen() {
+      if (this.resultSirene.etat_administratif == "A") {
+        return true;
+      }
+      return false;
+    },
+    isClosed() {
+      if (this.resultSirene.etat_administratif == "F") {
+        return true;
+      }
+      return false;
     }
   },
   methods: {
@@ -152,5 +170,13 @@ export default {
 .company__children li {
   display: inline-block;
   margin-right: 0.5em;
+}
+
+.is_open {
+  color: $color-dark-green;
+}
+
+.is_closed {
+  color: $color-red;
 }
 </style>

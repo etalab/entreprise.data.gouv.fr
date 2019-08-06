@@ -25,12 +25,12 @@ export default {
   mixins: [mapOtherMarkers],
   props: {
     etablissement: {
-      type: Array,
+      type: Object,
       default() {
-        return [];
+        return {};
       }
     },
-    coordinates: {
+    positionEtablissement: {
       type: Array,
       default() {
         return [];

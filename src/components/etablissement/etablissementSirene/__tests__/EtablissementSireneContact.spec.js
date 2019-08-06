@@ -34,7 +34,23 @@ describe("EtablissementSireneContact.vue snapshot", () => {
   const storeMocks = createStoreMocks();
   const wrapperEPC = mount(EtablissementSireneContact, {
     localVue,
-    store: storeMocks.store
+    store: storeMocks.store,
+    computed: {
+      resultSirene() {
+        return {
+          geo_l4: "52 avenue de la fausse adresse",
+          code_postal: "75000",
+          libelle_commune: "PARIS",
+          code_cedex: "5",
+          tranche_effectif: "100",
+          unite_legale: {
+            prenom_1: "JEAN YVES",
+            nom: "SMITH",
+            date_creation: "2007-01-01"
+          }
+        };
+      }
+    }
   });
 
   test("It match the snapshot", () => {

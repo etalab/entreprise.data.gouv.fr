@@ -23,26 +23,31 @@
       <label class="company__item-key">Activité principale Etablissement</label>
       <div class="company__item-value">
         {{ resultSirene.activite_principale }} -
-        {{ resultSirene.libelle_activite_principale }}
+        {{ libelleFromCodeNaf(resultSirene.activite_principale) }}
       </div>
     </div>
     <div class="company__item">
       <label class="company__item-key">Activité principale Entreprise</label>
       <div class="company__item-value">
-        {{ resultSirene.activite_principale_entreprise }} -
-        {{ resultSirene.libelle_activite_principale_entreprise }}
+        {{ resultSirene.unite_legale.activite_principale }} -
+        {{ libelleFromCodeNaf(resultSirene.unite_legale.activite_principale) }}
       </div>
     </div>
     <div class="company__item">
       <label class="company__item-key">Nature juridique</label>
       <div class="company__item-value">
-        {{ resultSirene.libelle_nature_juridique_entreprise | ifExist }}
+        {{ resultSirene.unite_legale.categorie_juridique | ifExist }} -
+        {{
+          libelleFromCategoriesJuridiques(
+            resultSirene.unite_legale.categorie_juridique
+          )
+        }}
       </div>
     </div>
     <div class="company__item">
       <label class="company__item-key">Numéro RNA</label>
       <div class="company__item-value">
-        {{ resultSirene.numero_rna | ifExist }}
+        {{ resultSirene.unite_legale.identifiant_association | ifExist }}
       </div>
     </div>
     <div class="company__item">
@@ -56,10 +61,11 @@
 
 <script>
 import Filters from "@/components/mixins/filters";
+import Libelles from "@/components/mixins/libelles";
 
 export default {
   name: "EtablissementSireneInfo",
-  mixins: [Filters],
+  mixins: [Filters, Libelles],
   computed: {
     resultSirene() {
       return this.$store.getters.singlePageEtablissementSirene;

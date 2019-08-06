@@ -14,7 +14,7 @@ const getters = {
   idAssociationFromSirene: () => {
     if (store.state.resultsEtablissement.singlePageResult["SIRENE"]) {
       return store.state.resultsEtablissement.singlePageResult["SIRENE"]
-        .etablissement.numero_rna;
+        .etablissement.identifiant_association;
     }
     return null;
   },
@@ -86,6 +86,7 @@ const actions = {
 
   searchAdditionalInfoSirene(dispatch, api) {
     store.commit("setLoadingAdditionalAPI", { value: true, endpoint: api });
+    // TODO add guard clause to not look into the getter if it doesn't exist
     const siren = store.getters.singlePageEtablissementSirene.siren;
 
     store

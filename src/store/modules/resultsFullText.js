@@ -5,26 +5,10 @@ const state = {
   fullTextResults: {
     RNA: null,
     SIRENE: null
-  },
-  singlePageResult: {
-    RNA: null,
-    SIRENE: null
   }
 };
 
 const getters = {
-  sireneAvailable: state => {
-    if (state.singlePageResult["SIRENE"]) {
-      return true;
-    }
-    return false;
-  },
-  RNAAvailable: state => {
-    if (state.singlePageResult["RNA"]) {
-      return true;
-    }
-    return false;
-  },
   storedSpellcheckSirene: state => {
     if (state.fullTextResults["SIRENE"]) {
       return state.fullTextResults["SIRENE"].spellcheck;
@@ -98,16 +82,6 @@ const mutations = {
     } else {
       state.fullTextResults[api] = null;
     }
-  },
-  setSinglePageResults(state, { value, api }) {
-    if (api == "ALL") {
-      state.singlePageResult = {
-        RNA: value,
-        SIRENE: value
-      };
-      return;
-    }
-    state.singlePageResult[api] = value;
   }
 };
 

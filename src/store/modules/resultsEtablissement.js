@@ -3,37 +3,58 @@
 import store from "@/store/index.js";
 
 const state = {
+  singlePageResult: {
+    RNA: null,
+    SIRENE: null
+  },
   sirenResults: null
 };
 
 const getters = {
+  sireneAvailable: state => {
+    if (state.singlePageResult["SIRENE"]) {
+      return true;
+    }
+    return false;
+  },
+  RNAAvailable: state => {
+    if (state.singlePageResult["RNA"]) {
+      return true;
+    }
+    return false;
+  },
   singlePageEtablissementSirene: () => {
-    if (state.resultsFullText.singlePageResult["SIRENE"]) {
-      return state.resultsFullText.ult["SIRENE"].etablissement;
+    if (state.singlePageResult["SIRENE"]) {
+      return state.singlePageResult["SIRENE"].etablissement;
     }
     return null;
   },
   singlePageEtablissementRNA: () => {
-    if (state.resultsFullText.ult["RNA"]) {
-      return state.resultsFullText.ult["RNA"].association;
+    if (state.singlePageResult["RNA"]) {
+      return state.singlePageResult["RNA"].association;
     }
     return null;
   },
   storedSirenSiege: state => {
     if (state.sirenResults) {
-      return state.sirenResults.sirene.siege;
+      return state.sirenResults.unite_legale.etablissement_siege;
     }
     return null;
   },
   storedSirenTotalResults: state => {
     if (state.sirenResults) {
-      return state.sirenResults.sirene.etablissements.length();
+      return state.sirenResults.unite_legale.etablissements.length;
     }
     return null;
   },
   storedSirenChildren: state => {
-    if (state.sirenResults) {
-      return state.sirenResults.sirene.data.other_etablissements_sirets;
+    if (state.sirenResults && state.sirenResults.unite_legale) {
+      const etablissements = state.sirenResults.unite_legale.etablissements;
+      let listSiren = [];
+      etablissements.forEach(etablissement => {
+        listSiren.push(etablissement.siret);
+      });
+      return listSiren;
     }
   }
 };
@@ -44,6 +65,16 @@ const mutations = {
   },
   clearSirenResults(state) {
     state.sirenResults = null;
+  },
+  setSinglePageResults(state, { value, api }) {
+    if (api == "ALL") {
+      state.singlePageResult = {
+        RNA: value,
+        SIRENE: value
+      };
+      return;
+    }
+    state.singlePageResult[api] = value;
   }
 };
 

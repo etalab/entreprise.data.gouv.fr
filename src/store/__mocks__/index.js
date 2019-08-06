@@ -85,7 +85,7 @@ export const getters = {
   pageNumber: jest.fn().mockReturnValue([{}]),
   pageNumberToGet: jest.fn().mockReturnValue(["?per_page=5&page=1"]),
   queryToGet: jest.fn().mockReturnValue([{}]),
-  singlePageEtablissementRNA: jest.fn().mockReturnValue([{}]),
+  singlePageEtablissementRNA: jest.fn().mockReturnValue({}),
   singlePageEtablissementSirene: jest.fn().mockReturnValue([{}]),
   singleResult: jest.fn().mockReturnValue([{}]),
   sireneAvailable: jest.fn().mockReturnValue([{}]),

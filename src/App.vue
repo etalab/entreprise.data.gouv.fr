@@ -17,8 +17,6 @@
 import Navbar from "@/components/Navbar";
 import Search from "@/components/Search";
 import Home from "@/components/Home";
-// import Results from "@/components/Results";
-// import Etablissement from "@/components/Etablissement";
 import FooterEtalab from "@/components/FooterEtalab";
 
 export default {
@@ -31,8 +29,6 @@ export default {
     Navbar: Navbar,
     Search: Search,
     Home: Home,
-    // Results: Results,
-    // Etablissement: Etablissement,
     FooterEtalab: FooterEtalab
   },
   computed: {

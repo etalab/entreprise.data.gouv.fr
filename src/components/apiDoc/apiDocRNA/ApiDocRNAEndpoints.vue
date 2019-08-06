@@ -48,7 +48,7 @@ export default {
   components: {
     ApiDocInput: ApiDocInput
   },
-  props: ["baseAdress"],
+  props: { baseAdress: { type: String, default: "" } },
   data() {
     return {
       exempleFullText: this.baseAdress + "full_text/<TITRE>",

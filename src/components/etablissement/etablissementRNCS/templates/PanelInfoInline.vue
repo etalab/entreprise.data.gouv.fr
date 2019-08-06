@@ -14,8 +14,21 @@ import Filters from "@/components/mixins/filters";
 
 export default {
   name: "PanelInfoInline",
-  props: ["parent", "elements"],
-  mixins: [Filters]
+  mixins: [Filters],
+  props: {
+    parent: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
+    elements: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  }
 };
 </script>
 

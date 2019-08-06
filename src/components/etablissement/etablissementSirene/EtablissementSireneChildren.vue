@@ -20,25 +20,25 @@
     <div v-if="haveChildrenEtablissements" class="company__item">
       <div class="company__children-summary">
         Cette entreprise possède {{ totalResultsOtherSirens }}
-        {{ `établissement` | pluralizeDependingOn(this.totalResultsOtherSirens)
+        {{ `établissement` | pluralizeDependingOn(totalResultsOtherSirens)
         }}<template v-if="thereAreMoreThanMaxChildren">
           ({{ maxChildrenEtablissements }}
           {{
-            `affiché` | pluralizeDependingOn(this.maxChildrenEtablissements)
+            `affiché` | pluralizeDependingOn(maxChildrenEtablissements)
           }})</template
         >
         :
         <template v-if="thereAreMoreThanMaxChildren">
           <div
-            class="company__item-link"
             v-show="!visibleChildren"
+            class="company__item-link"
             @click="showAllChildren"
           >
             Afficher la totalité
           </div>
           <div
-            class="company__item-link"
             v-show="visibleChildren"
+            class="company__item-link"
             @click="hideAllChildren"
           >
             Réduire
@@ -47,9 +47,9 @@
       </div>
       <ul class="company__children">
         <li
-          class="company__item-link"
           v-for="siret in resultOtherSirens"
           :key="siret"
+          class="company__item-link"
         >
           <router-link
             :to="{ name: 'Etablissement', params: { searchId: siret } }"
@@ -68,6 +68,7 @@ import Filters from "@/components/mixins/filters";
 
 export default {
   name: "EtablissementSireneChildren",
+  mixins: [Filters],
   data() {
     return {
       maxChildrenEtablissementsToShow:
@@ -126,8 +127,7 @@ export default {
         Constants.ETABLISSEMENT_SHOW_MAX_CHILDREN_SIRETS;
       this.visibleChildren = false;
     }
-  },
-  mixins: [Filters]
+  }
 };
 </script>
 

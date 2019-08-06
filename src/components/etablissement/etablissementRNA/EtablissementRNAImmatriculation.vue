@@ -9,37 +9,37 @@
     </div>
     <div class="company__item">
       <div class="company__item-key">Adresse établissement :</div>
-      <div class="company__item-value">{{ this.l1_adress | ifExist }}</div>
+      <div class="company__item-value">{{ l1_adress | ifExist }}</div>
     </div>
     <div class="company__item">
       <div class="company__item-key">Commune établissement :</div>
-      <div class="company__item-value">{{ this.l2_adress | ifExist }}</div>
+      <div class="company__item-value">{{ l2_adress | ifExist }}</div>
     </div>
     <line-in-panel
-      :companyKey="this.code_gestion"
-      :companyValue="resultRNA.code_gestion"
+      :company-key="code_gestion"
+      :company-value="resultRNA.code_gestion"
     />
     <line-in-panel
-      :companyKey="this.date_creation"
-      :companyValue="resultRNA.date_creation"
+      :company-key="date_creation"
+      :company-value="resultRNA.date_creation"
     />
     <line-in-panel
-      :companyKey="this.date_publication_creation"
-      :companyValue="resultRNA.date_publication_creation"
+      :company-key="date_publication_creation"
+      :company-value="resultRNA.date_publication_creation"
     />
     <line-in-panel
-      :companyKey="this.date_declaration_dissolution"
-      :companyValue="resultRNA.date_declaration_dissolution"
+      :company-key="date_declaration_dissolution"
+      :company-value="resultRNA.date_declaration_dissolution"
     />
     <line-in-panel
-      :companyKey="this.numero_reconnaissance_utilite_publique"
-      :companyValue="resultRNA.numero_reconnaissance_utilite_publique"
+      :company-key="numero_reconnaissance_utilite_publique"
+      :company-value="resultRNA.numero_reconnaissance_utilite_publique"
     />
     <line-in-panel
-      :companyKey="this.site_web"
-      :companyValue="resultRNA.site_web"
+      :company-key="site_web"
+      :company-value="resultRNA.site_web"
     />
-    <line-in-panel :companyKey="this.email" :companyValue="resultRNA.email" />
+    <line-in-panel :company-key="email" :company-value="resultRNA.email" />
   </div>
 </template>
 
@@ -50,6 +50,7 @@ import LineInPanel from "@/components/etablissement/templates/LineInPanel";
 export default {
   name: "EtablissementRNAImmatriculation",
   components: { LineInPanel: LineInPanel },
+  mixins: [Filters],
   data() {
     return {
       code_gestion: "Code de gestion :",
@@ -85,13 +86,10 @@ export default {
         this.resultRNA.adresse_code_postal &&
         this.resultRNA.adresse_libelle_commune
       ) {
-        return `${this.resultRNA.adresse_code_postal} ${
-          this.resultRNA.adresse_libelle_commune
-        }`;
+        return `${this.resultRNA.adresse_code_postal} ${this.resultRNA.adresse_libelle_commune}`;
       }
       return null;
     }
-  },
-  mixins: [Filters]
+  }
 };
 </script>

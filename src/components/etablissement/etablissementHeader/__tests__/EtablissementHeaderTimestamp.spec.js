@@ -1,6 +1,7 @@
 import EtablissementHeaderTimestamp from "@/components/etablissement/etablissementHeader/EtablissementHeaderTimestamp";
 import { createLocalVue, mount } from "@vue/test-utils";
 import Vuex from "vuex";
+import { removeNbsp } from "@/../tests/fixtures.js";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -15,9 +16,10 @@ describe("EtablissementHeaderTimestamp", () => {
     });
 
     expect(component.contains(".timestamps > p:first-of-type")).toBe(true);
-    expect(component.find(".timestamps > p:first-of-type").text()).toBe(
-      "Dernière mise à jour SIRENE : 05/02/2019"
-    );
+    // Need to remove non-breaking spaces for jest
+    expect(
+      removeNbsp(component.find(".timestamps > p:first-of-type").text())
+    ).toBe("Dernière mise à jour SIRENE : 05/02/2019");
     expect(component.contains(".timestamps > p:nth-of-type(2)")).toBe(true);
     expect(component.find(".timestamps > p:nth-of-type(2)").text()).toBe(
       "Dernière mise à jour RNA : 04/02/2019"
@@ -31,9 +33,9 @@ describe("EtablissementHeaderTimestamp", () => {
     });
 
     expect(component.contains(".timestamps > p:first-of-type")).toBe(true);
-    expect(component.find(".timestamps > p:first-of-type").text()).toBe(
-      "Dernière mise à jour SIRENE : 05/02/2019"
-    );
+    expect(
+      removeNbsp(component.find(".timestamps > p:first-of-type").text())
+    ).toBe("Dernière mise à jour SIRENE : 05/02/2019");
     expect(component.contains(".timestamps > p:nth-of-type(2)")).toBe(false);
   });
   test("It displays nothing if nothing is available", () => {

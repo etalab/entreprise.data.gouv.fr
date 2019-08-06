@@ -9,7 +9,7 @@
         <etablissement-rncs-gestion-physique :manager="manager" />
       </div>
     </div>
-    <panel-no-results :ifNotPresent="managers" />
+    <panel-no-results :if-not-present="managers" />
   </div>
 </template>
 
@@ -27,6 +27,7 @@ export default {
     EtablissementRncsGestionMorale: EtablissementRNCSGestionMorale,
     EtablissementRncsGestionPhysique: EtablissementRNCSGestionPhysique
   },
+  mixins: [Filters, RNCSFormating],
   computed: {
     managers() {
       return this.$store.getters.RNCSData.representants;
@@ -45,7 +46,6 @@ export default {
           RegExp(/physique/).test(manager.type_representant.toLowerCase())
       );
     }
-  },
-  mixins: [Filters, RNCSFormating]
+  }
 };
 </script>

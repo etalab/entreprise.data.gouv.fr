@@ -2,10 +2,10 @@
   <div class="hero" role="banner">
     <div
       class="hero__container container"
-      v-bind:class="[showWelcomeText ? '' : 'hero__compact']"
+      :class="[showWelcomeText ? '' : 'hero__compact']"
     >
       <transition name="fade">
-        <div class="text-center" v-if="showWelcomeText">
+        <div v-if="showWelcomeText" class="text-center">
           <h1 class="search__title">
             Retrouvez toutes les informations publiques concernant les
             entreprises et associations de France
@@ -17,7 +17,7 @@
           </p>
         </div>
       </transition>
-      <SearchBar searchName="Recherche par nom"></SearchBar>
+      <SearchBar />
       <router-link
         v-if="showBackToResultsButton"
         class="back-to-results"
@@ -36,15 +36,6 @@ export default {
   name: "Search",
   components: {
     SearchBar: SearchBar
-  },
-  created: function() {
-    if (this.$route.query.page) {
-      this.$store.commit("setPage", this.$route.query.page);
-    }
-    if (this.$route.query.fullText) {
-      this.$store.commit("setFullText", this.$route.query.fullText);
-      this.$store.dispatch("requestSearchFullText");
-    }
   },
   data() {
     return {
@@ -79,6 +70,15 @@ export default {
       if (this.$route.query.fullText) {
         this.$store.dispatch("requestSearchFullText");
       }
+    }
+  },
+  created: function() {
+    if (this.$route.query.page) {
+      this.$store.commit("setPage", this.$route.query.page);
+    }
+    if (this.$route.query.fullText) {
+      this.$store.commit("setFullText", this.$route.query.fullText);
+      this.$store.dispatch("requestSearchFullText");
     }
   }
 };

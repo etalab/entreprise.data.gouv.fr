@@ -2,7 +2,7 @@
   <div class="company">
     <div
       class="company-container padding_top"
-      v-bind:class="{ no_top_padding: this.haveComponentTop }"
+      :class="{ no_top_padding: haveComponentTop }"
     >
       <etablissement-rna-immatriculation />
       <etablissement-rna-info />
@@ -16,11 +16,11 @@ import EtablissementRNAImmatriculation from "@/components/etablissement/etabliss
 
 export default {
   name: "EtablissementRNA",
-  props: ["haveComponentTop"],
   components: {
     EtablissementRnaInfo: EtablissementRNAInfo,
     EtablissementRnaImmatriculation: EtablissementRNAImmatriculation
-  }
+  },
+  props: { haveComponentTop: { type: Boolean, default: false } }
 };
 </script>
 

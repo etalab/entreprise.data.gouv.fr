@@ -22,7 +22,7 @@ import Home from "@/components/Home";
 import FooterEtalab from "@/components/FooterEtalab";
 
 export default {
-  name: "app",
+  name: "App",
   metaInfo: {
     title: null,
     titleTemplate: "%s | Entreprise.data.gouv.fr"

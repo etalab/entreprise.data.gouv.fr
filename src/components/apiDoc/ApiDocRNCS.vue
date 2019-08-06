@@ -2,7 +2,7 @@
   <div>
     <api-doc-rncs-intro />
     <api-doc-rncs-generic />
-    <api-doc-rncs-endpoints :baseAdress="baseAdress" />
+    <api-doc-rncs-endpoints :base-adress="baseAdress" />
     <api-doc-rncs-coming-soon />
   </div>
 </template>

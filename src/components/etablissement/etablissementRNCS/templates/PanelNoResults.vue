@@ -7,7 +7,14 @@
 <script>
 export default {
   name: "PanelNoResults",
-  props: ["ifNotPresent"],
+  props: {
+    ifNotPresent: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
   computed: {
     dataIsAvailable() {
       if (this.ifNotPresent && this.ifNotPresent.length != 0) {

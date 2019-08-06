@@ -8,6 +8,7 @@ exports[`ApiDocInput.vue snapshot testing It match the snapshot 1`] = `
    
   <a
     class="button"
+    href="https://entreprise.data.gouv.fr/"
   >
     GET
   </a>

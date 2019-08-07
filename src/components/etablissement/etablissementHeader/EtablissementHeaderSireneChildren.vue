@@ -7,7 +7,7 @@
       Cet établissement est actuellement en activité.
     </p>
     <p v-if="isClosed" class="is_closed">
-      Cet établissement a fermé ses portes.
+      Cet établissement est fermé.
     </p>
     <p v-else class="company__item">
       Le siège social de cet établissement est&nbsp;:

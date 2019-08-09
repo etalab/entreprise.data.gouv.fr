@@ -31,7 +31,7 @@ export const bouygues = {
   siren: "572015246",
   sirenSpaced: "572 015 246",
   title: "BOUYGUES",
-  address: "32 AV HOCHE"
+  address: "32 AVENUE HOCHE"
 };
 
 // Case RNA only
@@ -45,11 +45,4 @@ export const croixRouge = {
 export const school42 = {
   rnaId: "W751218379",
   address: "96 BOULEVARD BESSIERES"
-};
-
-// First result when fulltext search is 'coca-cola'
-export const cocaCola = {
-  search: "coca-cola",
-  firstResultName: "Coca-cola financial corporation",
-  firstResultSiret: "48746376200020"
 };

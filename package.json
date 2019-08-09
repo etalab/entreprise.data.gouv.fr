@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/register": "^7.4.4",
     "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.8.0",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-plugin-unit-jest": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
@@ -42,6 +42,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.6",
+    "chromedriver": "^76.0.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^6.0.0",

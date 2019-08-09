@@ -3,9 +3,7 @@ module.exports = {
     browser
       .url(browser.launch_url)
       .waitForElementVisible("body")
-      .setValue("input[name=search]", "coca-cola")
-      .keys(browser.Keys.ENTER)
-
+      .setValue("input[name=search]", ["coca-cola", browser.Keys.ENTER])
       .assert.urlEquals(
         browser.launch_url + "search?fullText=coca-cola&page=1"
       );

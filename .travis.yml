@@ -4,6 +4,8 @@ node_js:
 dist: xenial
 services:
 - xvfb
+addons:
+  chrome: stable
 env:
   matrix:
     secure: OGizPWgyQOA5FsTSe9uY6dH75arRLFDyPbRirVN2t+X76JM1by6dm+fQXX83fL6Oj7GiHyaOnjIxFodSg/EHbhuJBhWt7snHklw4kRB0es5HI5EZBAXPb+xlja6yCG6Wd/B+1UVQ03boMC7Jmiy/N2rZeCZBU9e+T3Uviv14P+4Rw+BJJo945oWhcRUyCM79hya/I6s2Tk121q4jgcxgKaledYecIqVx2hYyc2NtLDX+8OaL11fggTdv63xWh0rYR+fR1fZ5xv20jBFy9PArkNOmnOpquVtt4d/xuPaekP+hefdxjr8mVGoCm/swb1RDVYaCXE4B992JzEKQR5JodSyTL6n8ROiEvKUTJShYubxrMkCfyh/eb00ExgjJc0pT5oWVWnSKBrEZ+dcolNzGEC+/75ogMHiCy/Ix838XlZaLIR89GA+Xq83ugKnKnnZ3VFVWLkxq+vJ5tZvkjF7j92369VV/dV5IMMKc9Juh4/tTOtp1hiUAx2Du6RC/P593jQR3vjnn3aRVzsAXx/gpFLUr+kLF1dXjoHK37/qUG+dTEExCG8H+Jks/wtM3TAgpMKoak2MpvZPXBP/NCRFCQBDMDMHaMLhveSz0cTQlEecm0SAdy+UvURGdJfBgCYq0HqENWHYRhUQ9nCrqvxuNnM73KJiUnBAYXhnS+B4FmYg=

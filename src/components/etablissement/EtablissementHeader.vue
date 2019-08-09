@@ -4,7 +4,17 @@
       <header-skeleton v-if="isEtablissementLoading"></header-skeleton>
       <div v-else class="title__block">
         <h2 v-if="haveSireneInfo">
-          {{ resultSirene.nom_raison_sociale | removeExtraChars }}
+          <div v-if="isEntrepreneurIndividuel">
+            {{
+              concatNames(
+                resultSirene.unite_legale.prenom_1,
+                resultSirene.unite_legale.nom
+              ) | ifExist
+            }}
+          </div>
+          <div v-else>
+            {{ resultSirene.unite_legale.denomination | removeExtraChars }}
+          </div>
           <span class="company__siren"
             >(<span
               :inner-html.prop="resultSirene.siren | prettySirenHtml"
@@ -18,8 +28,8 @@
 
         <template v-if="haveSireneInfo">
           <div class="subtitle">
-            <div>{{ resultSirene.l4_normalisee }}</div>
-            <div>{{ resultSirene.l6_normalisee }}</div>
+            <div>{{ resultSirene.geo_l4 }}</div>
+            <div>{{ resultSirene.geo_l5 }}</div>
           </div>
           <div class="second__subtitle">
             {{ resultSirene.libelle_activite_principale_entreprise }}
@@ -28,7 +38,7 @@
         <div v-if="haveOnlyRNAInfo" class="second__subtitle">
           {{ resultRNA.titre_court }}
         </div>
-        <etablissement-sirene-children v-if="haveSireneInfo" />
+        <etablissement-header-sirene-children v-if="haveSireneInfo" />
 
         <router-link
           v-if="haveSireneInfo"
@@ -54,8 +64,9 @@
 </template>
 
 <script>
-import Filters from "@/components/mixins/filters.js";
-import EtablissementSireneChildren from "@/components/etablissement/etablissementSirene/EtablissementSireneChildren";
+import Filters from "@/components/mixins/filters";
+import Formating from "@/components/mixins/formating";
+import EtablissementHeaderSireneChildren from "@/components/etablissement/etablissementHeader/EtablissementHeaderSireneChildren";
 import EtablissementMap from "@/components/etablissement/EtablissementMap";
 import HeaderSkeleton from "@/components/etablissement/skeletons/HeaderSkeleton";
 import EtablissementHeaderTimestamp from "@/components/etablissement/etablissementHeader/EtablissementHeaderTimestamp";
@@ -64,11 +75,11 @@ export default {
   name: "EtablissementHeader",
   components: {
     EtablissementHeaderTimestamp: EtablissementHeaderTimestamp,
-    EtablissementSireneChildren: EtablissementSireneChildren,
+    EtablissementHeaderSireneChildren: EtablissementHeaderSireneChildren,
     EtablissementMap: EtablissementMap,
     HeaderSkeleton: HeaderSkeleton
   },
-  mixins: [Filters],
+  mixins: [Filters, Formating],
   props: { searchId: { type: String, default: "" } },
   computed: {
     isEtablissementLoading() {
@@ -104,6 +115,12 @@ export default {
         return [this.resultSirene.longitude, this.resultSirene.latitude];
       }
       return null;
+    },
+    isEntrepreneurIndividuel() {
+      if (this.resultSirene.unite_legale.categorie_juridique == "1000") {
+        return true;
+      }
+      return false;
     }
   }
 };

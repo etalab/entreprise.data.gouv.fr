@@ -19,6 +19,19 @@ describe("EtablissementHeader.vue Snapshot testing", () => {
     store: storeMocks.store,
     stubs: {
       RouterLink: RouterLinkStub
+    },
+    computed: {
+      resultSirene() {
+        return {
+          geo_l4: "52 avenue de la fausse adresse",
+          geo_l5: "Fausse enseigne",
+          unite_legale: {
+            prenom_1: "JEAN YVES",
+            nom: "SMITH",
+            categorie_juridique: "8"
+          }
+        };
+      }
     }
   });
 

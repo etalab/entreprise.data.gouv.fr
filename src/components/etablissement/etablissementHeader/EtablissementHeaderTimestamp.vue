@@ -13,21 +13,22 @@
 
 <script>
 import Filters from "@/components/mixins/filters";
+import "intl/locale-data/jsonp/fr-FR";
 
 export default {
   name: "EtablissementHeaderTimestamp",
   mixins: [Filters],
   props: {
     resultSirene: {
-      type: Array,
+      type: Object,
       default() {
-        return [];
+        return {};
       }
     },
     resultRNA: {
-      type: Array,
+      type: Object,
       default() {
-        return [];
+        return {};
       }
     }
   }

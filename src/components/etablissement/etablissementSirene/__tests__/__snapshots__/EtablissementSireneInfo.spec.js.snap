@@ -25,7 +25,7 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
       class="company__item-value"
     >
       
-      
+      000 000 000 00001
     
     </div>
   </div>
@@ -77,7 +77,7 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
       class="company__item-value"
     >
       
-       -
+      62.0Z -
       
     
     </div>
@@ -96,8 +96,8 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
       class="company__item-value"
     >
       
-       -
-      
+      01.21Z -
+      Culture de la vigne
     
     </div>
   </div>
@@ -115,7 +115,8 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
       class="company__item-value"
     >
       
-      Non renseigné
+      1000 -
+      Entrepreneur individuel
     
     </div>
   </div>

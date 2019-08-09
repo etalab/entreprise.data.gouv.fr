@@ -1,31 +1,14 @@
-// This module contains code relative to Results registration
-// All SIRENE and RNA Endpoints except SIREN
+// This module contains code relative to FullText results
 import store from "@/store/index.js";
 
 const state = {
   fullTextResults: {
     RNA: null,
     SIRENE: null
-  },
-  singlePageResult: {
-    RNA: null,
-    SIRENE: null
   }
 };
 
 const getters = {
-  sireneAvailable: state => {
-    if (state.singlePageResult["SIRENE"]) {
-      return true;
-    }
-    return false;
-  },
-  RNAAvailable: state => {
-    if (state.singlePageResult["RNA"]) {
-      return true;
-    }
-    return false;
-  },
   storedSpellcheckSirene: state => {
     if (state.fullTextResults["SIRENE"]) {
       return state.fullTextResults["SIRENE"].spellcheck;
@@ -47,18 +30,6 @@ const getters = {
   fullTextResultsRNA: state => {
     if (state.fullTextResults["RNA"]) {
       return state.fullTextResults["RNA"].association;
-    }
-    return null;
-  },
-  singlePageEtablissementSirene: () => {
-    if (store.state.results.singlePageResult["SIRENE"]) {
-      return store.state.results.singlePageResult["SIRENE"].etablissement;
-    }
-    return null;
-  },
-  singlePageEtablissementRNA: () => {
-    if (store.state.results.singlePageResult["RNA"]) {
-      return store.state.results.singlePageResult["RNA"].association;
     }
     return null;
   },
@@ -111,16 +82,6 @@ const mutations = {
     } else {
       state.fullTextResults[api] = null;
     }
-  },
-  setSinglePageResults(state, { value, api }) {
-    if (api == "ALL") {
-      state.singlePageResult = {
-        RNA: value,
-        SIRENE: value
-      };
-      return;
-    }
-    state.singlePageResult[api] = value;
   }
 };
 

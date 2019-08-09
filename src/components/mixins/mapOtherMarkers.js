@@ -6,7 +6,7 @@ import Filters from "@/components/mixins/filters";
 export default {
   data() {
     return {
-      baseAdressSiren: process.env.VUE_APP_SIRENE_SIREN
+      baseAdressSirenV2: process.env.VUE_APP_SIRENE_SIREN_V2
     };
   },
   methods: {
@@ -103,7 +103,7 @@ export default {
       });
     },
     nearEtablissementQuery(siren) {
-      return this.baseAdressSiren + siren + "/etablissements_geojson";
+      return this.baseAdressSirenV2 + siren + "/etablissements_geojson";
     },
     addPopupContent(popup, etablissement) {
       popup.setHTML(

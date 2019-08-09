@@ -14,7 +14,7 @@ jest.mock("vue", () => ({
 
 describe("mapOtherMarkers.js", () => {
   test("Method nearEtablissementQuery compute the right query", () => {
-    mapOtherMarkers.methods.baseAdressSiren = "https://test/v1/";
+    mapOtherMarkers.methods.baseAdressSirenV2 = "https://test/v1/";
     expect(
       mapOtherMarkers.methods.nearEtablissementQuery("sampleSiren")
     ).toEqual("https://test/v1/sampleSiren/etablissements_geojson");

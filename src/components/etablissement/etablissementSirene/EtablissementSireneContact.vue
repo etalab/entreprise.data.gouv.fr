@@ -4,12 +4,17 @@
     <div class="company__item">
       <label class="company__item-key">Gérant</label>
       <div class="company__item-value">
-        {{ concatNames(resultSirene.prenom, resultSirene.nom) | ifExist }}
+        {{
+          concatNames(resultUniteLegale.prenom_1, resultUniteLegale.nom)
+            | ifExist
+        }}
       </div>
     </div>
     <div class="company__item">
       <label class="company__item-key">Adresse</label>
-      <div class="company__item-value">{{ resultSirene.l4_normalisee }}</div>
+      <div class="company__item-value">
+        {{ resultSirene.geo_l4 | ifExist }}
+      </div>
     </div>
     <div class="company__item">
       <label class="company__item-key">Ville</label>
@@ -19,26 +24,18 @@
     </div>
     <div class="company__item">
       <label class="company__item-key">Cedex</label>
-      <div class="company__item-value">{{ resultSirene.cedex | ifExist }}</div>
+      <div class="company__item-value">
+        {{ resultSirene.code_cedex | ifExist }}
+      </div>
     </div>
     <div class="company__item">
       <label class="company__item-key">Date de création</label>
       <div class="company__item-value">{{ formattedDate }}</div>
     </div>
     <div class="company__item">
-      <label class="company__item-key">Téléphone</label>
-      <div class="company__item-value">
-        {{ resultSirene.telephone | ifExist }}
-      </div>
-    </div>
-    <div class="company__item">
-      <label class="company__item-key">Email</label>
-      <div class="company__item-value">{{ resultSirene.email | ifExist }}</div>
-    </div>
-    <div class="company__item">
       <label class="company__item-key">Tranche d’effectif salariés</label>
       <div class="company__item-value">
-        {{ resultSirene.libelle_tranche_effectif_salarie }}
+        {{ resultSirene.tranche_effectifs | ifExist }}
       </div>
     </div>
   </div>
@@ -55,26 +52,19 @@ export default {
     resultSirene() {
       return this.$store.getters.singlePageEtablissementSirene;
     },
-    // Display nom only if present. Prenom is not required. Concatenate the two if presents.
-    fullOwnerName() {
-      const nomOwner = this.resultSirene.nom;
-      const prenomOwner = this.resultSirene.prenom;
-      if (!nomOwner) {
-        return "";
+    resultUniteLegale() {
+      if (this.resultSirene) {
+        return this.resultSirene.unite_legale;
       }
-      if (!prenomOwner) {
-        return nomOwner;
-      } else {
-        return `${nomOwner} ${prenomOwner}`;
-      }
+      return null;
     },
     formattedDate() {
-      if (!this.resultSirene.date_creation) {
+      if (!this.resultUniteLegale) {
         return null;
       }
-      const year = this.resultSirene.date_creation.substring(0, 4);
-      const month = this.resultSirene.date_creation.substring(4, 6);
-      const day = this.resultSirene.date_creation.substring(6, 8);
+      const year = this.resultUniteLegale.date_creation.substring(0, 4);
+      const month = this.resultUniteLegale.date_creation.substring(5, 7);
+      const day = this.resultUniteLegale.date_creation.substring(8, 10);
       return `${day}/${month}/${year}`;
     }
   }

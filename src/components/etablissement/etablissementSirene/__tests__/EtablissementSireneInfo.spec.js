@@ -12,7 +12,19 @@ describe("EtablissementSireneInfo.vue snapshot", () => {
   const storeMocks = createStoreMocks();
   const wrapperEPI = mount(EtablissementSireneInfo, {
     localVue,
-    store: storeMocks.store
+    store: storeMocks.store,
+    computed: {
+      resultSirene() {
+        return {
+          siret: "00000000000001",
+          activite_principale: "62.0Z",
+          unite_legale: {
+            activite_principale: "01.21Z",
+            categorie_juridique: "1000"
+          }
+        };
+      }
+    }
   });
 
   test("It match the snapshot", () => {

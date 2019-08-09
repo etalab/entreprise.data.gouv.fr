@@ -47,7 +47,7 @@ export default {
   mixins: [Filters],
   computed: {
     searchId() {
-      return this.$route.params.searchId;
+      return this.$route.params.searchId.toString();
     },
     isNotFound() {
       return this.$store.getters.mainAPISNotFound;

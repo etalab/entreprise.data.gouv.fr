@@ -26,15 +26,19 @@ module.exports = deepmerge(
         selenium_port: 4444,
         selenium_host: "localhost",
         silent: true,
-        test_workers: true,
+        // test workers make it faster but unreliable, deactivating for now
+        test_workers: false,
         desiredCapabilities: {
           browserName: "chrome",
           javascriptEnabled: true,
           acceptSslCerts: true
         },
-        launch_url: "http://localhost:8080/",
+        // Base too big to be imported right now
+        // launch_url: "http://localhost:8080/"
+        launch_url: "https://sandbox.entreprise.data.gouv.fr/",
         globals: {
-          waitForConditionTimeout: 5000
+          // 15 seconds timeout for devs with slow connection / computer
+          waitForConditionTimeout: 15000
         }
       },
       production: {

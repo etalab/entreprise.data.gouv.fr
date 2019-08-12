@@ -29,7 +29,10 @@ module.exports = {
       .waitForElementVisible(buttonDownloadPDF);
 
     browser.getAttribute(buttonDownloadPDF, "href", function(attribute) {
-      browser.assert.equal(attribute.value, bouygues.siren + "/pdf");
+      browser.assert.equal(
+        attribute.value,
+        browser.launch_url + "rncs/" + bouygues.siren + "/pdf"
+      );
     });
     browser.end();
   }

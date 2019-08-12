@@ -79,6 +79,14 @@ const mutations = {
 };
 
 const actions = {
+  setResponseEtablissement(dispatch, { response, api }) {
+    store.commit("setStatusMainAPI", { value: response.status, endpoint: api });
+    if (response.status == 200) {
+      store.commit("setSinglePageResults", { value: response.body, api: api });
+    } else {
+      store.commit("setSinglePageResults", { value: null, api: api });
+    }
+  },
   async setResponseSiren(dispatch, response) {
     await store.commit("setStatusMainAPI", {
       value: response.status,

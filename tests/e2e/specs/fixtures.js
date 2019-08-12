@@ -42,7 +42,7 @@ export const croixRouge = {
 };
 
 // Case RNA + SIRENE
-export const school42 = {
-  rnaId: "W751218379",
-  address: "96 BOULEVARD BESSIERES"
+export const associationSireneRNA = {
+  rnaId: "W751227358",
+  address: "8 RUE DU GENERAL RENAULT"
 };

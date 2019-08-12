@@ -1,4 +1,4 @@
-import { cssHelpers, croixRouge, school42 } from "../fixtures";
+import { cssHelpers, croixRouge, associationSireneRNA } from "../fixtures";
 
 module.exports = {
   "Etablissement Page (RNA) displays correct info": function(browser) {
@@ -21,7 +21,7 @@ module.exports = {
 
   "Etablissement Page (RNA + SIRENE) displays correct info": function(browser) {
     browser
-      .url(browser.launch_url + "etablissement/" + school42.rnaId)
+      .url(browser.launch_url + "etablissement/" + associationSireneRNA.rnaId)
       .waitForElementVisible(cssHelpers.secondPanelCategorySirene);
 
     // we have 2 categories, each with 2 panels
@@ -30,12 +30,12 @@ module.exports = {
 
     browser.assert.containsText(
       cssHelpers.firstPanelCategorySirene + cssHelpers.secondElementInPanel,
-      school42.address
+      associationSireneRNA.address
     );
     browser.assert.containsText(
       cssHelpers.secondPanelCategoryRNA +
         " > .company__info-list > .company__item:first-of-type > .company__item-value",
-      school42.rnaId
+      associationSireneRNA.rnaId
     );
     browser.end();
   }

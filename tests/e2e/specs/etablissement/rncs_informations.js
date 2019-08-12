@@ -31,7 +31,10 @@ module.exports = {
     browser.getAttribute(buttonDownloadPDF, "href", function(attribute) {
       browser.assert.equal(
         attribute.value,
-        browser.launch_url + "rncs/" + bouygues.siren + "/pdf"
+        browser.launch_url +
+          "api/rncs/v1/fiches_identite/" +
+          bouygues.siren +
+          "/pdf"
       );
     });
     browser.end();

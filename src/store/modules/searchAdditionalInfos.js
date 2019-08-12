@@ -24,6 +24,20 @@ const getters = {
         .association.siret;
     }
     return null;
+  },
+  sirenFromRNA: () => {
+    if (store.state.resultsEtablissement.singlePageResult["RNA"]) {
+      return store.state.resultsEtablissement.singlePageResult["RNA"]
+        .association.siren;
+    }
+    return null;
+  },
+  sirenFromSirene: () => {
+    if (store.state.resultsEtablissement.singlePageResult["SIRENE"]) {
+      return store.state.resultsEtablissement.singlePageResult["SIRENE"]
+        .etablissement.siren;
+    }
+    return null;
   }
 };
 
@@ -86,8 +100,12 @@ const actions = {
 
   searchAdditionalInfoSirene(dispatch, api) {
     store.commit("setLoadingAdditionalAPI", { value: true, endpoint: api });
-    // TODO add guard clause to not look into the getter if it doesn't exist
-    const siren = store.getters.singlePageEtablissementSirene.siren;
+    let siren;
+    if (store.getters.sirenFromRNA) {
+      siren = store.getters.sirenFromRNA;
+    } else {
+      siren = store.getters.sirenFromSirene;
+    }
 
     store
       .dispatch("sendAPIRequest", state.baseAdressAdditionalInfo[api] + siren)

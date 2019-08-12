@@ -9,7 +9,7 @@ const state = {
     RNA: process.env.VUE_APP_RNA_SIRET
   },
   baseAdressRNAId: {
-    SIRENE: process.env.VUE_APP_SIRENE_ID_ASSOCIATION,
+    SIRENE: process.env.VUE_APP_SIRENE_ID_ASSOCIATION, // THIS!!!
     RNA: process.env.VUE_APP_RNA_ID_ASSOCIATION
   },
   baseAdressSiren: process.env.VUE_APP_SIRENE_SIREN

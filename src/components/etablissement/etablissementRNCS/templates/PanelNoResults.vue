@@ -9,7 +9,7 @@ export default {
   name: "PanelNoResults",
   props: {
     ifNotPresent: {
-      type: Object,
+      type: [Object, Array],
       default() {
         return {};
       }

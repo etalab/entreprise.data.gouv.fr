@@ -34,7 +34,7 @@ export default {
         return {};
       }
     },
-    inlineLabels: { type: String, default: "" }
+    inlineLabels: { type: Boolean, default: false }
   }
 };
 </script>

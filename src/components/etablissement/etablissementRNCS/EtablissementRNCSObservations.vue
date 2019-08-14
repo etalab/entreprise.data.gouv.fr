@@ -16,7 +16,7 @@
     >
       <div class="company__item company__comment-date">
         <div class="company__item-value">
-          {{ observation.date_ajout | frenchDateFormat | ifExist }}
+          {{ observation.date_ajout | ifExist }}
         </div>
       </div>
       <div class="company__item">
@@ -52,7 +52,6 @@ export default {
       );
       return orderBy(RNCSObservationsWithText, "date_ajout", "desc");
     }
-    // observation.texte
   }
 };
 </script>

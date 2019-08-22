@@ -7,9 +7,9 @@ exports[`EtablissementSirene.vue Snapshot testing It match the snapshot 1`] = `
   <div
     class="company-container"
   >
-    <etablissementsirenecontact-stub />
+    <etablissement-sirene-contact-stub />
      
-    <etablissementsireneinfo-stub />
+    <etablissement-sirene-info-stub />
   </div>
 </div>
 `;

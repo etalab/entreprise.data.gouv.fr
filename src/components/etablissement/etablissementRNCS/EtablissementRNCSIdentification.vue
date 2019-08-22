@@ -6,25 +6,25 @@
 </template>
 
 <script>
-import EtablissementRNCSPMorale from '@/components/etablissement/etablissementRNCS/etablissementRNCSIdentification/EtablissementRNCSPMorale'
-import EtablissementRNCSPPhysique from '@/components/etablissement/etablissementRNCS/etablissementRNCSIdentification/EtablissementRNCSPPhysique'
+import EtablissementRNCSPMorale from "@/components/etablissement/etablissementRNCS/etablissementRNCSIdentification/EtablissementRNCSPMorale";
+import EtablissementRNCSPPhysique from "@/components/etablissement/etablissementRNCS/etablissementRNCSIdentification/EtablissementRNCSPPhysique";
 
 export default {
-  name: 'EtablissementRNCSIdentification',
+  name: "EtablissementRNCSIdentification",
   components: {
-    'EtablissementRncsIdentificationMorale': EtablissementRNCSPMorale,
-    'EtablissementRncsIdentificationPhysique': EtablissementRNCSPPhysique
+    EtablissementRncsIdentificationMorale: EtablissementRNCSPMorale,
+    EtablissementRncsIdentificationPhysique: EtablissementRNCSPPhysique
   },
   computed: {
-    RNCSData () {
-      return this.$store.getters.RNCSData
+    RNCSData() {
+      return this.$store.getters.RNCSData;
     },
-    RNCSLegal () {
-      return this.$store.getters.RNCSData.personne_morale
+    RNCSLegal() {
+      return this.$store.getters.RNCSData.personne_morale;
     },
-    RNCSPhysical () {
-      return this.$store.getters.RNCSData.personne_physique
+    RNCSPhysical() {
+      return this.$store.getters.RNCSData.personne_physique;
     }
   }
-}
+};
 </script>

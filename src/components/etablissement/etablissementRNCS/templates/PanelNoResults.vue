@@ -6,22 +6,28 @@
 
 <script>
 export default {
-  name: 'PanelNoResults',
-  props: ['ifNotPresent'],
-  computed: {
-    dataIsAvailable () {
-      if (this.ifNotPresent && this.ifNotPresent.length != 0) {
-        return true
+  name: "PanelNoResults",
+  props: {
+    ifNotPresent: {
+      type: [Object, Array],
+      default() {
+        return {};
       }
-      return false
+    }
+  },
+  computed: {
+    dataIsAvailable() {
+      if (this.ifNotPresent && this.ifNotPresent.length != 0) {
+        return true;
+      }
+      return false;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  .no-result {
-    color: $color-dark-grey;
-  }
+.no-result {
+  color: $color-dark-grey;
+}
 </style>
-

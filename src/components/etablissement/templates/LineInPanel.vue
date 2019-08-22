@@ -1,16 +1,19 @@
 <template>
-  <div v-if=this.companyValue class="company__item">
-    <div class="company__item-key">{{ this.companyKey }}</div>
-    <div class="company__item-value"> {{ this.companyValue }}</div>
+  <div v-if="companyValue" class="company__item">
+    <div class="company__item-key">{{ companyKey }}</div>
+    <div class="company__item-value">{{ companyValue }}</div>
   </div>
 </template>
 
 <script>
-import Filters from '@/components/mixins/filters'
+import Filters from "@/components/mixins/filters";
 
 export default {
-  name: 'LineInPanel',
-  props: ['companyKey', 'companyValue'],
-  mixins: [Filters]
-}
+  name: "LineInPanel",
+  mixins: [Filters],
+  props: {
+    companyKey: { type: String, default: "" },
+    companyValue: { type: String, default: "" }
+  }
+};
 </script>

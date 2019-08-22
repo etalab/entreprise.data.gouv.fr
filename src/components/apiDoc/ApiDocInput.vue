@@ -1,24 +1,28 @@
 <template>
   <div class="apidoc__input">
-    <input v-model=requestToDisplay v-on:keyup.enter=activateButton>
-    <a ref="goToButton" class="button" v-bind:href="requestToDisplay">GET</a>
+    <input v-model="requestToDisplay" @keyup.enter="activateButton" />
+    <a ref="goToButton" class="button" :href="requestToDisplay">GET</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ApiDocInput',
-  props: ['request'],
-  data () {
+  name: "ApiDocInput",
+  props: {
+    request: { type: String, default: "https://entreprise.data.gouv.fr/" }
+  },
+  data() {
     return {
       requestToDisplay: this.request
-    }
+    };
   },
   methods: {
     // Pressing enter will activate the click
-    activateButton () { this.$refs.goToButton.click() }
+    activateButton() {
+      this.$refs.goToButton.click();
+    }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -26,5 +30,4 @@ export default {
   display: flex;
   flex-direction: row;
 }
-
 </style>

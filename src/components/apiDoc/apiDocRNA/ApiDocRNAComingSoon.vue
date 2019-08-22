@@ -3,19 +3,20 @@
     <div class="container column__full">
       <h2>Restez connectés !</h2>
       <p>
-        L’API RNA est en phase de développement intensif.<br>
-        Vous pouvez suivre l’avancée des travaux sur <a href="https://github.com/etalab/rna_as_api">github</a><br>
+        L’API RNA est en phase de développement intensif.<br />
+        Vous pouvez suivre l’avancée des travaux sur
+        <a href="https://github.com/etalab/rna_as_api">github</a><br />
         ou sur cette page de documentation pour les futures fonctionnalités !
       </p>
-      <img class="icon" src="@/assets/img/icons/work_in_progress.svg" alt="">
+      <img class="icon" src="@/assets/img/icons/work_in_progress.svg" alt="" />
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'ApiDocRNAComingSoon'
-}
+  name: "ApiDocRNAComingSoon"
+};
 </script>
 
 <style lang="scss" scoped>
@@ -32,5 +33,4 @@ export default {
   min-height: 100px;
   min-width: 100px;
 }
-
 </style>

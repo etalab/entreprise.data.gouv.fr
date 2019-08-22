@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/etablissement/etablissementRNCS/EtablissementRNCSRegistration.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/etablissement/etablissementRNCS</a> EtablissementRNCSRegistration.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/11</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;div class="company__panel panel"&gt;
+    &lt;h4&gt;Informations d’immatriculation et d’activité&lt;/h4&gt;
+    &lt;div class="company__item"&gt;
+    &lt;div class="company__item"&gt;
+      &lt;div class="company__item-key"&gt;Type d’inscription&lt;/div&gt;
+      &lt;div class="company__item-value"&gt; {{ PrincipaleOrSecondaire(this.RNCSData.type_inscription) }}&lt;/div&gt;
+    &lt;/div&gt;
+      &lt;div class="company__item-key"&gt;Greffe&lt;/div&gt;
+      &lt;div class="company__item-value"&gt; {{ RNCSConcatGreffe(this.RNCSData) }}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;panel-info :parent=RNCSData :elements=this.elementsToDisplay1 /&gt;
+    &lt;div class="company__item" v-if="haveRNCSPhysicalDAP"&gt;
+      &lt;div class="company__item-key"&gt;Déclaration d’attribution de Patrimoine :&lt;/div&gt;
+      &lt;div class="company__item-value"&gt;{{ RNCSPhysical.dap }}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="company__item" v-if="RNCSPhysicalDAPIsPositive"&gt;
+      &lt;div class="company__item-key"&gt;Déclaration d’attribution de Patrimoine, Adresse :&lt;/div&gt;
+      &lt;div class="company__item-value"&gt;
+        &lt;div v-if="RNCSPhysical.dap_adresse_ligne_1"&gt;{{ RNCSPhysical.dap_adresse_ligne_1 | ifExist }}&lt;/div&gt;
+        &lt;div v-if="RNCSPhysical.dap_adresse_ligne_2"&gt;{{ RNCSPhysical.dap_adresse_ligne_2 }}&lt;/div&gt;
+        &lt;div v-if="RNCSPhysical.dap_adresse_ligne_3"&gt;{{ RNCSPhysical.dap_adresse_ligne_3 }}&lt;/div&gt;
+        &lt;div&gt; {{ RNCSConcatAddressDAP(RNCSPhysical) }}&lt;/div&gt;
+        &lt;div v-if="RNCSPhysical.dap_adresse_code_commune"&gt;Code Commune {{ RNCSPhysical.dap_adresse_code_commune }}&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;panel-info-inline class="company__item" :parent=RNCSPhysical :elements=this.elementsToDisplay3 /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+<span class="cstat-no" title="statement not covered" >import PanelInfo from '@/components/etablissement/etablissementRNCS/templates/PanelInfo'</span>
+<span class="cstat-no" title="statement not covered" >import PanelInfoInline from '@/components/etablissement/etablissementRNCS/templates/PanelInfoInline'</span>
+<span class="cstat-no" title="statement not covered" >import Filters from '@/components/mixins/filters'</span>
+<span class="cstat-no" title="statement not covered" >import RNCSFormating from '@/components/etablissement/etablissementRNCS/mixins/RNCSformating'</span>
+&nbsp;
+export default {
+  name: 'EtablissementRNCSRegistration',
+  components: {
+    'PanelInfo': PanelInfo,
+    'PanelInfoInline': PanelInfoInline
+  },
+<span class="fstat-no" title="function not covered" >  data () {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      elementsToDisplay1:
+      {
+        "Numero Gestion Greffe": "numero_gestion",
+        "Date de clotûre": "date_cloture",
+        "Date de clotûre exceptionnelle": "date_cloture_exceptionnelle",
+        "Durée personne morale": "duree_pm",
+        "Economie Sociale Solidaire": "economie_sociale_solidaire",
+        "Activité foraine": "activite_forain",
+        "Status EIRL": "eirl",
+        "Date d’immatriculation": "date_immatriculation",
+        "Date de première immatriculation": "date_premiere_immatriculation",
+        "Date de radiation": "date_radiation",
+        "Date de transfert": "date_transfert",
+        "Sans activité": "sans_activite",
+        "Date de début d’activité": "date_debut_activite",
+        "Date de début de première activité": "date_debut_premiere_activite",
+        "Date de cessation d’activité": "date_cessation_activite"
+      },
+      elementsToDisplayDAP:
+      {
+        "Dénomination": "dap_denomination",
+        "Objet": "dap_objet",
+        "Date de fermeture": "dap_date_cloture",
+      }
+    }
+  },
+  computed: {
+<span class="fstat-no" title="function not covered" >    RNCSData () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.$store.getters.RNCSData</span>
+    },
+    // Publishing DAP here from RNCSPhysical if exists, for formatting purpose
+<span class="fstat-no" title="function not covered" >    RNCSPhysical () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.RNCSData.personne_physique</span>
+    },
+<span class="fstat-no" title="function not covered" >    haveRNCSPhysicalDAP () {</span>
+<span class="cstat-no" title="statement not covered" >      return (this.RNCSPhysical &amp;&amp; this.RNCSPhysical.dap)</span>
+    },
+<span class="fstat-no" title="function not covered" >    RNCSPhysicalDAPIsPositive () {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.haveRNCSPhysicalDAP &amp;&amp; this.RNCSPhysical.dap == 'Oui' ) {</span>
+<span class="cstat-no" title="statement not covered" >        return true</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return false</span>
+    }
+  },
+  mixins: [Filters, RNCSFormating]
+}
+&lt;/script&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 27 2019 12:15:00 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

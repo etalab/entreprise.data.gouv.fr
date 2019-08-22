@@ -1,5 +1,3 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/155b98b38add2c148346/maintainability)](https://codeclimate.com/github/etalab/entreprise.data.gouv.fr/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/155b98b38add2c148346/test_coverage)](https://codeclimate.com/github/etalab/entreprise.data.gouv.fr/test_coverage)
-
 # entreprise.data.gouv.fr
 
 Ce site est disponible en ligne : [Entreprise.data.gouv.fr](https://entreprise.data.gouv.fr)
@@ -10,6 +8,8 @@ dont les fichiers SIRENE et RNA sont devenus publics.
 Le site entreprise.data.gouv.fr a pour vocation de mettre à disposition des citoyens les données ouvertes "Open-data".
 
 ## Exécution en local
+
+Entreprise.data.gouv.fr est développé avec Node `lts`.
 
 ``` bash
 # Installation
@@ -35,7 +35,36 @@ npm run test
 # Construire pour la production
 npm run build:production
 
+# Linter
+npm run lint
+
+# Linter avec fix auto
+npm run lint-fix
+
 ```
+
+## Tests
+
+``` bash
+# Tests unitaires
+npm run test:unit
+
+# Mise à jour des snapshots
+npm run test:unit -- -u
+
+# Tests end2end environnement dev
+npm run test:e2e
+
+# Tests end2end environnement sandbox
+npm run test:e2e:sandbox
+
+# Tests end2end environnement production
+npm run test:e2e:production
+```
+Attention, les tests end2end avec nightwatch peuvent être capricieux, par exemple selon la taille de la fenêtre disponible pour le navigateur de test.
+Les tests d'une branche (develop/dev) peuvent ne pas fonctionner sur une autre (master/production).
+
+Ces tests étant end2end, vous avez besoin des applications backend ET frontend fonctionnelles sur localhost si vous désirez tester en développement.
 
 ## Déploiement
 

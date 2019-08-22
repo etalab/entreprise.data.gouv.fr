@@ -8,21 +8,21 @@
 </template>
 
 <script>
-import ApiDocIntro from '@/components/apiDoc/ApiDocIntro'
-import ApiDocList from '@/components/apiDoc/ApiDocList'
-import ApiDocOthers from '@/components/apiDoc/ApiDocOthers'
-import ApiDocOutro from '@/components/apiDoc/ApiDocOutro'
+import ApiDocIntro from "@/components/apiDoc/ApiDocIntro";
+import ApiDocList from "@/components/apiDoc/ApiDocList";
+import ApiDocOthers from "@/components/apiDoc/ApiDocOthers";
+import ApiDocOutro from "@/components/apiDoc/ApiDocOutro";
 
 export default {
-  name: 'ApiDoc',
+  name: "ApiDoc",
   metaInfo: {
-    title: 'Documentation'
+    title: "Documentation"
   },
   components: {
-    'ApiDocIntro': ApiDocIntro,
-    'ApiDocList': ApiDocList,
-    'ApiDocOthers': ApiDocOthers,
-    'ApiDocOutro': ApiDocOutro
+    ApiDocIntro: ApiDocIntro,
+    ApiDocList: ApiDocList,
+    ApiDocOthers: ApiDocOthers,
+    ApiDocOutro: ApiDocOutro
   }
-}
+};
 </script>

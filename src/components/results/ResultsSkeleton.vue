@@ -23,14 +23,14 @@
 
 <script>
 export default {
-  name: 'resultsSkeleton'
-}
+  name: "ResultsSkeleton"
+};
 </script>
 
 <style lang="scss" scoped>
 h4.loading {
   margin: 0;
-  width: 300px
+  width: 300px;
 }
 
 .text__long {
@@ -40,8 +40,6 @@ h4.loading {
 
 .text__medium {
   margin-top: 0.9em;
-  width: 300px
+  width: 300px;
 }
-
-
 </style>

@@ -32,7 +32,7 @@ export const bouygues = {
   sirenSpaced: "572 015 246",
   title: "BOUYGUES",
   namePresident: "Martin BOUYGUES",
-  dateFirstObservation: "28/05/2002",
+  dateFirstObservation: "2002-05-28",
   address: "32 AVENUE HOCHE"
 };
 

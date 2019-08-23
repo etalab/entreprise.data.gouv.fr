@@ -5,11 +5,9 @@
 </template>
 
 <script>
-
 export default {
-  name: 'EtablissementSireneNotFound'
-}
-
+  name: "EtablissementSireneNotFound"
+};
 </script>
 
 <style lang="scss" scoped>

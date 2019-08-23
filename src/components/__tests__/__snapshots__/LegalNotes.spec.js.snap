@@ -16,8 +16,9 @@ exports[`LegalNotes.vue snapshot testing It matches the snapshot 1`] = `
     </h3>
      
     <p>
-      Nous enregistrons des logs anonymes pour suivre l'évolution du site et les pratiques
-      des utilisateurs.
+      
+      Nous enregistrons des logs anonymes pour suivre l'évolution du site et
+      les pratiques des utilisateurs.
       <br />
       
       Aucune donnée n'est utilisée à des fins commerciales.
@@ -37,7 +38,10 @@ exports[`LegalNotes.vue snapshot testing It matches the snapshot 1`] = `
     </h3>
      
     <p>
-      Mission Etalab, Direction interministérielle du numérique et du système d’information et de communication de l’Etat (DINSIC).
+      
+      Mission Etalab, Direction interministérielle du numérique et du système
+      d’information et de communication de l’Etat (DINSIC).
+    
     </p>
      
     <h3>
@@ -45,11 +49,15 @@ exports[`LegalNotes.vue snapshot testing It matches the snapshot 1`] = `
     </h3>
      
     <p>
+      
       M
       <sup>
         me
       </sup>
-       Laure LUCCHESI, Cheffe de la Mission Etalab, Direction interministérielle du numérique et du système d’information et de communication de l’Etat (DINSIC).
+       Laure LUCCHESI, Cheffe de la Mission Etalab, Direction
+      interministérielle du numérique et du système d’information et de
+      communication de l’Etat (DINSIC).
+    
     </p>
      
     <h3>

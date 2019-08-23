@@ -1,20 +1,23 @@
-function concatNames (firstName, lastName) {
-  let first, last = ''
+import Filters from "@/components/mixins/filters";
+
+function concatNames(firstName, lastName) {
+  let first,
+    last = "";
 
   if (lastName) {
-    last = lastName.toUpperCase()
+    last = lastName.toUpperCase();
   } else {
-    return null
+    return null;
   }
 
   if (firstName) {
-    first = firstName.capitalize()
+    first = Filters.filters.capitalize(firstName);
   }
-  return `${first} ${last}`
+  return `${first} ${last}`;
 }
 
 export default {
   methods: {
     concatNames
   }
-}
+};

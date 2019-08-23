@@ -16,10 +16,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Gérant
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      
+      Jean yves SMITH
+    
     </div>
   </div>
    
@@ -31,10 +34,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Adresse
     </label>
+     
     <div
       class="company__item-value"
     >
-        
+      
+      52 avenue de la fausse adresse
+    
     </div>
   </div>
    
@@ -46,10 +52,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Ville
     </label>
+     
     <div
       class="company__item-value"
     >
-        
+      
+      75000 PARIS
+    
     </div>
   </div>
    
@@ -61,10 +70,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Cedex
     </label>
+     
     <div
       class="company__item-value"
     >
-       Non renseigné
+      
+      5
+    
     </div>
   </div>
    
@@ -76,40 +88,11 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Date de création
     </label>
+     
     <div
       class="company__item-value"
     >
-       
-    </div>
-  </div>
-   
-  <div
-    class="company__item"
-  >
-    <label
-      class="company__item-key"
-    >
-      Téléphone
-    </label>
-    <div
-      class="company__item-value"
-    >
-       Non renseigné
-    </div>
-  </div>
-   
-  <div
-    class="company__item"
-  >
-    <label
-      class="company__item-key"
-    >
-      Email
-    </label>
-    <div
-      class="company__item-value"
-    >
-       Non renseigné
+      01/01/2007
     </div>
   </div>
    
@@ -121,10 +104,13 @@ exports[`EtablissementSireneContact.vue snapshot It match the snapshot 1`] = `
     >
       Tranche d’effectif salariés
     </label>
+     
     <div
       class="company__item-value"
     >
-       
+      
+      Non renseigné
+    
     </div>
   </div>
 </div>

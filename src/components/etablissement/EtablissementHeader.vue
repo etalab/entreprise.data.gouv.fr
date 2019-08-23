@@ -3,128 +3,180 @@
     <div class="company__main">
       <header-skeleton v-if="isEtablissementLoading"></header-skeleton>
       <div v-else class="title__block">
-        <h2 v-if="haveSireneInfo">{{resultSirene.nom_raison_sociale | removeExtraChars}} <span class="company__siren">({{ resultSirene.siren }})</span></h2>
-        <h2 v-if="haveOnlyRNAInfo">{{resultRNA.titre}} <span class="association__id">({{ resultRNA.id_association }})</span></h2>
+        <h2 v-if="haveSireneInfo">
+          <div v-if="isEntrepreneurIndividuel">
+            {{
+              concatNames(
+                resultSirene.unite_legale.prenom_1,
+                resultSirene.unite_legale.nom
+              ) | ifExist
+            }}
+          </div>
+          <div v-else>
+            {{ resultSirene.unite_legale.denomination | removeExtraChars }}
+          </div>
+          <span class="company__siren"
+            >(<span
+              :inner-html.prop="resultSirene.siren | prettySirenHtml"
+            />)</span
+          >
+        </h2>
+        <h2 v-if="haveOnlyRNAInfo">
+          {{ resultRNA.titre }}
+          <span class="association__id">({{ resultRNA.id_association }})</span>
+        </h2>
 
         <template v-if="haveSireneInfo">
           <div class="subtitle">
-            <div>{{ resultSirene.l4_normalisee }}</div>
-            <div>{{ resultSirene.l6_normalisee }}</div>
+            <div>{{ resultSirene.geo_l4 }}</div>
+            <div>{{ resultSirene.geo_l5 }}</div>
           </div>
-          <div class="second__subtitle"> {{ resultSirene.libelle_activite_principale_entreprise }}</div>
+          <div class="second__subtitle">
+            {{ resultSirene.libelle_activite_principale_entreprise }}
+          </div>
         </template>
-        <div v-if="haveOnlyRNAInfo" class="second__subtitle"> {{ resultRNA.titre_court}}</div>
-        <etablissement-sirene-children v-if=haveSireneInfo />
+        <div v-if="haveOnlyRNAInfo" class="second__subtitle">
+          {{ resultRNA.titre_court }}
+        </div>
+        <etablissement-header-sirene-children v-if="haveSireneInfo" />
 
-        <router-link v-if="haveSireneInfo" :to="{ name: 'RNCS', params: {searchId: resultSirene.siren}}"> Fiche d'immatriculation au RNCS </router-link>
+        <router-link
+          v-if="haveSireneInfo"
+          :to="{ name: 'RNCS', params: { searchId: resultSirene.siren } }"
+        >
+          Fiche d'immatriculation au RNCS
+        </router-link>
+        <etablissement-header-timestamp
+          :result-sirene="resultSirene"
+          :result-r-n-a="resultRNA"
+        />
       </div>
-      <div v-if=isEtablissementLoading class="map__dummy panel"></div>
+      <div v-if="isEtablissementLoading" class="map__dummy panel"></div>
       <template v-else>
-        <etablissement-map v-if=haveSireneInfo :positionEtablissement='coordinates' :etablissement='this.resultSirene'/>
+        <etablissement-map
+          v-if="haveSireneInfo"
+          :position-etablissement="coordinates"
+          :etablissement="resultSirene"
+        />
       </template>
     </div>
   </div>
 </template>
 
 <script>
-import Filters from '@/components/mixins/filters.js'
-import EtablissementSireneChildren from '@/components/etablissement/etablissementSirene/EtablissementSireneChildren'
-import EtablissementMap from '@/components/etablissement/EtablissementMap'
-import HeaderSkeleton from '@/components/etablissement/skeletons/HeaderSkeleton'
+import Filters from "@/components/mixins/filters";
+import Formating from "@/components/mixins/formating";
+import EtablissementHeaderSireneChildren from "@/components/etablissement/etablissementHeader/EtablissementHeaderSireneChildren";
+import EtablissementMap from "@/components/etablissement/EtablissementMap";
+import HeaderSkeleton from "@/components/etablissement/skeletons/HeaderSkeleton";
+import EtablissementHeaderTimestamp from "@/components/etablissement/etablissementHeader/EtablissementHeaderTimestamp";
 
 export default {
-  name: 'EtablissementHeader',
-  props: ['searchId'],
+  name: "EtablissementHeader",
   components: {
-    'EtablissementSireneChildren': EtablissementSireneChildren,
-    'EtablissementMap': EtablissementMap,
-    'HeaderSkeleton': HeaderSkeleton
+    EtablissementHeaderTimestamp: EtablissementHeaderTimestamp,
+    EtablissementHeaderSireneChildren: EtablissementHeaderSireneChildren,
+    EtablissementMap: EtablissementMap,
+    HeaderSkeleton: HeaderSkeleton
   },
+  mixins: [Filters, Formating],
+  props: { searchId: { type: String, default: "" } },
   computed: {
-    isEtablissementLoading () {
-      return this.$store.getters.mainAPISLoading
+    isEtablissementLoading() {
+      return this.$store.getters.mainAPISLoading;
     },
-    resultSirene () {
-      return this.$store.getters.singlePageEtablissementSirene
+    resultSirene() {
+      return this.$store.getters.singlePageEtablissementSirene;
     },
-    resultRNA () {
-      return this.$store.getters.singlePageEtablissementRNA
+    resultRNA() {
+      return this.$store.getters.singlePageEtablissementRNA;
     },
-    haveOnlyRNAInfo () {
-      return (!this.haveSireneInfo && this.haveRNAInfo)
+    haveOnlyRNAInfo() {
+      return !this.haveSireneInfo && this.haveRNAInfo;
     },
-    haveSireneInfo () {
+    haveSireneInfo() {
       if (this.$store.getters.sireneAvailable) {
-        return true
+        return true;
       }
+      return false;
     },
-    haveRNAInfo () {
+    haveRNAInfo() {
       if (this.$store.getters.RNAAvailable) {
-        return true
+        return true;
       }
+      return false;
     },
-    coordinates () {
-      if (this.resultSirene && this.resultSirene.longitude && this.resultSirene.latitude) {
-        return [this.resultSirene.longitude, this.resultSirene.latitude]
+    coordinates() {
+      if (
+        this.resultSirene &&
+        this.resultSirene.longitude &&
+        this.resultSirene.latitude
+      ) {
+        return [this.resultSirene.longitude, this.resultSirene.latitude];
       }
-      return null
+      return null;
+    },
+    isEntrepreneurIndividuel() {
+      if (this.resultSirene.unite_legale.categorie_juridique == "1000") {
+        return true;
+      }
+      return false;
     }
-  },
-  mixins: [Filters]
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+.company__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#map {
+  margin-left: 2em;
+}
+
+@media (max-width: $desktop) {
   .company__main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
   }
 
   #map {
-    margin-left: 2em;
+    margin-left: 0;
   }
+}
 
-  @media (max-width: $desktop) {
-    .company__main {
-      flex-direction: column;
-    }
+.company__buttons {
+  margin-top: 1.5em;
 
-    #map {
-      margin-left: 0;
-    }
+  .button {
+    padding: 0.5em 1em 0.6em;
+    vertical-align: middle;
+    margin-left: 0;
   }
+}
 
-  .company__buttons {
-    margin-top: 1.5em;
+h2 {
+  margin: 0;
+}
 
-    .button {
-      padding: 0.5em 1em 0.6em;
-      vertical-align: middle;
-      margin-left: 0;
-    }
-  }
+.subtitle {
+  font-size: 1.25em;
+}
 
-  h2 {
-    margin: 0;
-  }
+.second__subtitle {
+  margin-top: 0.5em;
+}
 
-  .subtitle {
-    font-size: 1.25em;
-  }
+.company__siren,
+.second__subtitle {
+  color: $color-darker-grey;
+}
 
-  .second__subtitle {
-    margin-top: 0.5em;
-  }
-
-  .company__siren,
-  .second__subtitle {
-    color: $color-darker-grey;
-  }
-
-  .map__dummy {
-    height: 350px;
-    width: 48%;
-    background-color: #f2eae2;
-  }
+.map__dummy {
+  height: 350px;
+  width: 48%;
+  background-color: #f2eae2;
+}
 </style>

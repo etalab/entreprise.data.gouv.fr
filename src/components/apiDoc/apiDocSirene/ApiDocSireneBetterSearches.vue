@@ -4,7 +4,8 @@
       <div class="column__right">
         <h2>Des recherches textes plus puissantes</h2>
         <p>
-          De nombreuses options sont exploitables pour trouver exactement ce dont vous avez besoin.<br>
+          De nombreuses options sont exploitables pour trouver exactement ce
+          dont vous avez besoin.<br />
           Vous pouvez vous référer au tableau suivant :
         </p>
         <table>
@@ -46,11 +47,18 @@
               <td><code>is_entrepreneur_individuel</code></td>
               <td>`yes` pour Oui, `no` pour Non</td>
             </tr>
+            <tr>
+              <td>Tranche Salariés</td>
+              <td><code>tranche_effectif_salarie_entreprise</code></td>
+              <td>le code INSEE pour cette tranche d'effectif salarié</td>
+            </tr>
           </tbody>
         </table>
         <p>
-          Ces options sont disponibles pour le moment uniquement sur la recherche Texte.<br>
-          L’API est en constante évolution, n’hésitez pas à nous écrire pour demander davantage d’options correspondant à vos besoins !
+          Ces options sont disponibles pour le moment uniquement sur la
+          recherche Texte.<br />
+          L’API est en constante évolution, n’hésitez pas à nous écrire pour
+          demander davantage d’options correspondant à vos besoins !
         </p>
       </div>
     </div>
@@ -59,12 +67,11 @@
 
 <script>
 export default {
-  name: 'ApiDocSireneBetterSearches'
-}
+  name: "ApiDocSireneBetterSearches"
+};
 </script>
 
 <style lang="scss" scoped>
-
 .container {
   display: flex;
   flex-direction: row;
@@ -84,12 +91,10 @@ table {
   border-collapse: collapse;
   border: 1px solid $color-white;
   border-bottom: 2px solid $color-blue;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
-     0px 10px 20px rgba(0,0,0,0.05),
-     0px 20px 20px rgba(0,0,0,0.05),
-     0px 30px 20px rgba(0,0,0,0.05);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+    0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
   tr {
-     &:hover {
+    &:hover {
       background: $color-lightest-grey;
 
       td {
@@ -97,7 +102,8 @@ table {
       }
     }
   }
-  th, td {
+  th,
+  td {
     color: $color-darker-grey;
     border: 1px solid $color-light-grey;
     border-collapse: collapse;
@@ -123,5 +129,4 @@ table {
   }
 }
 // End table style
-
 </style>

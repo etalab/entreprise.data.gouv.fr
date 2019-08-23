@@ -1,60 +1,66 @@
 /*eslint-disable no-undef*/
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export const state = {
-  application: jest.fn().mockReturnValue([{
-    isLoading: {
-      'SIREN': jest.fn().mockReturnValue([{}]),
-      'ID_ASSOCIATION': jest.fn().mockReturnValue([{}]),
-      'SIRET': jest.fn().mockReturnValue([{}]),
-      'FULLTEXT': jest.fn().mockReturnValue([{}])
-    },
-    error500: {
-      'SIRENE': jest.fn().mockReturnValue([{}]),
-      'RNA': jest.fn().mockReturnValue([{}])
-    },
-    noResultFound: {
-      'SIRENE': jest.fn().mockReturnValue([{}]),
-      'RNA': jest.fn().mockReturnValue([{}])
+  application: jest.fn().mockReturnValue([
+    {
+      isLoading: {
+        SIREN: jest.fn().mockReturnValue([{}]),
+        ID_ASSOCIATION: jest.fn().mockReturnValue([{}]),
+        SIRET: jest.fn().mockReturnValue([{}]),
+        FULLTEXT: jest.fn().mockReturnValue([{}])
+      },
+      error500: {
+        SIRENE: jest.fn().mockReturnValue([{}]),
+        RNA: jest.fn().mockReturnValue([{}])
+      },
+      noResultFound: {
+        SIRENE: jest.fn().mockReturnValue([{}]),
+        RNA: jest.fn().mockReturnValue([{}])
+      }
     }
-  }]),
-  baseAdressSuggestions: jest.fn().mockReturnValue([{
-    fullTextResults: {
-      'RNA': jest.fn().mockReturnValue([{}]),
-      'SIRENE': jest.fn().mockReturnValue([{}])
-    },
-    singlePageResult: {
-      'RNA': jest.fn().mockReturnValue([{}]),
-      'SIRENE':  jest.fn().mockReturnValue([{}])
-    },
-    status: {
-      'RNA': jest.fn().mockReturnValue([{}]),
-      'SIRENE': jest.fn().mockReturnValue([{}])
+  ]),
+  baseAdressSuggestions: jest.fn().mockReturnValue([
+    {
+      fullTextResults: {
+        RNA: jest.fn().mockReturnValue([{}]),
+        SIRENE: jest.fn().mockReturnValue([{}])
+      },
+      singlePageResult: {
+        RNA: jest.fn().mockReturnValue([{}]),
+        SIRENE: jest.fn().mockReturnValue([{}])
+      },
+      status: {
+        RNA: jest.fn().mockReturnValue([{}]),
+        SIRENE: jest.fn().mockReturnValue([{}])
+      }
     }
-  }]),
+  ]),
   sirenResults: jest.fn().mockReturnValue([{}]),
   sirenChildren: jest.fn().mockReturnValue([{}]),
-  searchEtablissement: jest.fn().mockReturnValue([{
-    baseAdressSiret: {
-      'SIRENE': jest.fn().mockReturnValue([{}]),
-      'RNA': jest.fn().mockReturnValue([{}])
-    },
-    baseAdressRNAId: {
-      'SIRENE': jest.fn().mockReturnValue([{}]),
-      'RNA': jest.fn().mockReturnValue([{}])
-    },
-    baseAdressSiren: jest.fn().mockReturnValue([{}])
-  }]),
+  searchEtablissement: jest.fn().mockReturnValue([
+    {
+      baseAdressSiret: {
+        SIRENE: jest.fn().mockReturnValue([{}]),
+        RNA: jest.fn().mockReturnValue([{}])
+      },
+      baseAdressRNAId: {
+        SIRENE: jest.fn().mockReturnValue([{}]),
+        RNA: jest.fn().mockReturnValue([{}])
+      },
+      baseAdressSiren: jest.fn().mockReturnValue([{}])
+    }
+  ]),
   searchFullText: {
     storedFullText: jest.fn().mockReturnValue([{}]),
     storedLastFullText: jest.fn().mockReturnValue([{}]),
     pageNumber: jest.fn().mockReturnValue([{}]),
     baseAdressFullText: {
-      'SIRENE': jest.fn().mockReturnValue([{}]),
-      'RNA': jest.fn().mockReturnValue([{}])
+      SIRENE: jest.fn().mockReturnValue([{}]),
+      RNA: jest.fn().mockReturnValue([{}])
     }
   },
   suggestions: {
@@ -63,7 +69,7 @@ export const state = {
     querySuggestions: jest.fn().mockReturnValue([{}]),
     suggestActive: jest.fn().mockReturnValue([{}])
   }
-}
+};
 
 export const getters = {
   RNAAvailable: jest.fn().mockReturnValue([{}]),
@@ -79,7 +85,7 @@ export const getters = {
   pageNumber: jest.fn().mockReturnValue([{}]),
   pageNumberToGet: jest.fn().mockReturnValue(["?per_page=5&page=1"]),
   queryToGet: jest.fn().mockReturnValue([{}]),
-  singlePageEtablissementRNA: jest.fn().mockReturnValue([{}]),
+  singlePageEtablissementRNA: jest.fn().mockReturnValue({}),
   singlePageEtablissementSirene: jest.fn().mockReturnValue([{}]),
   singleResult: jest.fn().mockReturnValue([{}]),
   sireneAvailable: jest.fn().mockReturnValue([{}]),
@@ -92,10 +98,12 @@ export const getters = {
   storedSirenTotalResults: jest.fn().mockReturnValue([{}]),
   storedSpellcheckRNA: jest.fn().mockReturnValue([{}]),
   storedSpellcheckSirene: jest.fn().mockReturnValue([{}]),
-  suggestionAdressToGet: jest.fn().mockReturnValue(["http://localhost:3000/v1/suggest/"]),
+  suggestionAdressToGet: jest
+    .fn()
+    .mockReturnValue(["http://localhost:3000/v1/suggest/"]),
   totalPageNumberRNA: jest.fn().mockReturnValue([0]),
   totalPageNumberSirene: jest.fn().mockReturnValue([0])
-}
+};
 
 export const mutations = {
   // results.js
@@ -110,8 +118,8 @@ export const mutations = {
   setPage: jest.fn(),
   // suggestions.js
   setQuerySuggestions: jest.fn(),
-  setStoredSuggestions: jest.fn(),
-}
+  setStoredSuggestions: jest.fn()
+};
 
 export const actions = {
   // application.js
@@ -140,14 +148,16 @@ export const actions = {
   // suggestions.js
   executeSearchSuggestions: jest.fn(),
   filterAndStoreSuggestions: jest.fn()
-}
+};
 
 // eslint-disable-next-line no-underscore-dangle
-export function __createMocks(custom = { getters: {}, mutations: {}, actions: {}, state: {} }) {
-  const mockGetters = Object.assign({}, getters, custom.getters)
-  const mockMutations = Object.assign({}, mutations, custom.mutations)
-  const mockActions = Object.assign({}, actions, custom.actions)
-  const mockState = Object.assign({}, state, custom.state)
+export function __createMocks(
+  custom = { getters: {}, mutations: {}, actions: {}, state: {} }
+) {
+  const mockGetters = Object.assign({}, getters, custom.getters);
+  const mockMutations = Object.assign({}, mutations, custom.mutations);
+  const mockActions = Object.assign({}, actions, custom.actions);
+  const mockState = Object.assign({}, state, custom.state);
 
   return {
     getters: mockGetters,
@@ -160,7 +170,7 @@ export function __createMocks(custom = { getters: {}, mutations: {}, actions: {}
       actions: mockActions,
       state: mockState
     })
-  }
+  };
 }
 
-export const store = __createMocks().store
+export const store = __createMocks().store;

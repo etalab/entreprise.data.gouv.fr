@@ -2,36 +2,56 @@
   <section class="section section-grey">
     <div class="container">
       <div class="column__icon">
-        <img src="@/assets/img/icons/search.svg" alt="">
+        <img src="@/assets/img/icons/search.svg" alt="" />
       </div>
       <div class="column__right">
         <h2>L’API RNCS</h2>
         <h3>Comment interroger l’API ?</h3>
         <p>
-          L'API RNCS est similaire aux API Sirene et RNA.
-          Vous devez faire une requête GET. L’adresse de l’API est : <a href="https://entreprise.data.gouv.fr/api/rncs/">https://entreprise.data.gouv.fr/api/rncs/</a><br>
+          L'API RNCS est similaire aux API Sirene et RNA. Vous devez faire une
+          requête GET. L’adresse de l’API est :
+          <a href="https://entreprise.data.gouv.fr/api/rncs/"
+            >https://entreprise.data.gouv.fr/api/rncs/</a
+          ><br />
           Attention, vous devez rajouter votre requête sur l’adresse.
         </p>
         <h3>Format de réponse</h3>
-        <p>L’API vous renverra les informations demandées au format JSON (code 200).<br/>
-        Les codes suivants sont également renvoyés :</p>
+        <p>
+          L’API vous renverra les informations demandées au format JSON (code
+          200).<br />
+          Les codes suivants sont également renvoyés :
+        </p>
         <ul>
           <li>404 : Entreprise non trouvée dans les dossiers de greffes</li>
-          <li>422 : Impossible d'effectuer la requête (par exemple si le SIREN est mal formaté)</li>
+          <li>
+            422 : Impossible d'effectuer la requête (par exemple si le SIREN est
+            mal formaté)
+          </li>
           <li>500 : Erreur serveur (par exemple pendant une maintenance)</li>
         </ul>
-        <p>Les différents champs renvoyés dans la réponse sont listés dans <a href="https://www.inpi.fr/sites/default/files/doc_tech_imr_juillet_2018_v1.4.pdf">la documentation de l'INPI</a></p>
+        <p>
+          Les différents champs renvoyés dans la réponse sont listés dans
+          <a
+            href="https://www.inpi.fr/sites/default/files/doc_tech_imr_juillet_2018_v1.4.pdf"
+            >la documentation de l'INPI</a
+          >
+        </p>
         <h3>Limite de requêtes</h3>
         <p>
-          Le serveur accepte 2000 requêtes / 10 minutes. Au delà, vous risquez un bannissement de votre IP.
+          Le serveur accepte 2000 requêtes / 10 minutes. Au delà, vous risquez
+          un bannissement de votre IP.
         </p>
       </div>
     </div>
     <div class="container container__subtext">
       <h2>Installer votre propre version de l’API RNCS</h2>
       <p>
-        Si vos besoins excèdent les limites des serveurs, par exemple pour si vous voulez effectuer davantage de requêtes, vous pouvez installer votre propre copie de l’API.
-        Le manuel d’installation de l’API se trouve <a href="https://github.com/etalab/rncs_worker_api_entreprise">sur github</a>.
+        Si vos besoins excèdent les limites des serveurs, par exemple pour si
+        vous voulez effectuer davantage de requêtes, vous pouvez installer votre
+        propre copie de l’API. Le manuel d’installation de l’API se trouve
+        <a href="https://github.com/etalab/rncs_worker_api_entreprise"
+          >sur github</a
+        >.
       </p>
     </div>
   </section>
@@ -39,12 +59,11 @@
 
 <script>
 export default {
-  name: 'ApiDocRNCSGeneric'
-}
+  name: "ApiDocRNCSGeneric"
+};
 </script>
 
 <style lang="scss" scoped>
-
 .container {
   display: flex;
   justify-content: space-between;
@@ -91,5 +110,4 @@ export default {
 h3 {
   margin-bottom: 0;
 }
-
 </style>

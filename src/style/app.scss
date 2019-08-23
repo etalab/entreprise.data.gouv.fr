@@ -1,6 +1,5 @@
-@import '~template.data.gouv.fr/dist/style/main.min.css'; 
-
-@import '_variables.scss';
-@import '_etablissement.scss';
+@import '_variables';
+@import '_etablissement';
 @import '_skeletons';
-@import 'main.scss';
+@import 'main';
+@import '~mapbox-gl/dist/mapbox-gl.css';

@@ -2,32 +2,41 @@
   <section class="section section-grey">
     <div class="container">
       <div class="column__icon">
-        <img src="@/assets/img/icons/laptop.svg" alt="">
+        <img src="@/assets/img/icons/laptop.svg" alt="" />
       </div>
       <div class="column__right">
         <h2>L’API RNA</h2>
         <h3>Comment interroger l’API ?</h3>
         <p>
-          L’API RNA fonctionne de manière similaire à l’API Sirene.
-          Vous devez faire pour cela une requête GET. L’adresse de l’API est : <a href="https://entreprise.data.gouv.fr/api/rna/">https://entreprise.data.gouv.fr/api/rna/</a><br>
+          L’API RNA fonctionne de manière similaire à l’API Sirene. Vous devez
+          faire pour cela une requête GET. L’adresse de l’API est :
+          <a href="https://entreprise.data.gouv.fr/api/rna/"
+            >https://entreprise.data.gouv.fr/api/rna/</a
+          ><br />
           Attention, vous devez rajouter votre requête sur l’adresse.
         </p>
         <h3>Format de réponse</h3>
         <p>
-          L’API vous renverra les informations demandées au format JSON (code 200).<br>
-          Vous recevrez un code 404 si aucun établissement n’est trouvé, ou un 500 si le serveur n’est pas fonctionnel (par exemple pendant une maintenance).
+          L’API vous renverra les informations demandées au format JSON (code
+          200).<br />
+          Vous recevrez un code 404 si aucun établissement n’est trouvé, ou un
+          500 si le serveur n’est pas fonctionnel (par exemple pendant une
+          maintenance).
         </p>
         <h3>Limite de requêtes</h3>
         <p>
-          Le serveur accepte 2000 requêtes / 10 minutes. Au delà, vous risquez un bannissement de votre IP.
+          Le serveur accepte 2000 requêtes / 10 minutes. Au delà, vous risquez
+          un bannissement de votre IP.
         </p>
       </div>
     </div>
     <div class="container container__subtext">
       <h2>Installer votre propre version de l’API RNA</h2>
       <p>
-        Si vos besoins excèdent les limites des serveurs, par exemple pour si vous voulez effectuer davantage de requêtes, vous pouvez installer votre propre copie de l’API.
-        Le manuel d’installation de l’API se trouve <a href="https://github.com/etalab/rna_as_api">sur github</a>.
+        Si vos besoins excèdent les limites des serveurs, par exemple pour si
+        vous voulez effectuer davantage de requêtes, vous pouvez installer votre
+        propre copie de l’API. Le manuel d’installation de l’API se trouve
+        <a href="https://github.com/etalab/rna_as_api">sur github</a>.
       </p>
     </div>
   </section>
@@ -35,12 +44,11 @@
 
 <script>
 export default {
-  name: 'ApiDocRNAGeneric'
-}
+  name: "ApiDocRNAGeneric"
+};
 </script>
 
 <style lang="scss" scoped>
-
 .container {
   display: flex;
   justify-content: space-between;
@@ -87,5 +95,4 @@ export default {
 h3 {
   margin-bottom: 0;
 }
-
 </style>

@@ -1,15 +1,15 @@
 <template>
   <paginate
     ref="paginate"
+    :value="parseInt($store.getters.pageNumber)"
     :container-class="'pagination'"
     :page-class="'pagesButtons'"
     :prev-class="'pagesButtons'"
     :next-class="'pagesButtons'"
-    :page-count="totalPageNumber()"
-    :initial-page="initialPage"
+    :page-count="totalPages"
     :prev-text="'Precédent'"
     :next-text="'Suivant'"
-    :click-handler="selectPage"
+    :click-handler="searchPage"
   >
   </paginate>
 </template>
@@ -22,24 +22,11 @@ Vue.component("paginate", Paginate);
 
 export default {
   name: "Results",
-  props: { totalPages: { type: Number, default: 0 } },
-  data: function() {
-    return {
-      initialPage: parseInt(this.$store.state.route.query.page, 10) - 1
-    };
-  },
+  props: { totalPages: { type: Number, default: 1 } },
   methods: {
-    selectPage(pageNum) {
-      if (this.$store.state.route.query.fullText) {
-        this.$store.commit("setPage", pageNum);
-        this.$store.dispatch("requestSearchFullText");
-      } else {
-        this.$store.dispatch("goToClearedHomePage");
-      }
-    },
-    // totalPageNumber needs to be a method cause based on non-reactive dependencies
-    totalPageNumber() {
-      return this.totalPages;
+    searchPage(pageNum) {
+      this.$store.commit("setPage", pageNum);
+      this.$store.dispatch("requestSearchFullText");
     }
   }
 };

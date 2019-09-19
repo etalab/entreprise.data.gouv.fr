@@ -3,14 +3,14 @@
     <div class="container">
       <div class="row">
         <div class="column__full">
-          <h1>Documentation legacy des endpoints V1 et V2</h1>
+          <h1>Documentation des endpoints V1 et V2</h1>
           <p>
-            Attention, ces endpoints sont dépréciés et ne recevront pas de
-            support dans le futur.
+            Attention, ces endpoints sont dépréciés et ne reçoivent plus de
+            support.
           </p>
           <h2>Exemple de requête :</h2>
           <p>
-            L’adresse à taper pour une requête est :
+            L’adresse à appeler pour une requête est :
             <strong>Adresse + Version + Informations</strong><br />
             <strong>Exemple :</strong> Je souhaite accéder aux informations sur
             la mairie de Montpellier, dont le siret est le 21340172201787. Je me

@@ -23,8 +23,8 @@
           </p>
           <h3>Limite de requêtes</h3>
           <p>
-            Le serveur accepte 7 requêtes par seconde, soit 420 requêtes par
-            minute. Au delà, un code 429 est renvoyé.
+            Le serveur accepte un maximum de 7 requêtes par seconde. Au delà, un
+            code 429 est renvoyé.
           </p>
         </div>
       </div>

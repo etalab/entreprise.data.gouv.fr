@@ -6,28 +6,32 @@
           <h1>Documentation des endpoints V3</h1>
 
           <p>
-            Les endpoints V3 sont maintenant disponibles. Ils renvoient le
-            nouveau format des fichiers SIRENE Open Data.<br />
+            Une nouvelle version des API SIRENE Open Data est disponible, la V3,
+            construite à partir des
+            <a
+              href="https://www.data.gouv.fr/en/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret/"
+              >fichiers déposés sur data.gouv.fr</a
+            >
+            par l'INSEE depuis le mois d'avril 2019.<br />
           </p>
           <p>
-            Attention, des différences notables existent sur cette nouvelle
-            version :
+            Des différences notables existent sur cette nouvelle version :
           </p>
           <ul>
             <li>
-              - Les ressources sont maintenant divisées entre Unités Légales et
-              Établissements
+              - Les unités légales et leurs établissements sont disponibles au
+              travers de deux endpoints différents.
             </li>
             <li>
-              - Les Unités Légales / Établissements fermés sont maintenant
-              également disponibles
+              - L'historique des entreprises et des établissements fermés sont
+              aujourd'hui disponibles.
             </li>
           </ul>
 
           <h5>Ressource Établissements</h5>
           <h6>Index des Établissements</h6>
           <api-doc-input :request="exampleEtablissement1"></api-doc-input>
-          <h6>Recherche par Siret</h6>
+          <h6>Rechercher un établissement par Siret</h6>
           <api-doc-input :request="exampleEtablissement2"></api-doc-input>
 
           <h5>Ressource Unités Légales</h5>

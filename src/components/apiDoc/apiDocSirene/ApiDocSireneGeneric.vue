@@ -10,7 +10,7 @@
           <h3>Comment interroger l’API ?</h3>
           <p>
             Vous devez faire pour cela une requête GET. L’adresse de l'API est :
-            <code>https://entreprise.data.gouv.fr/api/sirene/v1/</code><br />
+            <code>https://entreprise.data.gouv.fr/api/sirene/v3/</code><br />
             Attention, vous devez rajouter votre requête sur l’adresse.
           </p>
           <h3>Format de réponse</h3>
@@ -23,8 +23,8 @@
           </p>
           <h3>Limite de requêtes</h3>
           <p>
-            Le serveur accepte 2000 requêtes / 10 minutes. Au delà, vous risquez
-            un bannissement de votre IP.
+            Le serveur accepte un maximum de 7 requêtes par seconde. Au delà, un
+            code 429 est renvoyé.
           </p>
         </div>
       </div>

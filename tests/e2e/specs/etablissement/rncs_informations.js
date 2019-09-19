@@ -1,5 +1,8 @@
 import { bouygues } from "../fixtures";
 
+const linkToRncs =
+  "#app > section > div > div:nth-child(1) > div > div.title__block > a";
+
 const companyNameElement =
   "#app > section > div > div:nth-child(1) > div.company > div.company-container > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div.company__item-value";
 
@@ -16,7 +19,7 @@ module.exports = {
   "Clicking on link text goes to RNCS page": function(browser) {
     browser
       .url(browser.launch_url + "etablissement/" + bouygues.siret)
-      .click("link text", "Fiche d'immatriculation au RNCS");
+      .click(linkToRncs);
 
     browser.assert.urlEquals(browser.launch_url + "rncs/" + bouygues.siren);
   },
@@ -62,5 +65,15 @@ module.exports = {
       );
     });
     browser.end();
+  },
+
+  "Clicking on link BODACC goes to correct page": function(browser) {
+    browser
+      .url(browser.launch_url + "rncs/" + bouygues.siren)
+      .click("link text", "Liste des annonces BODACC");
+
+    browser.assert.urlEquals(
+      "https://www.bodacc.fr/annonce/liste/" + bouygues.siren
+    );
   }
 };

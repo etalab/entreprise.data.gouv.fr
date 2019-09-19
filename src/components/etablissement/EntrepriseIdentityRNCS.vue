@@ -70,6 +70,12 @@ export default {
     BlocksSkeleton: BlocksSkeleton
   },
   mixins: [Filters, Formating],
+  data() {
+    return {
+      baseAddress: process.env.VUE_APP_BASE_ADDRESS_RNCS,
+      bodaccAddress: "https://www.bodacc.fr/annonce/liste/"
+    };
+  },
   computed: {
     searchId() {
       return this.$route.params.searchId;
@@ -79,13 +85,12 @@ export default {
     },
     dataRequestURL() {
       if (this.haveRNCSInfo) {
-        return `${process.env.VUE_APP_BASE_ADDRESS_RNCS}
-        ${this.$store.getters.RNCSData.siren}`;
+        return `${this.baseAddress}${this.$store.getters.RNCSData.siren}`;
       }
       return null;
     },
     dataRequestPDF() {
-      return `${process.env.VUE_APP_BASE_ADDRESS_RNCS}${this.searchId}/pdf`;
+      return `${this.baseAddress}${this.searchId}/pdf`;
     },
     RNCSUpdate() {
       if (this.haveRNCSInfo) {
@@ -105,10 +110,7 @@ export default {
       return this.$store.getters.RNCSError;
     },
     linkBodacc() {
-      return (
-        "https://www.bodacc.fr/annonce/liste/" +
-        this.$store.getters.RNCSData.siren
-      );
+      return `${this.bodaccAddress}${this.$store.getters.RNCSData.siren}`;
     }
   },
   watch: {
@@ -182,6 +184,7 @@ export default {
 
 .company__buttons > .button {
   min-width: 220px;
+  min-height: 42px;
   margin-left: 10px;
   margin-right: 10px;
 }

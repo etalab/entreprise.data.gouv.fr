@@ -46,6 +46,9 @@
         >
           Fiche d'immatriculation au RNCS
         </router-link>
+        <a v-if="haveSireneInfo" class="link__external" :href="linkBodacc"
+          >Liste des annonces BODACC</a
+        >
         <etablissement-header-timestamp
           :result-sirene="resultSirene"
           :result-r-n-a="resultRNA"
@@ -121,6 +124,9 @@ export default {
         return true;
       }
       return false;
+    },
+    linkBodacc() {
+      return "https://www.bodacc.fr/annonce/liste/" + this.resultSirene.siren;
     }
   }
 };
@@ -178,5 +184,10 @@ h2 {
   height: 350px;
   width: 48%;
   background-color: #f2eae2;
+}
+
+.link__external {
+  margin-top: 10px;
+  display: inline-block;
 }
 </style>

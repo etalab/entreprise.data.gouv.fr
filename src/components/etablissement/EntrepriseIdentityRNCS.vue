@@ -18,8 +18,16 @@
             <img class="icon" src="@/assets/img/download.svg" alt="" />
             Version imprimable
           </a>
+          <a
+            class="button button__secondary"
+            target="_blank"
+            :href="linkBodacc"
+            title="Aller vers les annonces BODACC"
+          >
+            <img class="icon" src="@/assets/img/arrow_top_left.svg" alt="" />
+            Annonces BODACC
+          </a>
         </div>
-
         <etablissement-rncs />
       </div>
       <div v-if="haveRNCSInfo" class="company__extra">
@@ -71,7 +79,8 @@ export default {
     },
     dataRequestURL() {
       if (this.haveRNCSInfo) {
-        return `${process.env.VUE_APP_BASE_ADDRESS_RNCS}${this.$store.getters.RNCSData.siren}`;
+        return `${process.env.VUE_APP_BASE_ADDRESS_RNCS}
+        ${this.$store.getters.RNCSData.siren}`;
       }
       return null;
     },
@@ -94,6 +103,12 @@ export default {
     },
     RNCSError() {
       return this.$store.getters.RNCSError;
+    },
+    linkBodacc() {
+      return (
+        "https://www.bodacc.fr/annonce/liste/" +
+        this.$store.getters.RNCSData.siren
+      );
     }
   },
   watch: {
@@ -133,6 +148,14 @@ export default {
 .grey {
   background-color: $color-lightest-grey;
 }
+
+.button__secondary {
+  background-color: $color-dark-grey !important;
+  &:hover {
+    background-color: $color-darker-grey !important;
+  }
+}
+
 .notification {
   border-color: $color-grey;
   display: flex;
@@ -155,6 +178,12 @@ export default {
       margin-top: 1em;
     }
   }
+}
+
+.company__buttons > .button {
+  min-width: 220px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .company__extra {

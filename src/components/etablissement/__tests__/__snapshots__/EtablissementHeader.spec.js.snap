@@ -58,13 +58,6 @@ exports[`EtablissementHeader.vue Snapshot testing It match the snapshot 1`] = `
       
       </a>
        
-      <a
-        class="link__external"
-        href="https://www.bodacc.fr/annonce/liste/undefined"
-      >
-        Liste des annonces BODACC
-      </a>
-       
       <etablissement-header-timestamp-stub
         resultrna="[object Object]"
         resultsirene="[object Object]"

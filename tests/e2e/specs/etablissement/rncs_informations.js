@@ -3,6 +3,9 @@ import { bouygues } from "../fixtures";
 const linkToRncs =
   "#app > section > div > div:nth-child(1) > div > div.title__block > a";
 
+const buttonBodacc =
+  "#app > section > div > div:nth-child(1) > div.company__buttons > a.button.button__secondary";
+
 const companyNameElement =
   "#app > section > div > div:nth-child(1) > div.company > div.company-container > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div.company__item-value";
 
@@ -19,6 +22,7 @@ module.exports = {
   "Clicking on link text goes to RNCS page": function(browser) {
     browser
       .url(browser.launch_url + "etablissement/" + bouygues.siret)
+      .waitForElementVisible(linkToRncs)
       .click(linkToRncs);
 
     browser.assert.urlEquals(browser.launch_url + "rncs/" + bouygues.siren);
@@ -64,16 +68,19 @@ module.exports = {
           "/pdf"
       );
     });
-    browser.end();
   },
 
-  "Clicking on link BODACC goes to correct page": function(browser) {
+  "Clicking on button BODACC goes to correct page": function(browser) {
     browser
       .url(browser.launch_url + "rncs/" + bouygues.siren)
-      .click("link text", "Liste des annonces BODACC");
+      .waitForElementVisible(buttonBodacc);
 
-    browser.assert.urlEquals(
-      "https://www.bodacc.fr/annonce/liste/" + bouygues.siren
-    );
+    browser.getAttribute(buttonBodacc, "href", function(attribute) {
+      browser.assert.equal(
+        attribute.value,
+        "https://www.bodacc.fr/annonce/liste/" + bouygues.siren
+      );
+    });
+    browser.end();
   }
 };

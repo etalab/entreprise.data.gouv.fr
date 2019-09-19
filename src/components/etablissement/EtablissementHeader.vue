@@ -179,4 +179,9 @@ h2 {
   width: 48%;
   background-color: #f2eae2;
 }
+
+.link__external {
+  margin-top: 10px;
+  display: inline-block;
+}
 </style>

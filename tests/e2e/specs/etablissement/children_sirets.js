@@ -1,4 +1,5 @@
-const elementList = "ul.company__children";
+const elementList =
+  "#app > section > div > div:nth-child(1) > div > div.title__block > div.company__panel > div > ul";
 const secondElement = elementList + " > .company__item-link:nth-of-type(2)";
 const secondElementLink = secondElement + " > a";
 

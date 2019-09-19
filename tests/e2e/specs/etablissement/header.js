@@ -1,6 +1,7 @@
 import { bouygues } from "../fixtures";
 
-const titleNotSkeleton = ".title__block > h2:not(.loading)";
+const titleNotSkeleton =
+  "#app > section > div > div:nth-child(1) > div > div.title__block > h2:not(.loading)";
 
 module.exports = {
   "Etablissement Page (company) got correct header": function(browser) {

@@ -30,7 +30,7 @@ module.exports = {
 
     browser.assert.containsText(
       cssHelpers.firstPanelCategorySirene + cssHelpers.secondElementInPanel,
-      associationSireneRNA.address
+      associationSireneRNA.addressSirene
     );
     browser.assert.containsText(
       cssHelpers.secondPanelCategoryRNA +

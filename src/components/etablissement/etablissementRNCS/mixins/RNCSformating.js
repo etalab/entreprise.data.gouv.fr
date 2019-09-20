@@ -197,6 +197,35 @@ function RNCSConcatAddressDAP(infos) {
   return address;
 }
 
+function RNCSConcatAddressSiege(siege) {
+  let address = concatIfExist(
+    "",
+    siege.adresse_code_postal,
+    siege.adresse_code_postal,
+    ""
+  );
+  address = concatIfExist(
+    address,
+    siege.adresse_code_postal && siege.adresse_ville,
+    ", ",
+    ""
+  );
+  address = concatIfExist(
+    address,
+    siege.adresse_ville,
+    `${Filters.filters.capitalize(siege.adresse_ville)} `,
+    " "
+  );
+  address = concatIfExist(
+    address,
+    siege.adresse_pays,
+    Filters.filters.upperCase(siege.adresse_pays),
+    ""
+  );
+
+  return address;
+}
+
 function collabName(person) {
   return Formating.methods.concatNames(
     person.conjoint_collab_prenoms,
@@ -231,6 +260,7 @@ export default {
     RNCSConcatAddress,
     RNCSConcatAddressRP,
     RNCSConcatAddressDAP,
+    RNCSConcatAddressSiege,
     collabName,
     representName
   }

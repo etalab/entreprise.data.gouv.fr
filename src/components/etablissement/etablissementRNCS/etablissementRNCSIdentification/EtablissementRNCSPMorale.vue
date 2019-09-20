@@ -12,6 +12,21 @@
         {{ RNCSDeviseSentence(RNCSLegal) }}
       </div>
     </div>
+    <div class="company__item">
+      <div class="company__item-key">Adresse du siège</div>
+      <div v-if="siege.adresse_ligne_1" class="company__item-value">
+        {{ siege.adresse_ligne_1 | ifExist }}
+      </div>
+      <div v-if="siege.adresse_ligne_2" class="company__item-value">
+        {{ siege.adresse_ligne_2 | ifExist }}
+      </div>
+      <div v-if="siege.adresse_ligne_3" class="company__item-value">
+        {{ siege.adresse_ligne_3 | ifExist }}
+      </div>
+      <div>
+        {{ RNCSConcatAddressSiege(siege) | ifExist }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,6 +54,18 @@ export default {
   computed: {
     RNCSLegal() {
       return this.$store.getters.RNCSData.personne_morale;
+    },
+    siege() {
+      const etablissements = this.$store.getters.RNCSData.etablissements;
+
+      const siege = etablissements.find(etablissement => {
+        return (
+          etablissement.type_etablissement == "SIE" ||
+          etablissement.type_etablissement == "SEP"
+        );
+      });
+
+      return siege;
     }
   }
 };

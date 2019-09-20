@@ -33,9 +33,7 @@ module.exports = deepmerge(
           javascriptEnabled: true,
           acceptSslCerts: true
         },
-        // Base too big to be imported right now
-        // launch_url: "http://localhost:8080/"
-        launch_url: "https://sandbox.entreprise.data.gouv.fr/",
+        launch_url: "http://localhost:8080/",
         globals: {
           // 15 seconds timeout for devs with slow connection / computer
           waitForConditionTimeout: 15000
@@ -48,8 +46,7 @@ module.exports = deepmerge(
         launch_url: "https://sandbox.entreprise.data.gouv.fr/"
       },
       travis: {
-        test_workers: false,
-        launch_url: "https://sandbox.entreprise.data.gouv.fr/"
+        test_workers: false
       }
     }
   },

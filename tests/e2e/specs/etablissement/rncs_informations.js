@@ -1,5 +1,11 @@
 import { bouygues } from "../fixtures";
 
+const linkToRncs =
+  "#app > section > div > div:nth-child(1) > div > div.title__block > a";
+
+const buttonBodacc =
+  "#app > section > div > div:nth-child(1) > div.company__buttons > a.button.button__secondary";
+
 const companyNameElement =
   "#app > section > div > div:nth-child(1) > div.company > div.company-container > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div.company__item-value";
 
@@ -16,7 +22,8 @@ module.exports = {
   "Clicking on link text goes to RNCS page": function(browser) {
     browser
       .url(browser.launch_url + "etablissement/" + bouygues.siret)
-      .click("link text", "Fiche d'immatriculation au RNCS");
+      .waitForElementVisible(linkToRncs)
+      .click(linkToRncs);
 
     browser.assert.urlEquals(browser.launch_url + "rncs/" + bouygues.siren);
   },
@@ -56,10 +63,22 @@ module.exports = {
     browser.getAttribute(buttonDownloadPDF, "href", function(attribute) {
       browser.assert.equal(
         attribute.value,
-        browser.launch_url +
-          "api/rncs/v1/fiches_identite/" +
+        "https://entreprise.data.gouv.fr/api/rncs/v1/fiches_identite/" +
           bouygues.siren +
           "/pdf"
+      );
+    });
+  },
+
+  "Clicking on button BODACC goes to correct page": function(browser) {
+    browser
+      .url(browser.launch_url + "rncs/" + bouygues.siren)
+      .waitForElementVisible(buttonBodacc);
+
+    browser.getAttribute(buttonBodacc, "href", function(attribute) {
+      browser.assert.equal(
+        attribute.value,
+        "https://www.bodacc.fr/annonce/liste/" + bouygues.siren
       );
     });
     browser.end();

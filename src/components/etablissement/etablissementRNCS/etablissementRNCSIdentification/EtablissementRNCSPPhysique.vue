@@ -18,7 +18,7 @@
       <div class="company__item-key">Adresse :</div>
       <div class="company__item-value">
         <div v-if="RNCSPhysical.adresse_ligne_1">
-          {{ RNCSPhysical.adresse_ligne_1 | ifExist }}
+          {{ RNCSPhysical.adresse_ligne_1 | ifEmptyShowPlaceholder }}
         </div>
         <div v-if="RNCSPhysical.adresse_ligne_2">
           {{ RNCSPhysical.adresse_ligne_2 }}

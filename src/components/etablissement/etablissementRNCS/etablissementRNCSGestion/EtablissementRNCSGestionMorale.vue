@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5>{{ manager.qualite | ifExist | capitalize }}</h5>
+    <h5>{{ manager.qualite | ifEmptyShowPlaceholder | capitalize }}</h5>
     <panel-info
       :parent="manager"
       :elements="elementsToDisplayLegal"
@@ -23,7 +23,7 @@
       <div class="company__item-key">Adresse</div>
       <div class="company__item-value">
         <div v-if="manager.adresse_ligne_1">
-          {{ manager.adresse_ligne_1 | ifExist }}
+          {{ manager.adresse_ligne_1 | ifEmptyShowPlaceholder }}
         </div>
         <div v-if="manager.adresse_ligne_2">{{ manager.adresse_ligne_2 }}</div>
         <div v-if="manager.adresse_ligne_3">{{ manager.adresse_ligne_3 }}</div>

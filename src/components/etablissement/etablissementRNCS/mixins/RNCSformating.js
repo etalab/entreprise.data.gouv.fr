@@ -35,7 +35,7 @@ function PrincipaleOrSecondaire(letter) {
 }
 
 function RNCSDeviseSentence(infos) {
-  let sentence = `${Filters.filters.ifExist(
+  let sentence = `${Filters.filters.ifEmptyShowPlaceholder(
     Filters.filters.frenchNumberFormat(infos.capital)
   )}`;
 

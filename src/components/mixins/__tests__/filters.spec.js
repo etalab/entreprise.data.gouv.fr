@@ -1,9 +1,10 @@
 import Filters from "@/components/mixins/filters";
 
 describe("filters.js", () => {
-  test("It replace empty strings by <<Non renseigné>>", () => {
-    expect(Filters.filters.ifExist(null)).toBe("Non renseigné");
-    expect(Filters.filters.ifExist("NotNull")).toBe("NotNull");
+  test(".ifEmptyShowPlaceholder", () => {
+    expect(Filters.filters.ifEmptyShowPlaceholder(null)).toBe("Non renseigné");
+    expect(Filters.filters.ifEmptyShowPlaceholder("")).toBe("Non renseigné");
+    expect(Filters.filters.ifEmptyShowPlaceholder("NotNull")).toBe("NotNull");
   });
 
   test("It replace extra chars * and / with one space", () => {

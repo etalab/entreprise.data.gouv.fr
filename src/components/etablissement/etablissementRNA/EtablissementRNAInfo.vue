@@ -14,7 +14,9 @@
       />
       <div class="company__item">
         <div class="company__item-key">Objet :</div>
-        <div class="company__item-value">{{ resultRNA.objet | ifExist }}</div>
+        <div class="company__item-value">
+          {{ resultRNA.objet | ifEmptyShowPlaceholder }}
+        </div>
       </div>
       <line-in-panel
         :company-key="objet_social1"

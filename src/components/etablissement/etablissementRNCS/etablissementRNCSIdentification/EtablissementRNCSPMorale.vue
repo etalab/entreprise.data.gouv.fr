@@ -15,16 +15,16 @@
     <div class="company__item">
       <div class="company__item-key">Adresse du siège</div>
       <div v-if="siege.adresse_ligne_1" class="company__item-value">
-        {{ siege.adresse_ligne_1 | ifExist }}
+        {{ siege.adresse_ligne_1 | ifEmptyShowPlaceholder }}
       </div>
       <div v-if="siege.adresse_ligne_2" class="company__item-value">
-        {{ siege.adresse_ligne_2 | ifExist }}
+        {{ siege.adresse_ligne_2 | ifEmptyShowPlaceholder }}
       </div>
       <div v-if="siege.adresse_ligne_3" class="company__item-value">
-        {{ siege.adresse_ligne_3 | ifExist }}
+        {{ siege.adresse_ligne_3 | ifEmptyShowPlaceholder }}
       </div>
       <div>
-        {{ RNCSConcatAddressSiege(siege) | ifExist }}
+        {{ RNCSConcatAddressSiege(siege) | ifEmptyShowPlaceholder }}
       </div>
     </div>
   </div>

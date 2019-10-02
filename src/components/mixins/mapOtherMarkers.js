@@ -108,13 +108,13 @@ export default {
     addPopupContent(popup, etablissement) {
       popup.setHTML(
         "<p><strong>Enseigne</strong> :  " +
-          Filters.filters.ifExist(etablissement.enseigne) +
+          Filters.filters.ifEmptyShowPlaceholder(etablissement.enseigne) +
           "</p>" +
           "<p><strong>Siret</strong> :  " +
           etablissement.siret +
           "</p>" +
           "<p><strong>Adresse</strong> :  " +
-          Filters.filters.ifExist(etablissement.address) +
+          Filters.filters.ifEmptyShowPlaceholder(etablissement.address) +
           "</p>"
       );
     }

@@ -4,16 +4,20 @@
     <div class="company__item">
       <div class="company__item-key">Adresse du siège :</div>
       <div class="company__item-value">
-        {{ resultRNA.adresse_siege | ifExist }}
+        {{ resultRNA.adresse_siege | ifEmptyShowPlaceholder }}
       </div>
     </div>
     <div class="company__item">
       <div class="company__item-key">Adresse établissement :</div>
-      <div class="company__item-value">{{ l1_adress | ifExist }}</div>
+      <div class="company__item-value">
+        {{ l1_adress | ifEmptyShowPlaceholder }}
+      </div>
     </div>
     <div class="company__item">
       <div class="company__item-key">Commune établissement :</div>
-      <div class="company__item-value">{{ l2_adress | ifExist }}</div>
+      <div class="company__item-value">
+        {{ l2_adress | ifEmptyShowPlaceholder }}
+      </div>
     </div>
     <line-in-panel
       :company-key="code_gestion"

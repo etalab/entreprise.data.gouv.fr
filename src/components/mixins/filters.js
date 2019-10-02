@@ -6,8 +6,8 @@ export default {
   filters: {
     capitalize: capitalize,
     upperCase: toUpper,
-    ifExist: function(string) {
-      if (string && string != "null") {
+    ifEmptyShowPlaceholder: function(string) {
+      if (string && string !== "null") {
         return string;
       }
       return "Non renseigné";

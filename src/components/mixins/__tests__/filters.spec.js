@@ -1,11 +1,6 @@
 import Filters from "@/components/mixins/filters";
 
 describe("filters.js", () => {
-  test("It uppercase strings correctly", () => {
-    expect(Filters.filters.upperCase(null)).toBeNull();
-    expect(Filters.filters.upperCase("gOupperCase")).toBe("GOUPPERCASE");
-  });
-
   test("It replace empty strings by <<Non renseigné>>", () => {
     expect(Filters.filters.ifExist(null)).toBe("Non renseigné");
     expect(Filters.filters.ifExist("NotNull")).toBe("NotNull");

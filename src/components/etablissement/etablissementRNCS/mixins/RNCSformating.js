@@ -2,6 +2,7 @@ import Greffes from "@/assets/fixtures/codesGreffes.json";
 import Filters from "@/components/mixins/filters.js";
 import Formating from "@/components/mixins/formating.js";
 import capitalize from "lodash/capitalize";
+import toUpper from "lodash/toUpper";
 
 function nameFromCodeGreffe(code) {
   return Greffes.listeGreffes[code];
@@ -96,7 +97,7 @@ function RNCSConcatGreffe(infos) {
 }
 
 function RNCSConcatName(person) {
-  let name = Filters.filters.upperCase(person.nom_patronyme);
+  let name = toUpper(person.nom_patronyme);
 
   return concatIfExist(name, person.prenoms, `, ${person.prenoms}`, "");
 }
@@ -124,7 +125,7 @@ function RNCSConcatAddress(infos) {
     address = concatIfExist(
       address,
       infos.adresse_pays,
-      Filters.filters.upperCase(infos.adresse_pays),
+      toUpper(infos.adresse_pays),
       ""
     );
   }
@@ -159,7 +160,7 @@ function RNCSConcatAddressRP(infos) {
     address = concatIfExist(
       address,
       infos.representant_permanent_adresse_pays,
-      Filters.filters.upperCase(infos.representant_permanent_adresse_pays),
+      toUpper(infos.representant_permanent_adresse_pays),
       ""
     );
   }
@@ -189,7 +190,7 @@ function RNCSConcatAddressDAP(infos) {
   address = concatIfExist(
     address,
     infos.dap_adresse_pays,
-    Filters.filters.upperCase(infos.dap_adresse_pays),
+    toUpper(infos.dap_adresse_pays),
     ""
   );
 
@@ -218,7 +219,7 @@ function RNCSConcatAddressSiege(siege) {
   address = concatIfExist(
     address,
     siege.adresse_pays,
-    Filters.filters.upperCase(siege.adresse_pays),
+    toUpper(siege.adresse_pays),
     ""
   );
 
@@ -238,14 +239,6 @@ function representName(person) {
     person.representant_permanent_prenoms
   );
 }
-
-String.prototype.capitalize = function() {
-  return this.toLowerCase().replace(/(?:^|[^\wà-öø-ÿ])[\wà-öø-ÿ]/g, function(
-    match
-  ) {
-    return match.toUpperCase();
-  });
-};
 
 export default {
   methods: {

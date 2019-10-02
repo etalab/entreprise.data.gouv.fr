@@ -1,13 +1,9 @@
 import Intl from "intl";
+import capitalize from "lodash/capitalize";
 
 export default {
   filters: {
-    capitalize: function(string) {
-      if (!string) {
-        return null;
-      }
-      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    },
+    capitalize: capitalize,
     upperCase: function(string) {
       if (!string) {
         return null;

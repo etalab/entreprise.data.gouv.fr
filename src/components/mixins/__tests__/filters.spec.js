@@ -1,13 +1,6 @@
 import Filters from "@/components/mixins/filters";
 
 describe("filters.js", () => {
-  test("It capitalizes strings correctly", () => {
-    expect(Filters.filters.capitalize(null)).toBeNull();
-    expect(Filters.filters.capitalize("thisShouldbeCaPiTaliZed")).toBe(
-      "Thisshouldbecapitalized"
-    );
-  });
-
   test("It uppercase strings correctly", () => {
     expect(Filters.filters.upperCase(null)).toBeNull();
     expect(Filters.filters.upperCase("gOupperCase")).toBe("GOUPPERCASE");

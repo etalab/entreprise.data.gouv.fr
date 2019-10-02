@@ -1,4 +1,4 @@
-import Filters from "@/components/mixins/filters";
+import capitalize from "lodash/capitalize";
 
 function concatNames(firstName, lastName) {
   let first,
@@ -11,7 +11,7 @@ function concatNames(firstName, lastName) {
   }
 
   if (firstName) {
-    first = Filters.filters.capitalize(firstName);
+    first = capitalize(firstName);
   }
   return `${first} ${last}`;
 }

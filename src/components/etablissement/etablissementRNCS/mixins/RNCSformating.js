@@ -1,6 +1,7 @@
 import Greffes from "@/assets/fixtures/codesGreffes.json";
 import Filters from "@/components/mixins/filters.js";
 import Formating from "@/components/mixins/formating.js";
+import capitalize from "lodash/capitalize";
 
 function nameFromCodeGreffe(code) {
   return Greffes.listeGreffes[code];
@@ -116,7 +117,7 @@ function RNCSConcatAddress(infos) {
   address = concatIfExist(
     address,
     infos.adresse_ville,
-    `${Filters.filters.capitalize(infos.adresse_ville)} `,
+    `${capitalize(infos.adresse_ville)} `,
     " "
   );
   if (infos.adresse_pays && infos.adresse_pays.toLowerCase() !== "france") {
@@ -148,9 +149,7 @@ function RNCSConcatAddressRP(infos) {
   address = concatIfExist(
     address,
     infos.representant_permanent_adresse_ville,
-    `${Filters.filters.capitalize(
-      infos.representant_permanent_adresse_ville
-    )} `,
+    `${capitalize(infos.representant_permanent_adresse_ville)} `,
     " "
   );
   if (
@@ -184,7 +183,7 @@ function RNCSConcatAddressDAP(infos) {
   address = concatIfExist(
     address,
     infos.dap_adresse_ville,
-    `${Filters.filters.capitalize(infos.dap_adresse_ville)} `,
+    `${capitalize(infos.dap_adresse_ville)} `,
     " "
   );
   address = concatIfExist(
@@ -213,7 +212,7 @@ function RNCSConcatAddressSiege(siege) {
   address = concatIfExist(
     address,
     siege.adresse_ville,
-    `${Filters.filters.capitalize(siege.adresse_ville)} `,
+    `${capitalize(siege.adresse_ville)} `,
     " "
   );
   address = concatIfExist(

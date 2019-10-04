@@ -26,7 +26,7 @@
         <div v-if="RNCSPhysical.adresse_ligne_3">
           {{ RNCSPhysical.adresse_ligne_3 }}
         </div>
-        <div>{{ RNCSConcatAddress(RNCSPhysical) }}</div>
+        <div>{{ formatAddressInfos(RNCSPhysical) }}</div>
       </div>
     </div>
     <div v-if="collabName(RNCSPhysical)" class="company__item">

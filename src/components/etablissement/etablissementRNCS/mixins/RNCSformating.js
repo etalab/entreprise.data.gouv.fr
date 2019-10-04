@@ -102,128 +102,23 @@ function RNCSConcatName(person) {
   return concatIfExist(name, person.prenoms, `, ${person.prenoms}`, "");
 }
 
-function RNCSConcatAddress(infos) {
-  let address = concatIfExist(
-    "",
-    infos.adresse_code_postal,
-    infos.adresse_code_postal,
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.adresse_code_postal && infos.adresse_ville,
-    " ",
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.adresse_ville,
-    `${capitalize(infos.adresse_ville)} `,
-    " "
-  );
-  if (infos.adresse_pays && infos.adresse_pays.toLowerCase() !== "france") {
-    address = concatIfExist(
-      address,
-      infos.adresse_pays,
-      toUpper(infos.adresse_pays),
-      ""
-    );
-  }
+function formatAddressInfos(entity, prefix = "", abbreviate = false) {
+  let codePostal = entity[`${prefix}adresse_code_postal`];
+  let ville = entity[`${prefix}adresse_ville`];
+  let pays = entity[`${prefix}adresse_pays`];
 
-  return address;
+  codePostal = toUpper(codePostal); // protect against null
+  ville = capitalize(ville);
+  pays = toUpper(pays);
+
+  if (abbreviate && pays === "FRANCE") pays = "";
+
+  return trimAddress(`${codePostal} ${ville}, ${pays}`);
 }
 
-function RNCSConcatAddressRP(infos) {
-  let address = concatIfExist(
-    "",
-    infos.representant_permanent_adresse_code_postal,
-    infos.representant_permanent_adresse_code_postal,
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.representant_permanent_adresse_code_postal &&
-      infos.representant_permanent_adresse_ville,
-    " ",
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.representant_permanent_adresse_ville,
-    `${capitalize(infos.representant_permanent_adresse_ville)} `,
-    " "
-  );
-  if (
-    infos.representant_permanent_adresse_pays &&
-    infos.representant_permanent_adresse_pays.toLowerCase() !== "france"
-  ) {
-    address = concatIfExist(
-      address,
-      infos.representant_permanent_adresse_pays,
-      toUpper(infos.representant_permanent_adresse_pays),
-      ""
-    );
-  }
-
-  return address;
-}
-
-function RNCSConcatAddressDAP(infos) {
-  let address = concatIfExist(
-    "",
-    infos.dap_adresse_code_postal,
-    infos.dap_adresse_code_postal,
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.dap_adresse_code_postal && infos.dap_adresse_ville,
-    ", ",
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.dap_adresse_ville,
-    `${capitalize(infos.dap_adresse_ville)} `,
-    " "
-  );
-  address = concatIfExist(
-    address,
-    infos.dap_adresse_pays,
-    toUpper(infos.dap_adresse_pays),
-    ""
-  );
-
-  return address;
-}
-
-function RNCSConcatAddressSiege(siege) {
-  let address = concatIfExist(
-    "",
-    siege.adresse_code_postal,
-    siege.adresse_code_postal,
-    ""
-  );
-  address = concatIfExist(
-    address,
-    siege.adresse_code_postal && siege.adresse_ville,
-    ", ",
-    ""
-  );
-  address = concatIfExist(
-    address,
-    siege.adresse_ville,
-    `${capitalize(siege.adresse_ville)} `,
-    " "
-  );
-  address = concatIfExist(
-    address,
-    siege.adresse_pays,
-    toUpper(siege.adresse_pays),
-    ""
-  );
-
-  return address;
+function trimAddress(address) {
+  const trim = new RegExp(/^, ?| ,| ?,$/g);
+  return address.trim().replace(trim, "");
 }
 
 function collabName(person) {
@@ -249,10 +144,7 @@ export default {
     RNCSLastModification,
     RNCSConcatGreffe,
     RNCSConcatName,
-    RNCSConcatAddress,
-    RNCSConcatAddressRP,
-    RNCSConcatAddressDAP,
-    RNCSConcatAddressSiege,
+    formatAddressInfos,
     collabName,
     representName
   }

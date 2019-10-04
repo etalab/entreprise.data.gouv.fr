@@ -24,7 +24,7 @@
         {{ siege.adresse_ligne_3 | ifEmptyShowPlaceholder }}
       </div>
       <div>
-        {{ RNCSConcatAddressSiege(siege) | ifEmptyShowPlaceholder }}
+        {{ formatAddressInfos(siege) | ifEmptyShowPlaceholder }}
       </div>
     </div>
   </div>

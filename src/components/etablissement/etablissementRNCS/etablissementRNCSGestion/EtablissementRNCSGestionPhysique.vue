@@ -22,7 +22,7 @@
         <div>{{ manager.adresse_ligne_1 | ifEmptyShowPlaceholder }}</div>
         <div v-if="manager.adresse_ligne_2">{{ manager.adresse_ligne_2 }}</div>
         <div v-if="manager.adresse_ligne_3">{{ manager.adresse_ligne_3 }}</div>
-        <div>{{ RNCSConcatAddress(manager) }}</div>
+        <div>{{ formatAddressInfos(manager, "", true) }}</div>
       </div>
     </div>
     <panel-info

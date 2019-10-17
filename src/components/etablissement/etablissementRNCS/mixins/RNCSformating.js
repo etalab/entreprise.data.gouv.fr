@@ -116,6 +116,14 @@ function formatAddressInfos(entity, prefix = "", abbreviate = false) {
   return trimAddress(`${codePostal} ${ville}, ${pays}`);
 }
 
+function formatAddressInfosShort(entity) {
+  return formatAddressInfos(entity, "", true);
+}
+
+function formatAddressInfosDAP(entity) {
+  return formatAddressInfos(entity, "_dap", true);
+}
+
 function trimAddress(address) {
   const trim = new RegExp(/^, ?| ,| ?,$/g);
   return address.trim().replace(trim, "");
@@ -145,6 +153,8 @@ export default {
     RNCSConcatGreffe,
     RNCSConcatName,
     formatAddressInfos,
+    formatAddressInfosShort,
+    formatAddressInfosDAP,
     collabName,
     representName
   }

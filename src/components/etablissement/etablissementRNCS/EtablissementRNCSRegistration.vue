@@ -34,7 +34,7 @@
         <div v-if="RNCSPhysical.dap_adresse_ligne_3">
           {{ RNCSPhysical.dap_adresse_ligne_3 }}
         </div>
-        <div>{{ formatAddressInfos(RNCSPhysical, "dap_") }}</div>
+        <div>{{ formatAddressInfosDAP(RNCSPhysical) }}</div>
         <div v-if="RNCSPhysical.dap_adresse_code_commune">
           Code Commune {{ RNCSPhysical.dap_adresse_code_commune }}
         </div>

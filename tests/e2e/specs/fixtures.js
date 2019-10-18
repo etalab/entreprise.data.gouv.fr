@@ -47,5 +47,5 @@ export const croixRouge = {
 export const associationSireneRNA = {
   rnaId: "W751227358",
   addressRna: "8 rue DU GENERAL RENAULT",
-  addressSirene: "92 BOULEVARD RICHARD LENOIR"
+  addressSirene: "8 RUE DU GENERAL RENAULT"
 };

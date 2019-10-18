@@ -18,7 +18,7 @@
       <div class="company__item-key">Adresse :</div>
       <div class="company__item-value">
         <div v-if="RNCSPhysical.adresse_ligne_1">
-          {{ RNCSPhysical.adresse_ligne_1 | ifExist }}
+          {{ RNCSPhysical.adresse_ligne_1 | ifEmptyShowPlaceholder }}
         </div>
         <div v-if="RNCSPhysical.adresse_ligne_2">
           {{ RNCSPhysical.adresse_ligne_2 }}
@@ -26,7 +26,7 @@
         <div v-if="RNCSPhysical.adresse_ligne_3">
           {{ RNCSPhysical.adresse_ligne_3 }}
         </div>
-        <div>{{ RNCSConcatAddress(RNCSPhysical) }}</div>
+        <div>{{ formatAddressInfos(RNCSPhysical) }}</div>
       </div>
     </div>
     <div v-if="collabName(RNCSPhysical)" class="company__item">

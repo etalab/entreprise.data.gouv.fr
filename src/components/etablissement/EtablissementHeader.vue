@@ -9,7 +9,7 @@
               concatNames(
                 resultSirene.unite_legale.prenom_1,
                 resultSirene.unite_legale.nom
-              ) | ifExist
+              ) | ifEmptyShowPlaceholder
             }}
           </div>
           <div v-else>

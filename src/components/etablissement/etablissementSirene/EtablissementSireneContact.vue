@@ -6,14 +6,14 @@
       <div class="company__item-value">
         {{
           concatNames(resultUniteLegale.prenom_1, resultUniteLegale.nom)
-            | ifExist
+            | ifEmptyShowPlaceholder
         }}
       </div>
     </div>
     <div class="company__item">
       <label class="company__item-key">Adresse</label>
       <div class="company__item-value">
-        {{ resultSirene.geo_l4 | ifExist }}
+        {{ resultSirene.geo_l4 | ifEmptyShowPlaceholder }}
       </div>
     </div>
     <div class="company__item">
@@ -25,7 +25,7 @@
     <div class="company__item">
       <label class="company__item-key">Cedex</label>
       <div class="company__item-value">
-        {{ resultSirene.code_cedex | ifExist }}
+        {{ resultSirene.code_cedex | ifEmptyShowPlaceholder }}
       </div>
     </div>
     <div class="company__item">
@@ -35,7 +35,7 @@
     <div class="company__item">
       <label class="company__item-key">Tranche d’effectif salariés</label>
       <div class="company__item-value">
-        {{ resultSirene.tranche_effectifs | ifExist }}
+        {{ resultSirene.tranche_effectifs | ifEmptyShowPlaceholder }}
       </div>
     </div>
   </div>

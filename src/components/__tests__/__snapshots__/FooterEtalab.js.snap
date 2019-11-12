@@ -116,6 +116,14 @@ exports[`FooterEtalab.vue snapshot testing It match the snapshot 1`] = `
           API
         </a>
       </li>
+       
+      <li>
+        <a
+          href="https://status.entreprise.data.gouv.fr"
+        >
+          Statut des API
+        </a>
+      </li>
     </ul>
   </div>
 </footer>

@@ -6,7 +6,7 @@ const linkToRncs =
 const buttonBodacc =
   "#app > section > div > div:nth-child(1) > div.company__buttons > a.button.button__secondary";
 
-const companyNameElement =
+const companySirenElement =
   "#app > section > div > div:nth-child(1) > div.company > div.company-container > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div.company__item-value";
 
 const presidentNameElement =
@@ -31,9 +31,9 @@ module.exports = {
   "Page RNCS display correct info: Identification": function(browser) {
     browser
       .url(browser.launch_url + "rncs/" + bouygues.siren)
-      .waitForElementVisible(companyNameElement);
+      .waitForElementVisible(companySirenElement);
 
-    browser.assert.containsText(companyNameElement, bouygues.title);
+    browser.assert.containsText(companySirenElement, bouygues.sirenSpaced);
   },
 
   "Page RNCS display correct info: Gestion": function(browser) {

@@ -50,7 +50,12 @@
             >Mentions légales</router-link
           >
         </li>
-        <li><a href="https://github.com/etalab/sirene_as_api">API</a></li>
+        <li>
+          <a href="https://github.com/etalab/sirene_as_api">API</a>
+        </li>
+        <li>
+          <a href="https://status.entreprise.data.gouv.fr">Statut des API</a>
+        </li>
       </ul>
     </div>
   </footer>

@@ -31,9 +31,9 @@ export const bouygues = {
   siren: "572015246",
   sirenSpaced: "572 015 246",
   title: "BOUYGUES",
-  namePresident: "Olivier BOUYGUES",
+  namePresident: "Martin BOUYGUES",
   dateFirstObservation: "2002-05-28",
-  address: "32 AVENUE HOCHE"
+  address: "32 AV HOCHE"
 };
 
 // Case RNA only

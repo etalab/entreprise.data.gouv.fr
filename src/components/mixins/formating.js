@@ -1,19 +1,14 @@
-import Filters from "@/components/mixins/filters";
+import capitalize from "lodash/capitalize";
+import toUpper from "lodash/toUpper";
 
 function concatNames(firstName, lastName) {
-  let first,
-    last = "";
+  const last = toUpper(lastName);
+  const first = capitalize(firstName);
 
-  if (lastName) {
-    last = lastName.toUpperCase();
-  } else {
-    return null;
+  if (first !== "" && last !== "") {
+    return `${first} ${last}`;
   }
-
-  if (firstName) {
-    first = Filters.filters.capitalize(firstName);
-  }
-  return `${first} ${last}`;
+  return last;
 }
 
 export default {

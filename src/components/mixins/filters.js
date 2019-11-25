@@ -1,21 +1,13 @@
 import Intl from "intl";
+import capitalize from "lodash/capitalize";
+import toUpper from "lodash/toUpper";
 
 export default {
   filters: {
-    capitalize: function(string) {
-      if (!string) {
-        return null;
-      }
-      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    },
-    upperCase: function(string) {
-      if (!string) {
-        return null;
-      }
-      return string.toUpperCase();
-    },
-    ifExist: function(string) {
-      if (string && string != "null") {
+    capitalize: capitalize,
+    upperCase: toUpper,
+    ifEmptyShowPlaceholder: function(string) {
+      if (string && string !== "null") {
         return string;
       }
       return "Non renseigné";

@@ -1,6 +1,8 @@
 import Greffes from "@/assets/fixtures/codesGreffes.json";
 import Filters from "@/components/mixins/filters.js";
 import Formating from "@/components/mixins/formating.js";
+import capitalize from "lodash/capitalize";
+import toUpper from "lodash/toUpper";
 
 function nameFromCodeGreffe(code) {
   return Greffes.listeGreffes[code];
@@ -33,7 +35,7 @@ function PrincipaleOrSecondaire(letter) {
 }
 
 function RNCSDeviseSentence(infos) {
-  let sentence = `${Filters.filters.ifExist(
+  let sentence = `${Filters.filters.ifEmptyShowPlaceholder(
     Filters.filters.frenchNumberFormat(infos.capital)
   )}`;
 
@@ -95,106 +97,36 @@ function RNCSConcatGreffe(infos) {
 }
 
 function RNCSConcatName(person) {
-  let name = Filters.filters.upperCase(person.nom_patronyme);
+  let name = toUpper(person.nom_patronyme);
 
   return concatIfExist(name, person.prenoms, `, ${person.prenoms}`, "");
 }
 
-function RNCSConcatAddress(infos) {
-  let address = concatIfExist(
-    "",
-    infos.adresse_code_postal,
-    infos.adresse_code_postal,
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.adresse_code_postal && infos.adresse_ville,
-    " ",
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.adresse_ville,
-    `${Filters.filters.capitalize(infos.adresse_ville)} `,
-    " "
-  );
-  if (infos.adresse_pays && infos.adresse_pays.toLowerCase() !== "france") {
-    address = concatIfExist(
-      address,
-      infos.adresse_pays,
-      Filters.filters.upperCase(infos.adresse_pays),
-      ""
-    );
-  }
+function formatAddressInfos(entity, prefix = "", abbreviate = false) {
+  let codePostal = entity[`${prefix}adresse_code_postal`];
+  let ville = entity[`${prefix}adresse_ville`];
+  let pays = entity[`${prefix}adresse_pays`];
 
-  return address;
+  codePostal = toUpper(codePostal); // protect against null
+  ville = capitalize(ville);
+  pays = toUpper(pays);
+
+  if (abbreviate && pays === "FRANCE") pays = "";
+
+  return trimAddress(`${codePostal} ${ville}, ${pays}`);
 }
 
-function RNCSConcatAddressRP(infos) {
-  let address = concatIfExist(
-    "",
-    infos.representant_permanent_adresse_code_postal,
-    infos.representant_permanent_adresse_code_postal,
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.representant_permanent_adresse_code_postal &&
-      infos.representant_permanent_adresse_ville,
-    " ",
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.representant_permanent_adresse_ville,
-    `${Filters.filters.capitalize(
-      infos.representant_permanent_adresse_ville
-    )} `,
-    " "
-  );
-  if (
-    infos.representant_permanent_adresse_pays &&
-    infos.representant_permanent_adresse_pays.toLowerCase() !== "france"
-  ) {
-    address = concatIfExist(
-      address,
-      infos.representant_permanent_adresse_pays,
-      Filters.filters.upperCase(infos.representant_permanent_adresse_pays),
-      ""
-    );
-  }
-
-  return address;
+function formatAddressInfosShort(entity) {
+  return formatAddressInfos(entity, "", true);
 }
 
-function RNCSConcatAddressDAP(infos) {
-  let address = concatIfExist(
-    "",
-    infos.dap_adresse_code_postal,
-    infos.dap_adresse_code_postal,
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.dap_adresse_code_postal && infos.dap_adresse_ville,
-    ", ",
-    ""
-  );
-  address = concatIfExist(
-    address,
-    infos.dap_adresse_ville,
-    `${Filters.filters.capitalize(infos.dap_adresse_ville)} `,
-    " "
-  );
-  address = concatIfExist(
-    address,
-    infos.dap_adresse_pays,
-    Filters.filters.upperCase(infos.dap_adresse_pays),
-    ""
-  );
+function formatAddressInfosDAP(entity) {
+  return formatAddressInfos(entity, "_dap", true);
+}
 
-  return address;
+function trimAddress(address) {
+  const trim = new RegExp(/^, ?| ,| ?,$/g);
+  return address.trim().replace(trim, "");
 }
 
 function collabName(person) {
@@ -211,14 +143,6 @@ function representName(person) {
   );
 }
 
-String.prototype.capitalize = function() {
-  return this.toLowerCase().replace(/(?:^|[^\wà-öø-ÿ])[\wà-öø-ÿ]/g, function(
-    match
-  ) {
-    return match.toUpperCase();
-  });
-};
-
 export default {
   methods: {
     nameFromCodeGreffe,
@@ -228,9 +152,9 @@ export default {
     RNCSLastModification,
     RNCSConcatGreffe,
     RNCSConcatName,
-    RNCSConcatAddress,
-    RNCSConcatAddressRP,
-    RNCSConcatAddressDAP,
+    formatAddressInfos,
+    formatAddressInfosShort,
+    formatAddressInfosDAP,
     collabName,
     representName
   }

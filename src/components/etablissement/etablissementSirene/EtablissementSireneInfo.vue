@@ -36,7 +36,10 @@
     <div class="company__item">
       <label class="company__item-key">Nature juridique</label>
       <div class="company__item-value">
-        {{ resultSirene.unite_legale.categorie_juridique | ifExist }} -
+        {{
+          resultSirene.unite_legale.categorie_juridique | ifEmptyShowPlaceholder
+        }}
+        -
         {{
           libelleFromCategoriesJuridiques(
             resultSirene.unite_legale.categorie_juridique
@@ -47,7 +50,10 @@
     <div class="company__item">
       <label class="company__item-key">Numéro RNA</label>
       <div class="company__item-value">
-        {{ resultSirene.unite_legale.identifiant_association | ifExist }}
+        {{
+          resultSirene.unite_legale.identifiant_association
+            | ifEmptyShowPlaceholder
+        }}
       </div>
     </div>
     <div class="company__item">

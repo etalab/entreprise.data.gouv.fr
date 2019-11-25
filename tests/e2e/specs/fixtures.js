@@ -31,9 +31,9 @@ export const bouygues = {
   siren: "572015246",
   sirenSpaced: "572 015 246",
   title: "BOUYGUES",
-  namePresident: "Olivier BOUYGUES",
+  namePresident: "Martin BOUYGUES",
   dateFirstObservation: "2002-05-28",
-  address: "32 AVENUE HOCHE"
+  address: "32 AV HOCHE"
 };
 
 // Case RNA only
@@ -47,5 +47,5 @@ export const croixRouge = {
 export const associationSireneRNA = {
   rnaId: "W751227358",
   addressRna: "8 rue DU GENERAL RENAULT",
-  addressSirene: "92 BOULEVARD RICHARD LENOIR"
+  addressSirene: "8 RUE DU GENERAL RENAULT"
 };

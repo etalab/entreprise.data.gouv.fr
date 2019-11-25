@@ -16,7 +16,7 @@
     >
       <div class="company__item company__comment-date">
         <div class="company__item-value">
-          {{ observation.date_ajout | ifExist }}
+          {{ observation.date_ajout | ifEmptyShowPlaceholder }}
         </div>
       </div>
       <div class="company__item">

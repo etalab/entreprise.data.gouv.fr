@@ -1,21 +1,10 @@
 import Filters from "@/components/mixins/filters";
 
 describe("filters.js", () => {
-  test("It capitalizes strings correctly", () => {
-    expect(Filters.filters.capitalize(null)).toBeNull();
-    expect(Filters.filters.capitalize("thisShouldbeCaPiTaliZed")).toBe(
-      "Thisshouldbecapitalized"
-    );
-  });
-
-  test("It uppercase strings correctly", () => {
-    expect(Filters.filters.upperCase(null)).toBeNull();
-    expect(Filters.filters.upperCase("gOupperCase")).toBe("GOUPPERCASE");
-  });
-
-  test("It replace empty strings by <<Non renseigné>>", () => {
-    expect(Filters.filters.ifExist(null)).toBe("Non renseigné");
-    expect(Filters.filters.ifExist("NotNull")).toBe("NotNull");
+  test(".ifEmptyShowPlaceholder", () => {
+    expect(Filters.filters.ifEmptyShowPlaceholder(null)).toBe("Non renseigné");
+    expect(Filters.filters.ifEmptyShowPlaceholder("")).toBe("Non renseigné");
+    expect(Filters.filters.ifEmptyShowPlaceholder("NotNull")).toBe("NotNull");
   });
 
   test("It replace extra chars * and / with one space", () => {

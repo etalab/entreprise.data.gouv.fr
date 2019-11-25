@@ -115,7 +115,8 @@ exports[`EtablissementSireneInfo.vue snapshot It match the snapshot 1`] = `
       class="company__item-value"
     >
       
-      1000 -
+      1000
+      -
       Entrepreneur individuel
     
     </div>

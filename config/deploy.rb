@@ -52,11 +52,14 @@ task :deploy_website do
 end
 
 task :warning_right_branch do
-  git_active_branch = 'git rev-parse --abbrev-ref HEAD'
-  red='\033[0;31m'
-  no_color='\033[0m'
+  git_active_branch_command = 'git rev-parse --abbrev-ref HEAD'
+  git_active_branch = `#{git_active_branch_command}`
+  git_active_branch.slice!("\n")
+
+  red = '\033[0;31m'
+  no_color = '\033[0m'
   comment "Ensuring you're on the branch you're deploying to".yellow
-  command "if (#{git_active_branch} | grep #{fetch(:branch)}) > /dev/null
+  command "if (#{git_active_branch_command} | grep #{fetch(:branch)}) > /dev/null
     then
       echo 'You are on the right branch, continuing...'
     else

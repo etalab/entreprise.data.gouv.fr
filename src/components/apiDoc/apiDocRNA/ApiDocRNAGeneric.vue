@@ -21,14 +21,15 @@
           200).<br />
           Vous recevrez un code 404 si aucun établissement n’est trouvé, ou un
           500 si le serveur n’est pas fonctionnel (par exemple pendant une
-          maintenance).
-          429 après dépassement de la volumétrie maximale d'appels.
+          maintenance). 429 après dépassement de la volumétrie maximale
+          d'appels.
         </p>
         <h3>Limite de requêtes</h3>
         <p>
           Le serveur accepte un maximum de 7 requêtes par seconde. Au delà, un
-          code 429 est renvoyé indiquant que la volumétrie d'appels a été dépassée.
-          L'IP sera blacklistée si les appels ne sont pas régulés suite aux retours 429.
+          code 429 est renvoyé indiquant que la volumétrie d'appels a été
+          dépassée. L'IP sera blacklistée si les appels ne sont pas régulés
+          suite aux retours 429.
         </p>
       </div>
     </div>

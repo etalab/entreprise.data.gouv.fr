@@ -28,6 +28,7 @@
             mal formaté)
           </li>
           <li>500 : Erreur serveur (par exemple pendant une maintenance)</li>
+          <li>429 après dépassement de la volumétrie maximale d'appels.</li>
         </ul>
         <p>
           Les différents champs renvoyés dans la réponse sont listés dans
@@ -38,8 +39,9 @@
         </p>
         <h3>Limite de requêtes</h3>
         <p>
-          Le serveur accepte 2000 requêtes / 10 minutes. Au delà, vous risquez
-          un bannissement de votre IP.
+          Le serveur accepte un maximum de 7 requêtes par seconde. Au delà, un
+          code 429 est renvoyé indiquant que la volumétrie d'appels a été dépassée.
+          L'IP sera blacklistée si les appels ne sont pas régulés suite aux retours 429.
         </p>
       </div>
     </div>

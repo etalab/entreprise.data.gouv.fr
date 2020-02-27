@@ -5,6 +5,7 @@
 
       <template>
         <not-found v-if="isNotFound" />
+        <non-diffusable v-if="isNonDiffusable" />
         <etablissement-header :search-id="searchId" />
         <blocks-skeleton v-if="mainAPISLoading" />
         <etablissement-sirene v-if="haveSireneInfo" />
@@ -22,6 +23,7 @@
 import Filters from "@/components/mixins/filters";
 import ServerError from "@/components/modules/ServerError";
 import NotFound from "@/components/etablissement/EtablissementNotFound";
+import NonDiffusable from "@/components/etablissement/EtablissementNonDiffusable";
 import EtablissementHeader from "@/components/etablissement/EtablissementHeader";
 import EtablissementSirene from "@/components/etablissement/EtablissementSirene";
 import EtablissementRNA from "@/components/etablissement/EtablissementRNA";
@@ -38,6 +40,7 @@ export default {
   components: {
     ServerError: ServerError,
     NotFound: NotFound,
+    NonDiffusable: NonDiffusable,
     EtablissementHeader: EtablissementHeader,
     EtablissementSirene: EtablissementSirene,
     EtablissementRna: EtablissementRNA,
@@ -51,6 +54,11 @@ export default {
     },
     isNotFound() {
       return this.$store.getters.mainAPISNotFound;
+    },
+    isNonDiffusable() {
+      let statutDiffusion = this.$store.getters.singlePageEtablissementSirene
+        .statut_diffusion;
+      return statutDiffusion === "N";
     },
     isError() {
       return this.$store.getters.mainAPISError;

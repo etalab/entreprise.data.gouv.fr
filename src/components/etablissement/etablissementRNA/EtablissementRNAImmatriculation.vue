@@ -90,9 +90,7 @@ export default {
         this.resultRNA.adresse_code_postal &&
         this.resultRNA.adresse_libelle_commune
       ) {
-        return `${this.resultRNA.adresse_code_postal} ${
-          this.resultRNA.adresse_libelle_commune
-        }`;
+        return `${this.resultRNA.adresse_code_postal} ${this.resultRNA.adresse_libelle_commune}`;
       }
       return null;
     }

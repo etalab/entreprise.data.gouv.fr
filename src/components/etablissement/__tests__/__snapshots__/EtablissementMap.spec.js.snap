@@ -9,8 +9,8 @@ exports[`EtablissementMap.vue snapshot when no webgl It match the snapshot 1`] =
     class="panel__message"
   >
     
-    Votre navigateur ne supporte pas WebGL et ne peut pas afficher la carte de
-    l’établissement.
+    Les données de géolocalisation ne sont pas disponibles pour cet
+    établissement.
   
   </p>
 </div>
@@ -18,7 +18,16 @@ exports[`EtablissementMap.vue snapshot when no webgl It match the snapshot 1`] =
 
 exports[`EtablissementMap.vue snapshot when webgl It match the snapshot 1`] = `
 <div
-  class="panel"
+  class="panel contains-message"
   id="map"
-/>
+>
+  <p
+    class="panel__message"
+  >
+    
+    Les données de géolocalisation ne sont pas disponibles pour cet
+    établissement.
+  
+  </p>
+</div>
 `;

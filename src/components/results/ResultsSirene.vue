@@ -59,9 +59,7 @@ export default {
         return "";
       }
       const resultText = this.numberResults > 1 ? "résultats" : "résultat";
-      return `${this.numberResults} ${resultText} pour "${
-        this.$store.state.searchFullText.storedLastFullText
-      }" dans la base SIRENE des entreprises`;
+      return `${this.numberResults} ${resultText} pour "${this.$store.state.searchFullText.storedLastFullText}" dans la base SIRENE des entreprises`;
     },
     noResults() {
       if (

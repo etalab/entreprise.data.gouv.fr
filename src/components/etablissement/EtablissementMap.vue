@@ -57,7 +57,11 @@ export default {
   },
   computed: {
     haveNoMapInfo() {
-      if (this.etablissement && this.etablissement.geo_score == "0")
+      if (
+        this.etablissement &&
+        (this.etablissement.geo_score == "0" ||
+          this.etablissement.geo_score == undefined)
+      )
         return true;
       return false;
     }

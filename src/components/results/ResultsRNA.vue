@@ -57,9 +57,7 @@ export default {
         return "";
       }
       const resultText = this.numberResults > 1 ? "résultats" : "résultat";
-      return `${this.numberResults} ${resultText} pour "${
-        this.$store.state.searchFullText.storedLastFullText
-      }" dans la base RNA des associations`;
+      return `${this.numberResults} ${resultText} pour "${this.$store.state.searchFullText.storedLastFullText}" dans la base RNA des associations`;
     }
   }
 };

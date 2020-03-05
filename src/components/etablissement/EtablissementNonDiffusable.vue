@@ -4,8 +4,8 @@
       <b>Etablissement non diffusable</b>
       <a
         class="button"
-        :href="dataRequestPDF"
-        title="Télécharger les données de cette entreprise au format PDF"
+        href="https://statut-diffusion-sirene.insee.fr/"
+        target="_blank"
       >
         Rendre mon entreprise diffusable
       </a>
@@ -29,7 +29,7 @@
     <p class="bold">
       Si cette entreprise est la votre et que vous souhaitez vous rendre
       diffusible de nouveau la démarche est disponible
-      <a href="https://statut-diffusion-sirene.insee.fr/">
+      <a href="https://statut-diffusion-sirene.insee.fr/" target="_blank">
         ICI
       </a>
     </p>
@@ -49,7 +49,7 @@ export default {
 
 .button {
   margin: 8px;
-  position: absolute;
+  position: absolute !important;
   right: 0;
 }
 </style>

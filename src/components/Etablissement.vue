@@ -56,6 +56,8 @@ export default {
       return this.$store.getters.mainAPISNotFound;
     },
     isNonDiffusable() {
+      if (!this.haveSireneInfo) return false;
+
       let statutDiffusion = this.$store.getters.singlePageEtablissementSirene
         .statut_diffusion;
       return statutDiffusion === "N";

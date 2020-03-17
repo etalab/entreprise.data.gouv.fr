@@ -35,6 +35,21 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
         <br />
       </p>
        
+      <p
+        class="text-center lead-text"
+      >
+        
+      Pour toutes questions :
+      
+        <a
+          href="maito:entreprise@data.gouv.fr"
+        >
+          
+        entreprise@data.gouv.fr
+      
+        </a>
+      </p>
+       
       <form
         class="text-center"
       >
@@ -353,14 +368,6 @@ exports[`ApiDoc.vue snapshot testing It match the snapshot 1`] = `
       donc reservées aux administrations ou entreprises justifiant d'une
       mission de service public.
         <br />
-        
-      Pour toutes questions :
-      
-        <a
-          href="maito:tech@entreprise.api.gouv.fr"
-        >
-          tech@entreprise.api.gouv.fr
-        </a>
       </p>
        
       <a

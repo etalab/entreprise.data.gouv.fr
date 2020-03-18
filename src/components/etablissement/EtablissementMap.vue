@@ -1,15 +1,25 @@
 <template>
-  <div v-if="haveNoMapInfo" id="map" class="panel contains-message">
-    <p class="panel__message">
-      Les données de géolocalisation ne sont pas disponibles pour cet
-      établissement.
-    </p>
-  </div>
-  <div v-else-if="mapboxglSupported" id="map" ref="map" class="panel"></div>
-  <div v-else id="map" class="panel contains-message">
-    <p class="panel__message">
-      Votre navigateur ne supporte pas WebGL et ne peut pas afficher la carte de
-      l’établissement.
+  <div class="map-container">
+    <div v-if="haveNoMapInfo" id="map" class="panel contains-message">
+      <p class="panel__message">
+        Les données de géolocalisation ne sont pas disponibles pour cet
+        établissement.
+      </p>
+    </div>
+    <div v-else-if="mapboxglSupported" id="map" ref="map" class="panel"></div>
+    <div v-else id="map" class="panel contains-message">
+      <p class="panel__message">
+        Votre navigateur ne supporte pas WebGL et ne peut pas afficher la carte
+        de l’établissement.
+      </p>
+    </div>
+    <p>
+      Géolocalisation réalisée par
+      <a href="https://etalab.gouv.fr" target="blank">Etalab</a>
+      via
+      <a href="https://adresse.data.gouv.fr/" target="blank">
+        adresse.data.gouv.fr
+      </a>
     </p>
   </div>
 </template>
@@ -100,12 +110,15 @@ export default {
 #map {
   padding: 0;
   height: 350px;
-  width: 48%;
   flex-shrink: 0;
 }
 
+.map-container {
+  width: 48%;
+}
+
 @media screen and (max-width: $desktop) {
-  #map {
+  .map-container {
     width: 100%;
   }
 }

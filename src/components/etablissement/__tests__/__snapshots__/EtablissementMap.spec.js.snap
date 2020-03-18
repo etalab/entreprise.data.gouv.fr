@@ -2,32 +2,86 @@
 
 exports[`EtablissementMap.vue snapshot when no webgl It match the snapshot 1`] = `
 <div
-  class="panel contains-message"
-  id="map"
+  class="map-container"
 >
-  <p
-    class="panel__message"
+  <div
+    class="panel contains-message"
+    id="map"
   >
+    <p
+      class="panel__message"
+    >
+      
+      Les données de géolocalisation ne sont pas disponibles pour cet
+      établissement.
     
-    Les données de géolocalisation ne sont pas disponibles pour cet
-    établissement.
-  
+    </p>
+  </div>
+   
+  <p>
+    
+    Géolocalisation réalisée par
+    
+    <a
+      href="https://etalab.gouv.fr"
+      target="blank"
+    >
+      Etalab
+    </a>
+    
+    via
+    
+    <a
+      href="https://adresse.data.gouv.fr/"
+      target="blank"
+    >
+      
+      adresse.data.gouv.fr
+    
+    </a>
   </p>
 </div>
 `;
 
 exports[`EtablissementMap.vue snapshot when webgl It match the snapshot 1`] = `
 <div
-  class="panel contains-message"
-  id="map"
+  class="map-container"
 >
-  <p
-    class="panel__message"
+  <div
+    class="panel contains-message"
+    id="map"
   >
+    <p
+      class="panel__message"
+    >
+      
+      Les données de géolocalisation ne sont pas disponibles pour cet
+      établissement.
     
-    Les données de géolocalisation ne sont pas disponibles pour cet
-    établissement.
-  
+    </p>
+  </div>
+   
+  <p>
+    
+    Géolocalisation réalisée par
+    
+    <a
+      href="https://etalab.gouv.fr"
+      target="blank"
+    >
+      Etalab
+    </a>
+    
+    via
+    
+    <a
+      href="https://adresse.data.gouv.fr/"
+      target="blank"
+    >
+      
+      adresse.data.gouv.fr
+    
+    </a>
   </p>
 </div>
 `;

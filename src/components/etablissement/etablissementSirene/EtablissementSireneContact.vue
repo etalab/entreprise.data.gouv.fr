@@ -13,7 +13,7 @@
     <div class="company__item">
       <label class="company__item-key">Adresse</label>
       <div class="company__item-value">
-        {{ resultSirene.geo_l4 | ifEmptyShowPlaceholder }}
+        {{ formattedAdresse | ifEmptyShowPlaceholder }}
       </div>
     </div>
     <div class="company__item">
@@ -66,6 +66,14 @@ export default {
       const month = this.resultUniteLegale.date_creation.substring(5, 7);
       const day = this.resultUniteLegale.date_creation.substring(8, 10);
       return `${day}/${month}/${year}`;
+    },
+    formattedAdresse() {
+      var adresse_items = [
+        this.resultSirene.numero_voie,
+        this.resultSirene.type_voie,
+        this.resultSirene.libelle_voie
+      ];
+      return adresse_items.join(" ");
     }
   }
 };

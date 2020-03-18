@@ -13,6 +13,12 @@
         notre mailing-list pour vous tenir au courant des nouveautés et
         changements à venir.<br />
       </p>
+      <p class="text-center lead-text">
+        Pour toutes questions :
+        <a href="maito:entreprise@data.gouv.fr">
+          entreprise@data.gouv.fr
+        </a>
+      </p>
       <api-doc-mail />
     </div>
   </section>

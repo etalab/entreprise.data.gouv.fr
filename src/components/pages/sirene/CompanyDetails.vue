@@ -106,8 +106,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Map from "@/components/pages/etablissement/sirene/Map.vue";
-import NonDiffusable from "@/components/pages/etablissement/sirene/NonDiffusable.vue";
+import Map from "@/components/pages/sirene/Map.vue";
+import NonDiffusable from "@/components/pages/sirene/NonDiffusable.vue";
 
 export default {
   name: "CompanyDetails",

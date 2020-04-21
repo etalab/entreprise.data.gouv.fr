@@ -14,8 +14,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import RepresentantPersonneMorale from "@/components/pages/etablissement/rncs/representants/PersonneMorale";
-import RepresentantPersonnePhysique from "@/components/pages/etablissement/rncs/representants/PersonnePhysique";
+import RepresentantPersonneMorale from "@/components/pages/rncs/representants/PersonneMorale";
+import RepresentantPersonnePhysique from "@/components/pages/rncs/representants/PersonnePhysique";
 
 export default {
   name: "Representants",

@@ -11,10 +11,10 @@ import DocumentationHome from "@/components/doc/Home";
 import DocumentationSirene from "@/components/doc/Sirene";
 import DocumentationRna from "@/components/doc/Rna";
 import DocumentationRncs from "@/components/doc/Rncs";
-import SearchResultsList from "@/components/pages/search_results/List";
-import SireneEtablissement from "@/components/pages/etablissement/Sirene";
-import RNAEtablissement from "@/components/pages/etablissement/Rna";
-import Rncs from "@/components/pages/etablissement/Rncs";
+import SearchResults from "@/components/pages/SearchResults";
+import SireneEtablissement from "@/components/pages/Sirene";
+import RNAEtablissement from "@/components/pages/Rna";
+import Rncs from "@/components/pages/Rncs";
 
 Vue.use(VueRouter);
 
@@ -29,17 +29,17 @@ const router = new VueRouter({
     {
       path: "/search",
       name: "search-results",
-      component: SearchResultsList,
+      component: SearchResults,
       props: (route) => ({ fullText: route.query.fullText, page: parseInt(route.query.page) })
     },
     {
-      path: "/sirene/etablissements/:sirenOrSiret",
+      path: "/sirene/:sirenOrSiret",
       name: "sirene-etablissement",
       props: true,
       component: SireneEtablissement
     },
     {
-      path: "/rna/etablissements/:assoId",
+      path: "/rna/:assoId",
       name: "rna-etablissement",
       props: true,
       component: RNAEtablissement

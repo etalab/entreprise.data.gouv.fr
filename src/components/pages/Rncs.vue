@@ -58,12 +58,12 @@
 
 <script>
 import { mapGetters } from "vuex";
-import PersonneMoraleIdentity from "@/components/pages/etablissement/rncs/PersonneMoraleIdentity";
-import PersonnePhysiqueIdentity from "@/components/pages/etablissement/rncs/PersonnePhysiqueIdentity";
-import RegistrationDetails from "@/components/pages/etablissement/rncs/RegistrationDetails";
-import Representants from "@/components/pages/etablissement/rncs/Representants";
-import Observations from "@/components/pages/etablissement/rncs/Observations";
-import RncsError from "@/components/pages/etablissement/rncs/Errors";
+import PersonneMoraleIdentity from "@/components/pages/rncs/PersonneMoraleIdentity";
+import PersonnePhysiqueIdentity from "@/components/pages/rncs/PersonnePhysiqueIdentity";
+import RegistrationDetails from "@/components/pages/rncs/RegistrationDetails";
+import Representants from "@/components/pages/rncs/Representants";
+import Observations from "@/components/pages/rncs/Observations";
+import RncsError from "@/components/pages/rncs/Errors";
 
 export default {
   name: 'Rncs',

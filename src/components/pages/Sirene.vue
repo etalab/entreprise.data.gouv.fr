@@ -11,8 +11,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import CompanyDetails from "@/components/pages/etablissement/sirene/CompanyDetails.vue";
-import EtablissementDetails from "@/components/pages/etablissement/sirene/EtablissementDetails.vue";
+import CompanyDetails from "@/components/pages/sirene/CompanyDetails.vue";
+import EtablissementDetails from "@/components/pages/sirene/EtablissementDetails.vue";
 
 export default {
   name: 'SireneEtablissement',

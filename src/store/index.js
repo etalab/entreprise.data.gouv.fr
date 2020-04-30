@@ -1,27 +1,33 @@
+import "es6-promise/auto";
+
 import Vue from "vue";
 import Vuex from "vuex";
-import VueResource from "vue-resource";
-import application from "./modules/application";
-import resultsFullText from "./modules/resultsFullText";
-import resultsEtablissement from "./modules/resultsEtablissement";
-import resultsAdditionalInfos from "./modules/resultsAdditionalInfos.js";
-import searchFullText from "./modules/searchFullText";
-import searchEtablissement from "./modules/searchEtablissement";
-import searchAdditionalInfos from "./modules/searchAdditionalInfos";
-import suggestions from "./modules/suggestions";
+
+import search from "./search";
+import sirene from "./sirene";
+import rna from "./rna";
+import rncs from "./rncs";
 
 Vue.use(Vuex);
-Vue.use(VueResource);
+
+const state = {
+  apiDataIsAvailable: true
+};
+
+const mutations = {
+  setApiDataAvailability(state, status) {
+    state.apiDataIsAvailable = status;
+  }
+};
 
 export default new Vuex.Store({
+  strict: process.env.NODE_ENV !== "production",
+  state: state,
+  mutations: mutations,
   modules: {
-    application,
-    resultsFullText,
-    resultsEtablissement,
-    resultsAdditionalInfos,
-    searchFullText,
-    searchEtablissement,
-    searchAdditionalInfos,
-    suggestions
+    search,
+    sirene,
+    rna,
+    rncs
   }
 });

@@ -1,36 +1,26 @@
 <template>
   <div class="form__group">
     <input
-      v-model="fullText"
+      v-model="searchInput"
       type="text"
-      name="search"
+      name="searchInput"
+      autocomplete="off"
       placeholder="Nom, SIREN, SIRET, adresse..."
-      @keydown="allowSuggestions"
-      @keydown.down="suggestDown"
-      @keydown.up.prevent="suggestUp"
-      @keydown.esc="suggestReset"
-      @blur="suggestReset"
-      @keydown.enter="prepareThenSearch"
+      @keydown.esc="emptySuggestions"
+      @blur="emptySuggestions"
+      @keydown.down="moveSelectionCursorDown"
+      @keydown.up="moveSelectionCursorUp"
+      @keydown.enter="submit"
     />
-    <button class="overlay-button" @click="suggestSelectAndEnter(index)">
-      <svg
-        class="icon icon-search"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M15.504 13.616l-3.79-3.223c-0.392-0.353-0.811-0.514-1.149-0.499 0.895-1.048 1.435-2.407 1.435-3.893 0-3.314-2.686-6-6-6s-6 2.686-6 6 2.686 6 6 6c1.486 0 2.845-0.54 3.893-1.435-0.016 0.338 0.146 0.757 0.499 1.149l3.223 3.79c0.552 0.613 1.453 0.665 2.003 0.115s0.498-1.452-0.115-2.003zM6 10c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"
-        ></path>
-      </svg>
-    </button>
+    <search-bar-button v-on:submitSearch="submit"/>
 
-    <ul v-show="suggestions.length && suggestionsAllowed" class="suggestions">
+    <ul v-show="suggestions.length > 0" class="suggestions">
       <li
         v-for="(suggestion, index) in suggestions"
         :key="index"
         class="suggestion__box"
-        :class="{ active: suggestActive(index) }"
-        @mousedown="suggestSelectAndEnter(index)"
+        :class="{ active: isSelected(index) }"
+        @mousedown="selectAndSubmit(index)"
       >
         <span>{{ suggestion | capitalize | removeExtraChars }}</span>
       </li>
@@ -39,87 +29,98 @@
 </template>
 
 <script>
-import Filters from "@/components/mixins/filters.js";
-import SuggestionsHelpers from "@/components/mixins/suggestionsHelpers.js";
-import RegExps from "@/components/mixins/regExps.js";
+import { mapGetters } from 'vuex'
+import { removeDiacritics } from "@/helpers";
+import SearchBarButton from "@/components/search/SearchBarButton";
+import _debounce from "lodash/debounce";
 
 export default {
-  name: "SearchBar",
-  mixins: [Filters, SuggestionsHelpers, RegExps],
+  name: 'SearchBar',
+
+  data () {
+    return {
+      searchInput: "",
+      selectionCursor: -1
+    }
+  },
+
+  created: function() {
+    this.debounceRequestSuggestion = _debounce(this.requestSuggestions, 200);
+  },
+
   computed: {
-    fullText: {
-      get: function() {
-        return this.$store.state.searchFullText.storedFullText;
-      },
-      set: function(fullText) {
-        if (!fullText) {
-          this.$store.dispatch("goToClearedHomePage");
-        }
-        if (String(fullText).length >= 3 && this.suggestionsAllowed) {
-          this.resetIndexSuggestion();
-          this.$store.dispatch("executeSearchSuggestions", fullText);
-        }
-        this.$store.commit("setFullText", fullText);
-      }
-    },
-    isSearchNotEmpty() {
-      return this.$store.state.searchFullText.storedFullText !== "";
+    ...mapGetters({
+      suggestions: "search/suggestion/getSuggestions"
+    })
+  },
+
+  watch: {
+    searchInput: function(val) {
+      if (val !== "" && val !== null) this.debounceRequestSuggestion(val);
     }
   },
-  beforeDestroy() {
-    this.suggestReset();
-  },
+
   methods: {
-    prepareThenSearch: async function() {
-      this.$store.commit("setPage", 1);
-      // Disallowing suggestions so we stop displaying them
-      this.suggestionsAllowed = false;
-      // Set fullText to current suggestion if it is selected
-      if (this.currentSuggestion) {
-        this.fulltext = this.currentSuggestion;
-      }
-      // Trimming input
-      this.fullText = this.fullText.trim();
+    submit () {
+      const input = (this.selectionCursor !== -1) ? this.suggestions[this.selectionCursor] : this.searchInput;
+      this.emptySuggestions();
+      this.searchInput = null;
+      const query = this.clearInput(input);
 
-      // Start search except if input is empty
-      if (this.isSearchNotEmpty) {
-        this.requestSearch();
+      if (this.isSirenOrSiret(query)) {
+        this.$router.push({ name: "sirene-etablissement", params: { sirenOrSiret: query } })
+      } else {
+        this.$router.push({ name: "search-results", query: { fullText: query, page: 1 } })
       }
     },
-    requestSearch: function() {
-      const natureSearchId = this.analyzeSearchId(this.fullText);
 
-      if (natureSearchId) {
-        this.fullText = this.removeSeparators(this.fullText);
-        this.$router.push({ path: `/etablissement/${this.fullText}` });
-      } else {
-        this.requestFullTextSearch();
-      }
-      this.$store.commit("clearFullTextResults");
+    selectAndSubmit (suggestionIndex) {
+      this.selectionCursor = suggestionIndex;
+      this.submit();
     },
-    requestFullTextSearch: function() {
-      const currentSuggestion = this.currentSuggestion();
-      if (currentSuggestion) {
-        this.$store.commit("setFullText", currentSuggestion);
-      } else {
-        const fullTextNoDiacritics = this.removeDiacritics(this.fullText);
-        this.$store.commit("setFullText", fullTextNoDiacritics);
-      }
-      this.$store.dispatch("requestSearchFullText");
-      this.suggestCount = -1;
+
+    clearInput(input) {
+      let clearedInput = input.trim();
+      clearedInput = removeDiacritics(clearedInput);
+      return clearedInput;
+    },
+
+    isSirenOrSiret(str) {
+      return str.match(/^\d{9}|\d{14}$/g);
+    },
+
+    requestSuggestions (val) {
+      this.$store.dispatch("search/suggestion/requestSuggestions", val);
+    },
+
+    emptySuggestions () {
+      this.selectionCursor = -1;
+      this.$store.commit("search/suggestion/emptySuggestions");
+    },
+
+    moveSelectionCursorDown () {
+      if (this.selectionCursor < this.suggestions.length - 1) this.selectionCursor += 1;
+    },
+
+    moveSelectionCursorUp () {
+      if (this.selectionCursor > -1) this.selectionCursor -= 1;
+    },
+
+    isSelected (pos) {
+      return pos === this.selectionCursor;
     }
+  },
+
+  components: {
+    'search-bar-button': SearchBarButton
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .form__group {
   width: 35em;
   max-width: 100%;
-}
-
-.form__select {
-  margin-bottom: 5px;
 }
 
 .suggestions {
@@ -150,22 +151,6 @@ export default {
 .suggestion__box:hover {
   cursor: pointer;
   background: $color-lighter-blue;
-}
-
-.overlay-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  width: 30px;
-  padding: 0;
-  right: 6px;
-  top: 5px;
-}
-
-.icon-search {
-  font-size: 20px;
-  color: $color-grey;
 }
 
 .active {

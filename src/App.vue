@@ -1,42 +1,44 @@
 <template>
   <div id="app">
-    <navbar></navbar>
+    <app-header/>
     <div class="notification full-width">
       Ce site est un travail en cours, actuellement en beta. Vous pouvez le
       consulter librement.
     </div>
-    <search></search>
-    <!-- TODO: put home in router-view (maybe?) -->
-    <home v-if="showWelcomeText"></home>
-    <router-view></router-view>
-    <footer-etalab></footer-etalab>
+    <search-banner/>
+    <router-view v-if="dataFromApiAvailable"></router-view>
+    <not-found v-else />
+    <app-footer/>
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
-import Search from "@/components/Search";
-import Home from "@/components/Home";
-import FooterEtalab from "@/components/FooterEtalab";
+import AppHeader from "@/components/layout/AppHeader";
+import SearchBanner from "@/components/search/SearchBanner";
+import AppFooter from "@/components/layout/AppFooter";
+import NotFound from "@/components/NotFound";
 
 export default {
-  name: "App",
+  name: 'App',
+
   metaInfo: {
     title: null,
     titleTemplate: "%s | Entreprise.data.gouv.fr"
   },
-  components: {
-    Navbar: Navbar,
-    Search: Search,
-    Home: Home,
-    FooterEtalab: FooterEtalab
-  },
+
   computed: {
-    showWelcomeText() {
-      return this.$store.getters.isWelcomeTextVisible;
+    dataFromApiAvailable() {
+      return this.$store.state.apiDataIsAvailable;
     }
+  },
+
+  components: {
+    'app-header': AppHeader,
+    'search-banner': SearchBanner,
+    'app-footer': AppFooter,
+    'not-found': NotFound
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,3 +1,0 @@
-export default {
-  ETABLISSEMENT_SHOW_MAX_CHILDREN_SIRETS: 6
-};

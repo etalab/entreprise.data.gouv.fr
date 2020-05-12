@@ -80,6 +80,22 @@ const router = new VueRouter({
       name: "legal-notes",
       component: LegalNotes
     },
+
+    // Redirect to old routes
+    {
+      path: '/etablissement/:etaId',
+      redirect: to => {
+        // Since the legacy route is the same for SIRENE and RNA data look for the
+        // resource id format and redirect to the valid SIRENE or RNA accordingly
+        const param = to.params.etaId;
+        if (param.match(/^\d+$/)) {
+          return { name: 'sirene-etablissement', params: { sirenOrSiret: param } }
+        } else {
+          return { name: 'rna-etablissement', params: { assoId: param } }
+        }
+      }
+    },
+
     {
       path: "*",
       name: "not-found",

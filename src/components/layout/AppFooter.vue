@@ -24,7 +24,7 @@
             ></a>
           </li>
           <li>
-            <a href="mailto:info@data.gouv.fr"
+            <a href="mailto:entreprise@data.gouv.fr"
               ><svg class="icon icon-mail">
                 <use xlink:href="#icon-mail"></use></svg
             ></a>

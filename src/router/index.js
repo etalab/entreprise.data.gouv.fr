@@ -6,6 +6,7 @@ import store from "@/store";
 import Homepage from "@/components/pages/Home";
 import NotFound from "@/components/NotFound";
 import LegalNotes from "@/components/pages/LegalNotes";
+import Cgu from "@/components/pages/Cgu";
 import CodesNaf from "@/components/doc/sirene/CodesNaf";
 import DocumentationHome from "@/components/doc/Home";
 import DocumentationSirene from "@/components/doc/Sirene";
@@ -79,6 +80,11 @@ const router = new VueRouter({
       path: "/mentions_legales",
       name: "legal-notes",
       component: LegalNotes
+    },
+    {
+      path: "/cgu",
+      name: "cgu",
+      component: Cgu
     },
 
     // Redirect to old routes

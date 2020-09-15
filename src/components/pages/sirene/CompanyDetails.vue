@@ -99,7 +99,30 @@
           <img class="icon" src="@/assets/img/download.svg" alt="" />
           Télécharger la fiche d'immatriculation
         </a>
-      </diV>
+      </div>
+
+      <div class="company__panel panel">
+        <h5>
+          Fiche d'immatriculation au RNM sur <a target="_blank" href="https://api-rnm.artisanat.fr">api-rnm.artisanat.fr</a> (un service de <a target="_blank" href="https://artisanat.fr">artisanat.fr</a>)
+        </h5>
+        <a
+          class="button"
+          target="_blank"
+          :href="linkRnmWeb"
+          title="Fiche d'immatriculation"
+        >
+          <img class="icon" src="@/assets/img/arrow_top_left.svg" alt="" />
+          Fiche d'immatriculation
+        </a>
+        <a
+          class="button"
+          :href="linkRnmPdf"
+          title="Télécharger la fiche d'immatriculaiton"
+        >
+          <img class="icon" src="@/assets/img/download.svg" alt="" />
+          Télécharger la fiche d'immatriculation
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -116,7 +139,8 @@ export default {
     return {
       showAll: false,
       maxLinkToEtablissements: 6,
-      baseAddressInpi: "https://data.inpi.fr/entreprises/"
+      baseAddressInpi: "https://data.inpi.fr/entreprises/",
+      baseAddressRnm: "https://api-rnm.artisanat.fr/v2/entreprises/"
     }
   },
 
@@ -146,7 +170,15 @@ export default {
 
     linkInpiPdf() {
       return `${this.linkInpiWeb}?format=pdf`;
-    }
+    },
+
+    linkRnmWeb() {
+      return `${this.baseAddressRnm}${this.uniteLegale.siren}?format=html`;
+    },
+
+    linkRnmPdf() {
+      return `${this.baseAddressRnm}${this.uniteLegale.siren}?format=pdf`;
+      }
   },
 
   components: {
@@ -217,6 +249,10 @@ h2 {
 
 .company__panel {
   margin-top: 1.5em;
+}
+
+.panel + .panel {
+  margin-left: 2em;
 }
 
 .company__item {

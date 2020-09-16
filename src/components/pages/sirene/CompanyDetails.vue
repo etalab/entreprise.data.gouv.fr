@@ -2,128 +2,128 @@
   <div>
     <non-diffusable v-if="isNonDiffusable" />
 
-    <div v-else class="company__main">
-      <div class="title__block">
-        <h2>
-          <div>{{ companyTitle | removeExtraChars | placeHolderIfEmpty }}</div>
-          <span class="company__siren" :inner-html.prop="`(${uniteLegale.siren})` | prettySirenHtml" />
-        </h2>
+      <div v-else class="company__main">
+        <div class="title__block">
+          <h2>
+            <div>{{ companyTitle | removeExtraChars | placeHolderIfEmpty }}</div>
+            <span class="company__siren" :inner-html.prop="`(${uniteLegale.siren})` | prettySirenHtml" />
+          </h2>
 
-        <div class="subtitle">
-          <div>{{ formattedAdresse  | placeHolderIfEmpty }}</div>
-        </div>
-
-        <div class="company__panel">
-          <p v-if="etablissement.etablissement_siege === 'true'" class="company__item">
-            Cet établissement est le siège social.
-          </p>
-          <p v-else class="company__item">
-            Le siège social de cette entreprise est&nbsp;:
-            <router-link
-              class="company__item-link"
-              :to="{
-                name: 'sirene-etablissement',
-                params: { sirenOrSiret: uniteLegale.etablissement_siege.siret }
-              }"
-            >
-              {{ uniteLegale.denomination | removeExtraChars }}
-              <span :inner-html.prop="uniteLegale.etablissement_siege.siret | prettySiretHtml" />
-            </router-link>
-          </p>
-
-          <p v-if="etablissement.etat_administratif === 'A'" class="is_open">
-            Cet établissement est actuellement en activité.
-          </p>
-          <p v-else class="is_closed">
-            Cet établissement est fermé.
-          </p>
-        </div>
-
-        <div v-if="etablissementsNumber > 1" class="company__item">
-          <div class="company__children-summary">
-            Cette entreprise possède {{ etablissementsNumber }} établissements
-            (ouverts ou fermés).
-
-            <template v-if="etablissementsNumber > maxLinkToEtablissements">
-              <div v-show="!showAll" class="company__item-link" @click="showAll = true">
-                Afficher la totalité
-              </div>
-              <div v-show="showAll" class="company__item-link" @click="showAll = false">
-                Réduire
-              </div>
-            </template>
+          <div class="subtitle">
+            <div>{{ formattedAdresse  | placeHolderIfEmpty }}</div>
           </div>
 
-          <ul class="company__children">
-            <li v-for="eta in etablissementsToShow" :key="eta.siret" class="company__item-link">
-              <router-link :to="{ name: 'sirene-etablissement', params: { sirenOrSiret: eta.siret } }">
-                {{ eta.siret | prettySiret }}
-              </router-link>
-            </li>
-          </ul>
-        </div>
+          <div class="company__panel">
+            <p v-if="etablissement.etablissement_siege === 'true'" class="company__item">
+            Cet établissement est le siège social.
+            </p>
+            <p v-else class="company__item">
+            Le siège social de cette entreprise est&nbsp;:
+            <router-link
+                      class="company__item-link"
+                      :to="{
+                      name: 'sirene-etablissement',
+                      params: { sirenOrSiret: uniteLegale.etablissement_siege.siret }
+                      }"
+                      >
+                      {{ uniteLegale.denomination | removeExtraChars }}
+                      <span :inner-html.prop="uniteLegale.etablissement_siege.siret | prettySiretHtml" />
+            </router-link>
+            </p>
 
-        <div v-else class="company__item"> Cet établissement est le seul de cette entreprise.</div>
+            <p v-if="etablissement.etat_administratif === 'A'" class="is_open">
+            Cet établissement est actuellement en activité.
+            </p>
+            <p v-else class="is_closed">
+            Cet établissement est fermé.
+            </p>
+          </div>
 
-        <router-link :to="{ name: 'rncs', params: { siren: etablissement.siren } }">
-          Fiche d'immatriculation au RNCS
-        </router-link>
+          <div v-if="etablissementsNumber > 1" class="company__item">
+            <div class="company__children-summary">
+              Cette entreprise possède {{ etablissementsNumber }} établissements
+              (ouverts ou fermés).
 
-        <div class="timestamps">
+              <template v-if="etablissementsNumber > maxLinkToEtablissements">
+                <div v-show="!showAll" class="company__item-link" @click="showAll = true">
+                  Afficher la totalité
+                </div>
+                <div v-show="showAll" class="company__item-link" @click="showAll = false">
+                  Réduire
+                </div>
+              </template>
+            </div>
+
+            <ul class="company__children">
+              <li v-for="eta in etablissementsToShow" :key="eta.siret" class="company__item-link">
+                <router-link :to="{ name: 'sirene-etablissement', params: { sirenOrSiret: eta.siret } }">
+                  {{ eta.siret | prettySiret }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+
+          <div v-else class="company__item"> Cet établissement est le seul de cette entreprise.</div>
+
+          <router-link :to="{ name: 'rncs', params: { siren: etablissement.siren } }">
+            Fiche d'immatriculation au RNCS
+          </router-link>
+
+          <div class="timestamps">
             Dernière mise à jour SIRENE :&nbsp;{{ etablissement.updated_at | frenchDateFormat }}
+          </div>
+        </div>
+
+        <mini-map />
+      </div>
+
+      <div class="company-container">
+        <div class="company__panel panel">
+          <h5>
+            Fiche d'immatriculation au RNCS sur <a target="_blank" href="https://data.inpi.fr">data.inpi.fr</a>
+          </h5>
+          <a
+                                                                   class="button"
+                                                                   target="_blank"
+                                                                   :href="linkInpiWeb"
+                                                                   title="Fiche d'immatriculation"
+                                                                   >
+                                                                   <img class="icon" src="@/assets/img/arrow_top_left.svg" alt="" />
+                                                                   Fiche d'immatriculation
+          </a>
+            <a
+                                                                                                                           class="button"
+                                                                                                                           :href="linkInpiPdf"
+                                                                                                                           title="Télécharger la fiche d'immatriculaiton"
+                                                                                                                           >
+                                                                                                                           <img class="icon" src="@/assets/img/download.svg" alt="" />
+                                                                                                                           Télécharger la fiche d'immatriculation
+            </a>
+        </div>
+
+        <div class="company__panel panel">
+          <h5>
+            Fiche d'immatriculation au RNM sur <a target="_blank" href="https://api-rnm.artisanat.fr">api-rnm.artisanat.fr</a> (un service de <a target="_blank" href="https://artisanat.fr">artisanat.fr</a>)
+          </h5>
+          <a
+                                                                                                                                                                 class="button"
+                                                                                                                                                                 target="_blank"
+                                                                                                                                                                 :href="linkRnmWeb"
+                                                                                                                                                                 title="Fiche d'immatriculation"
+                                                                                                                                                                 >
+                                                                                                                                                                 <img class="icon" src="@/assets/img/arrow_top_left.svg" alt="" />
+                                                                                                                                                                 Fiche d'immatriculation
+          </a>
+            <a
+                                                                                                                                                                                                                         class="button"
+                                                                                                                                                                                                                         :href="linkRnmPdf"
+                                                                                                                                                                                                                         title="Télécharger la fiche d'immatriculaiton"
+                                                                                                                                                                                                                         >
+                                                                                                                                                                                                                         <img class="icon" src="@/assets/img/download.svg" alt="" />
+                                                                                                                                                                                                                         Télécharger la fiche d'immatriculation
+            </a>
         </div>
       </div>
-
-      <mini-map />
-    </div>
-
-    <div class="company-container">
-      <div class="company__panel panel">
-        <h5>
-          Fiche d'immatriculation au RNCS sur <a target="_blank" href="https://data.inpi.fr">data.inpi.fr</a>
-        </h5>
-        <a
-          class="button"
-          target="_blank"
-          :href="linkInpiWeb"
-          title="Fiche d'immatriculation"
-        >
-          <img class="icon" src="@/assets/img/arrow_top_left.svg" alt="" />
-          Fiche d'immatriculation
-        </a>
-        <a
-          class="button"
-          :href="linkInpiPdf"
-          title="Télécharger la fiche d'immatriculaiton"
-        >
-          <img class="icon" src="@/assets/img/download.svg" alt="" />
-          Télécharger la fiche d'immatriculation
-        </a>
-      </div>
-
-      <div class="company__panel panel">
-        <h5>
-          Fiche d'immatriculation au RNM sur <a target="_blank" href="https://api-rnm.artisanat.fr">api-rnm.artisanat.fr</a> (un service de <a target="_blank" href="https://artisanat.fr">artisanat.fr</a>)
-        </h5>
-        <a
-          class="button"
-          target="_blank"
-          :href="linkRnmWeb"
-          title="Fiche d'immatriculation"
-        >
-          <img class="icon" src="@/assets/img/arrow_top_left.svg" alt="" />
-          Fiche d'immatriculation
-        </a>
-        <a
-          class="button"
-          :href="linkRnmPdf"
-          title="Télécharger la fiche d'immatriculaiton"
-        >
-          <img class="icon" src="@/assets/img/download.svg" alt="" />
-          Télécharger la fiche d'immatriculation
-        </a>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -178,7 +178,7 @@ export default {
 
     linkRnmPdf() {
       return `${this.baseAddressRnm}${this.uniteLegale.siren}?format=pdf`;
-      }
+    }
   },
 
   components: {
@@ -217,6 +217,10 @@ export default {
     vertical-align: middle;
     margin-left: 0;
   }
+}
+
+.button + .button {
+  margin-left: initial;
 }
 
 h2 {

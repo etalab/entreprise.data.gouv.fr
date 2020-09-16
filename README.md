@@ -16,7 +16,7 @@ Entreprise.data.gouv.fr est développé avec Node `lts`.
 npm install
 
 # Aprés avoir lancé le front-end avec la commande
-npm run dev
+npm run serve
 
 # Lancer le back-end : dans le dossier sirene_as_api / rna_as_api, exécuter :
 rails s

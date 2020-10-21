@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <app-header/>
-    <div class="notification full-width">
-      Ce site est un travail en cours, actuellement en beta. Vous pouvez le
-      consulter librement.
+    <app-header />
+    <div class="notification full-width notification-header">
+      🚧 Une <b>nouvelle version</b> de ce service est disponible sur
+      <a href="https://annuaire-entreprise.data.gouv.fr"
+        >annuaire-entreprise.data.gouv.fr 🐣</a
+      >
     </div>
-    <search-banner/>
+    <search-banner />
     <router-view v-if="dataFromApiAvailable"></router-view>
     <not-found v-else />
-    <app-footer/>
+    <app-footer />
   </div>
 </template>
 
@@ -19,7 +21,7 @@ import AppFooter from "@/components/layout/AppFooter";
 import NotFound from "@/components/NotFound";
 
 export default {
-  name: 'App',
+  name: "App",
 
   metaInfo: {
     title: null,
@@ -33,16 +35,21 @@ export default {
   },
 
   components: {
-    'app-header': AppHeader,
-    'search-banner': SearchBanner,
-    'app-footer': AppFooter,
-    'not-found': NotFound
+    "app-header": AppHeader,
+    "search-banner": SearchBanner,
+    "app-footer": AppFooter,
+    "not-found": NotFound
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 #app {
   min-height: 100vh;
+}
+.notification-header {
+  font-size: 1.2rem;
+  color: #0053b3;
+  background-color: #ffcb00;
 }
 </style>

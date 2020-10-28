@@ -3,8 +3,8 @@
     <app-header />
     <div class="notification full-width notification-header">
       🚧 Une <b>nouvelle version</b> de ce service est disponible sur
-      <a href="https://annuaire-entreprise.data.gouv.fr"
-        >annuaire-entreprise.data.gouv.fr 🐣</a
+      <a href="https://annuaire-entreprises.data.gouv.fr"
+        >annuaire-entreprises.data.gouv.fr 🐣</a
       >
     </div>
     <search-banner />

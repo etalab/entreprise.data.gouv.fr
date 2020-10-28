@@ -1,11 +1,18 @@
 # entreprise.data.gouv.fr
 
+> **Une nouvelle version du moteur de recherche est disponible :**
+>  La nouvelle version disponible ici : [L’Annuaire des Entreprises](https://annuaire-entreprises.data.gouv.fr)
+>
+>  [Repo front](https://github.com/etalab/annuaire-entreprises.data.gouv.fr)
+>  [Repo back](https://github.com/etalab/api-annuaire-entreprises)
+
 Ce site est disponible en ligne : [Entreprise.data.gouv.fr](https://entreprise.data.gouv.fr)
 
 Dans le cadre du SPD, (Service Public de la Donnée), certains jeux de données
 dont les fichiers SIRENE et RNA sont devenus publics.
 
 Le site entreprise.data.gouv.fr a pour vocation de mettre à disposition des citoyens les données ouvertes "Open-data".
+
 
 ## Exécution en local
 
